@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,15 +8,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOCompte;
+import dao.IDAOReservation;
+import dao.IDAOTrajet;
 import model.Client;
 import model.Reservation;
 import model.Trajet;
+import util.Context;
 
-public class DAOReservation implements IDAO<Reservation,Integer>{
+public class DAOReservationJDBC implements IDAOReservation{
 
 	
-	DAOCompte daoC = new DAOCompte();
-	DAOTrajet daoT = new DAOTrajet();
+	IDAOCompte daoC = Context.getInstance().getDaoCompte();
+	IDAOTrajet daoT = Context.getInstance().getDaoTrajet();
 	@Override
 	public Reservation findById(Integer id) {
 		// TODO Auto-generated method stub

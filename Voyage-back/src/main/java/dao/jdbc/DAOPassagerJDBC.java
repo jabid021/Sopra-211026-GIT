@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,12 +7,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOCompte;
+import dao.IDAOPassager;
 import model.Client;
 import model.Passager;
+import util.Context;
 
-public class DAOPassager implements IDAO<Passager,Integer>{
+public class DAOPassagerJDBC implements IDAOPassager{
 
-	DAOCompte daoC = new DAOCompte();
+	IDAOCompte daoC = Context.getInstance().getDaoCompte();
 	@Override
 	public Passager findById(Integer id) {
 		Passager p=null;

@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,11 +7,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOPlanete;
 import model.Coordonnees;
 import model.Planete;
 import model.TypePlanete;
 
-public class DAOPlanete implements IDAO<Planete,Integer>{
+public class DAOPlaneteJDBC implements IDAOPlanete{
 
 	@Override
 	public Planete findById(Integer id) {

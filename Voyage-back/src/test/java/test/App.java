@@ -1,10 +1,5 @@
 package test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -12,11 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.DAOCompte;
-import dao.DAOPassager;
-import dao.DAOPlanete;
-import dao.DAOTrajet;
-import dao.DAOVaisseau;
+import dao.IDAOCompte;
+import dao.IDAOPassager;
+import dao.IDAOPlanete;
+import dao.IDAOTrajet;
+import dao.IDAOVaisseau;
 import model.Admin;
 import model.Client;
 import model.Compte;
@@ -27,20 +22,21 @@ import model.Reservation;
 import model.Trajet;
 import model.TypePlanete;
 import model.Vaisseau;
-import model.Voyageur;
+import util.Context;
 
 public class App {
 
 	static Compte connected;
+	
+	static IDAOCompte daoC = Context.getInstance().getDaoCompte();
+	static IDAOPlanete daoP =Context.getInstance().getDaoPlanete();
+	static IDAOTrajet daoT = Context.getInstance().getDaoTrajet();
+	static IDAOVaisseau daoV = Context.getInstance().getDaoVaisseau();
+	static IDAOPassager daoPassager = Context.getInstance().getDaoPassager();
 
-
-	static DAOCompte daoC = new DAOCompte();
-	static DAOPlanete daoP = new DAOPlanete();
-	static DAOTrajet daoT = new DAOTrajet();
-	static DAOVaisseau daoV = new DAOVaisseau();
-	static DAOPassager daoPassager = new DAOPassager(); 
-
-
+	
+	
+	
 	public static String saisieString(String msg)
 	{
 		Scanner sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,14 +9,18 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOPlanete;
+import dao.IDAOTrajet;
+import dao.IDAOVaisseau;
 import model.Planete;
 import model.Trajet;
 import model.Vaisseau;
+import util.Context;
 
-public class DAOTrajet implements IDAO<Trajet,Integer>{
+public class DAOTrajetJDBC implements IDAOTrajet{
 
-	DAOPlanete daoP =new DAOPlanete();
-	DAOVaisseau daoV= new DAOVaisseau();
+	IDAOPlanete daoP = Context.getInstance().getDaoPlanete();
+	IDAOVaisseau daoV=  Context.getInstance().getDaoVaisseau();
 	
 	@Override
 	public Trajet findById(Integer id) {

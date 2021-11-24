@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import dao.IDAOCompte;
 import model.Admin;
 import model.Client;
 import model.Compte;
 
-public class DAOCompte implements IDAO<Compte,Integer>{
+public class DAOCompteJDBC implements IDAOCompte{
 
 	@Override
 	public Compte findById(Integer id) {

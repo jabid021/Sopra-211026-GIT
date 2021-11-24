@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOVaisseau;
 import model.Vaisseau;
 
-public class DAOVaisseau implements IDAO<Vaisseau,Integer>{
+public class DAOVaisseauJDBC implements IDAOVaisseau{
 
 	@Override
 	public Vaisseau findById(Integer id) {
