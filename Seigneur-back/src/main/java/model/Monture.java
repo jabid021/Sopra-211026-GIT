@@ -2,11 +2,14 @@ package model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 @Entity
+@DiscriminatorValue("mount")
 public class Monture extends Equipement{
 
 	@Enumerated(EnumType.STRING)

@@ -2,9 +2,11 @@ package model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("weapon")
 public class Arme extends Equipement {
 
 	private double portee;
