@@ -46,7 +46,7 @@ public class App {
 		Armure a1 = new Armure("Cote epineuse",LocalDateTime.now(),new Stats(2,20),"plaque");
 		Armure a2 = new Armure("Cote epineuse",LocalDateTime.now(),new Stats(2,20),"plaque");
 		
-		
+		p.setMonture(m2);
 		EntityManager em = emf.createEntityManager();
 		
 		

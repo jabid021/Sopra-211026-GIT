@@ -3,9 +3,11 @@ package model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("client")
 public class Client extends Personne {
 	
 	private int age;
@@ -17,8 +19,8 @@ public class Client extends Personne {
 	}
 
 
-	public Client(String prenom, String nom, int age, LocalDate naissance) {
-		super(prenom, nom);
+	public Client(String prenom, String nom, int age, LocalDate naissance,Adresse adresse) {
+		super(prenom, nom,adresse);
 		this.age = age;
 		this.naissance = naissance;
 	}

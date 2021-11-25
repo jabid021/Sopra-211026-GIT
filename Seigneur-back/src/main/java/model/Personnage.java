@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -34,7 +35,8 @@ public class Personnage {
 	private boolean vivant;
 	
 	
-	
+	@ManyToOne
+	private Monture monture;
 
 	//Obligatoire
 	public Personnage() {
@@ -100,10 +102,27 @@ public class Personnage {
 	}
 
 
+	
+	public Monture getMonture() {
+		return monture;
+	}
+
+
+	public void setMonture(Monture monture) {
+		this.monture = monture;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Personnage [id=" + id + ", nom=" + nom + ", pv=" + pv + ", race=" + race + ", vivant=" + vivant + "]";
+		return "Personnage [id=" + id + ", nom=" + nom + ", pv=" + pv + ", race=" + race + ", vivant=" + vivant
+				+ ", monture=" + monture + "]";
 	}
+
+	
+	
+	
+	
 
 
 	
