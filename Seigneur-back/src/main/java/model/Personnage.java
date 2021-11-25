@@ -1,6 +1,9 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,20 +14,34 @@ import javax.persistence.Table;
 @Table(name="player")
 public class Personnage {
 
+	//Null ?
+	//default ?
+	
 	@Id//Obligatoire
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Obligatoire*
 	private int id;
+	
+	@Column(name="name",nullable = false,columnDefinition = "VARCHAR(25)")
 	private String nom;
+	
+	@Column(name="hp",nullable = false)
 	private int pv;
-	private String race;
+	
+	@Enumerated(EnumType.STRING)
+	private Race race;
+	
+	@Column(name="alive",nullable = false)
 	private boolean vivant;
+	
+	
+	
 
 	//Obligatoire
 	public Personnage() {
 	}
 	
 	
-	public Personnage(String nom, int pv, String race, boolean vivant) {
+	public Personnage(String nom, int pv, Race race, boolean vivant) {
 		this.nom = nom;
 		this.pv = pv;
 		this.race = race;
@@ -52,12 +69,12 @@ public class Personnage {
 	}
 
 
-	public String getRace() {
+	public Race getRace() {
 		return race;
 	}
 
 
-	public void setRace(String race) {
+	public void setRace(Race race) {
 		this.race = race;
 	}
 
