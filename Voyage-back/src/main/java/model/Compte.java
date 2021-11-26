@@ -36,7 +36,16 @@ public abstract class Compte implements Serializable {
 		
 	}
 	
+	public Compte(int Id,String login, String password) {
+		this.id=id;
+		this.login = login;
+		this.password = password;
+	}
 	
+	public Compte () {
+		
+		
+	}
 
 	public String getLogin() {
 		return login;

@@ -33,7 +33,12 @@ public class Client extends Compte {
 		this.prenom = prenom;
 		this.reservations = reservations;
 	}
-
+	
+	public Client(int id,String login, String password, String nom, String prenom) {
+		super(id, login, password);
+		this.nom = nom;
+		this.prenom = prenom;
+	}
 
 	
 	public String getNom() {
