@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOVaisseau implements IDAOVaisseau{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Vaisseau findById(Integer id) {

@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOTrajet implements IDAOTrajet{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Trajet findById(Integer id) {

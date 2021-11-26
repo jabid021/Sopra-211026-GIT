@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOPersonnage implements IDAOPersonnage{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Personnage findById(Integer id) {

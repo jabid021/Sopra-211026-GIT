@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOPassager implements IDAOPassager{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Passager findById(Integer id) {

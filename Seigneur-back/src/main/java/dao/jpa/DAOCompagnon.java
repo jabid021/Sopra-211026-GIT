@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOCompagnon implements IDAOCompagnon{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Compagnon findById(Integer id) {

@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOEquipe implements IDAOEquipe{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Equipe findById(Integer id) {

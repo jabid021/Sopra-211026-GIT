@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import dao.IDAOCompte;
 import model.Compte;
@@ -11,7 +13,7 @@ import util.Context;
 
 public class DAOCompte implements IDAOCompte{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Compte findById(Integer id) {
@@ -26,11 +28,11 @@ public class DAOCompte implements IDAOCompte{
 
 
 		EntityManager em = emf.createEntityManager();
-	
+
 		List<Compte> objets = em.createQuery("from Compte").getResultList();
 		em.close();
 		return objets;
-		
+
 	}
 
 	@Override
@@ -53,9 +55,9 @@ public class DAOCompte implements IDAOCompte{
 		Compte objet = em.find(Compte.class, id);
 
 		em.getTransaction().begin();
-		
+
 		em.remove(objet);
-		
+
 		em.getTransaction().commit();
 		em.close();
 
@@ -63,8 +65,21 @@ public class DAOCompte implements IDAOCompte{
 
 	@Override
 	public Compte connect(String login, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Compte connected = null;
+		EntityManager em = emf.createEntityManager();
+
+		Query query = em.createQuery("from Compte c where c.login=:log and c.password=:pass");
+		query.setParameter("log", login);
+		query.setParameter("pass", password);
+
+		try 
+		{
+			connected=(Compte) query.getSingleResult();
+		}
+		catch(Exception e) {e.printStackTrace();}
+		em.close();
+		return connected;
+
 	}
 
 }

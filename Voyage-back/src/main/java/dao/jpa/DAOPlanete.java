@@ -11,7 +11,7 @@ import util.Context;
 
 public class DAOPlanete implements IDAOPlanete{
 
-	EntityManagerFactory emf = Context.getInstance().getEmf();
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Planete findById(Integer id) {
