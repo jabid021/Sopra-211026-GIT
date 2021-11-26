@@ -1,6 +1,7 @@
 package test;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -44,9 +45,31 @@ public class App {
 		Monture m2 = new Monture("Pumba",LocalDateTime.now(),new Stats(5,7),TypeMonture.Sanglier);
 		
 		Armure a1 = new Armure("Cote epineuse",LocalDateTime.now(),new Stats(2,20),"plaque");
-		Armure a2 = new Armure("Cote epineuse",LocalDateTime.now(),new Stats(2,20),"plaque");
+		Armure a2 = new Armure("Cote de maille",LocalDateTime.now(),new Stats(2,20),"plaque");
 		
 		p.setMonture(m2);
+		p.setArme(e1);
+		p.setArmure(a1);
+		
+		
+		List<Equipement> inventaireGimli = new ArrayList();
+		inventaireGimli.add(m2);
+		inventaireGimli.add(e1);
+		inventaireGimli.add(a1);
+		inventaireGimli.add(a2);
+		inventaireGimli.add(e2);
+		p.setInventaire(inventaireGimli);
+		
+		
+		
+		List<Equipement> inventaireLego = new ArrayList();
+		inventaireLego.add(m1);
+		inventaireLego.add(e1);
+		
+		p2.setMonture(m1);
+		p2.setArme(e1);
+		p2.setInventaire(inventaireLego);
+		
 		EntityManager em = emf.createEntityManager();
 		
 		

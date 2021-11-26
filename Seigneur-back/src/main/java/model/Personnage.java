@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,9 +40,30 @@ public class Personnage {
 	private boolean vivant;
 	
 	
-	@ManyToOne
+	@ManyToOne//Obligatoire
+	@JoinColumn(name="monture_equipee") //Seulement si l'on veut rename la col de jointure
 	private Monture monture;
+	
+	@ManyToOne
+	@JoinColumn(name="arme_equipee")
+	private Arme arme;
+	
+	@ManyToOne
+	@JoinColumn(name="armure_equipee")
+	private Armure armure;
+	
+	@ManyToMany
+	@JoinTable(
+			name="inventaire", //Rename la table
+			joinColumns = @JoinColumn(name="id_du_personnage"), //rename la clé principale (Personnage car on est dans la classe Personnage)
+			inverseJoinColumns = @JoinColumn(name="id_equipement") //rename l'autre clé, celle de l'attribut donc Equipement ici
+			
+			)
+	private List<Equipement> inventaire;
 
+	
+	
+	
 	//Obligatoire
 	public Personnage() {
 	}
@@ -112,12 +138,45 @@ public class Personnage {
 		this.monture = monture;
 	}
 
+	
+
+	public Arme getArme() {
+		return arme;
+	}
+
+
+	public void setArme(Arme arme) {
+		this.arme = arme;
+	}
+
+
+	public Armure getArmure() {
+		return armure;
+	}
+
+
+	public void setArmure(Armure armure) {
+		this.armure = armure;
+	}
+
+	
+
+	public List<Equipement> getInventaire() {
+		return inventaire;
+	}
+
+
+	public void setInventaire(List<Equipement> inventaire) {
+		this.inventaire = inventaire;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Personnage [id=" + id + ", nom=" + nom + ", pv=" + pv + ", race=" + race + ", vivant=" + vivant
-				+ ", monture=" + monture + "]";
+				+ ", monture=" + monture + ", arme=" + arme + ", armure=" + armure + "]";
 	}
+
 
 	
 	
