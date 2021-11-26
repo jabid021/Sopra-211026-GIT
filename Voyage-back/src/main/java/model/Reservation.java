@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,11 +22,11 @@ public class Reservation implements Serializable{
 	private int numero;
 	private LocalDate dateReservation;
 	
-	@Column(name="trajet_aller")
+	@JoinColumn(name="trajet_aller")
 	@ManyToOne
 	private Trajet aller;
 	
-	@Column(name="trajet_retour")
+	@JoinColumn(name="trajet_retour")
 	@ManyToOne
 	private Trajet retour;
 	@ManyToOne
