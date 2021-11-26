@@ -20,7 +20,7 @@ public class Voyageur {
 	private Reservation reservation;
 	
 	@OneToOne
-	@JoinColumn(name="reservation")
+	@JoinColumn(name="passager")
 	private Passager passager;
 	
 	
