@@ -2,14 +2,32 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="planette")
 public class Planete implements Serializable {
 
+	
+	@Id//Obligatoire
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	
+	@Column(name="type_planete") 
 	private TypePlanete type;
+	
+	@Embedded
 	private Coordonnees coordonnees;
+	
 	
 	public Planete(String nom, TypePlanete type, Coordonnees coordonnees) {
 		this.nom = nom;
@@ -22,6 +40,10 @@ public class Planete implements Serializable {
 		this.nom = nom;
 		this.type = type;
 		this.coordonnees = coordonnees;
+	}
+	
+	public Planete() {
+		
 	}
 
 	public String getNom() {
