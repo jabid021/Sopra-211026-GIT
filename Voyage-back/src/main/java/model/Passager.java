@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -18,6 +20,9 @@ public class Passager implements Serializable {
 	private int id;
 	private String nom;
 	private String prenom;
+	
+	@ManyToOne
+	@JoinColumn(name="client")
 	private Client client;
 	
 	public Passager(String nom, String prenom,Client client) {

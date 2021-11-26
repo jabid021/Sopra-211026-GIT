@@ -27,7 +27,7 @@ public class Reservation implements Serializable{
 	@Column(name="trajet_retour")
 	@ManyToOne
 	private Trajet retour;
-	@OneToMany
+	@ManyToOne
 	private Client client;
 	
 	public Reservation () {
