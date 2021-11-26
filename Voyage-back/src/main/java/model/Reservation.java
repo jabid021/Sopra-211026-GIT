@@ -40,7 +40,8 @@ public class Reservation implements Serializable{
 	}
 
 	
-	public Reservation(Trajet aller, Client client,LocalDate dateReservation) {
+	public Reservation(int numero, Trajet aller, Client client,LocalDate dateReservation) {
+		this.numero=numero;
 		this.aller = aller;
 		this.client = client;
 		this.dateReservation=dateReservation;
