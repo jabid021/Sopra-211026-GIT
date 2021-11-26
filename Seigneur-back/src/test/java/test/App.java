@@ -10,6 +10,8 @@ import javax.persistence.Persistence;
 
 import model.Arme;
 import model.Armure;
+import model.Compagnon;
+import model.Equipe;
 import model.Equipement;
 import model.Monture;
 import model.Personnage;
@@ -36,7 +38,7 @@ public class App {
 	
 	public static void main(String[] args) {
 		Personnage p = new Personnage("Gimli", 10,Race.Nain, true);
-		Personnage p2 = new Personnage("Legolas", 4,Race.Elfe, false);
+		Personnage p2 = new Personnage("Legolas", 4,Race.Elfe, true);
 		
 		Arme e1 = new Arme("Hache",LocalDateTime.now(),new Stats(8,6),2,2);
 		Arme e2 = new Arme("Arc en bois",LocalDateTime.now(),new Stats(5,9),15,2);
@@ -70,25 +72,59 @@ public class App {
 		p2.setArme(e1);
 		p2.setInventaire(inventaireLego);
 		
+		Compagnon ecureuil  = new Compagnon("ecureuil");
+		p2.setFamilier(ecureuil);
+		Equipe team1 = new Equipe();
+		p.setTeam(team1);
+		p2.setTeam(team1);
+		
+		
+		
+		
+		
 		EntityManager em = emf.createEntityManager();
 		
 		
 		em.getTransaction().begin();
-		em.persist(p);
-		em.persist(p2);
-		em.persist(e1);
+		
+		
+		/*em.persist(team1);
+		em.persist(ecureuil);
+		*/
+		
+	
+	
+	/*	em.persist(e1);
 		em.persist(e2);
 		em.persist(m1);
 		em.persist(m2);
 		em.persist(a1);
-		em.persist(a2);
+		em.persist(a2);*/
+		
+		
+		em.persist(p);
+		em.persist(p2);
+		
+
 		em.getTransaction().commit();
 		
 		
 		System.out.println(em.find(Equipement.class, 1));
 		
 		em.close();
-		findAllEquipement();
+		
+		
+		
+		em = emf.createEntityManager();
+		
+		Equipe equipe1 = em.find(Equipe.class, 1);
+		for(Personnage perso : equipe1.getMembres()) 
+		{
+			System.out.println(perso);
+		}
+		
+		em.close();
+		//findAllEquipement();
 		
 		emf.close();
 		

@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.ManyToMany;
 
 
 
@@ -24,15 +25,41 @@ public abstract class Equipement {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "equipement_sequence") Pour du table per class !
 	protected int id;
-	
+
 	protected String nom;
-	
+
 	protected LocalDateTime creation;
-	
+
 	@Embedded
 	protected Stats stats;
-	
-	
+
+	//C'est ceux qui ont recup des equipements
+	@ManyToMany(mappedBy = "inventaire" )
+	private List<Personnage> looteurs;
+
+
+
+	public Stats getStats() {
+		return stats;
+	}
+
+
+	public void setStats(Stats stats) {
+		this.stats = stats;
+	}
+
+
+	public List<Personnage> getLooteurs() {
+		return looteurs;
+	}
+
+
+	public void setLooteurs(List<Personnage> looteurs) {
+		this.looteurs = looteurs;
+	}
+
+
+
 	public Equipement() {
 	}
 
@@ -77,8 +104,8 @@ public abstract class Equipement {
 		this.creation = creation;
 	}
 
-	
-	
-	
-	
+
+
+
+
 }

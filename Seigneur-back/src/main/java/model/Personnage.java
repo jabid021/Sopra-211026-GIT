@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -40,19 +42,19 @@ public class Personnage {
 	private boolean vivant;
 	
 	
-	@ManyToOne//Obligatoire
+	@ManyToOne(cascade = CascadeType.PERSIST)//Obligatoire
 	@JoinColumn(name="monture_equipee") //Seulement si l'on veut rename la col de jointure
 	private Monture monture;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="arme_equipee")
 	private Arme arme;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="armure_equipee")
 	private Armure armure;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name="inventaire", //Rename la table
 			joinColumns = @JoinColumn(name="id_du_personnage"), //rename la clé principale (Personnage car on est dans la classe Personnage)
@@ -61,8 +63,11 @@ public class Personnage {
 			)
 	private List<Equipement> inventaire;
 
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Equipe team;
 	
-	
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Compagnon familier;
 	
 	//Obligatoire
 	public Personnage() {
@@ -169,12 +174,35 @@ public class Personnage {
 	public void setInventaire(List<Equipement> inventaire) {
 		this.inventaire = inventaire;
 	}
+	
+	
+
+
+	public Equipe getTeam() {
+		return team;
+	}
+
+
+	public void setTeam(Equipe team) {
+		this.team = team;
+	}
+
+
+	public Compagnon getFamilier() {
+		return familier;
+	}
+
+
+	public void setFamilier(Compagnon familier) {
+		this.familier = familier;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Personnage [id=" + id + ", nom=" + nom + ", pv=" + pv + ", race=" + race + ", vivant=" + vivant
-				+ ", monture=" + monture + ", arme=" + arme + ", armure=" + armure + "]";
+				+ ", monture=" + monture + ", arme=" + arme + ", armure=" + armure + ", inventaire=" + inventaire
+				+ ", team=" + team + ", familier=" + familier + "]";
 	}
 
 
