@@ -14,10 +14,6 @@ public class Admin extends Compte {
 		super(id, login, password);
 	}
 	
-	public Admin(int id, String login, String password) {
-		super(id, login, password);
-	}
-	
 	/*public String getLogin() {
 		return login;
 	}

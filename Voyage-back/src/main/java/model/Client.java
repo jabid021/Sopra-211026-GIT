@@ -17,7 +17,6 @@ public class Client extends Compte {
 	private String nom;
 	private String prenom;
 	@OneToMany
-	@JoinTable(name="Achat")
 	private List<Reservation> reservations;
 	
 	
@@ -25,14 +24,6 @@ public class Client extends Compte {
 		
 	}
 	
-	
-
-	public Client(int id, String login, String password, String nom, String prenom/*, List<Reservation> reservations*/) {
-		super(id, login, password);
-		this.nom = nom;
-		this.prenom = prenom;
-		/*this.reservations = reservations;*/
-	}
 	
 	public Client(int id,String login, String password, String nom, String prenom) {
 		super(id, login, password);
