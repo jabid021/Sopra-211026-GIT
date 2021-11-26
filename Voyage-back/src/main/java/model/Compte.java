@@ -2,12 +2,19 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+
 
 @Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type_compte",columnDefinition = "ENUM{'client','admin'}")
 public abstract class Compte implements Serializable {
 	
 	@Id
