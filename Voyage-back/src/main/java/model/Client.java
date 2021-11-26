@@ -27,11 +27,11 @@ public class Client extends Compte {
 	
 	
 
-	public Client(int id, String login, String password, String nom, String prenom, List<Reservation> reservations) {
+	public Client(int id, String login, String password, String nom, String prenom/*, List<Reservation> reservations*/) {
 		super(id, login, password);
 		this.nom = nom;
 		this.prenom = prenom;
-		this.reservations = reservations;
+		/*this.reservations = reservations;*/
 	}
 	
 	public Client(int id,String login, String password, String nom, String prenom) {
@@ -40,6 +40,13 @@ public class Client extends Compte {
 		this.prenom = prenom;
 	}
 
+	public Client(String login, String password, String nom, String prenom/*, List<Reservation> reservations*/) {
+		super(login, password);
+		this.nom = nom;
+		this.prenom = prenom;
+		/*this.reservations = reservations;*/
+	}
+	
 	
 	public String getNom() {
 		return nom;
