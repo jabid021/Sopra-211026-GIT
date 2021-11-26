@@ -2,7 +2,16 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public abstract class Compte implements Serializable {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
 
 	protected int id;
 	protected String login;
@@ -13,10 +22,9 @@ public abstract class Compte implements Serializable {
 		this.password = password;
 	}
 	
-	public Compte(int id,String login, String password) {
-		this.id=id;
-		this.login = login;
-		this.password = password;
+	public Compte () {
+		
+		
 	}
 
 	public String getLogin() {
@@ -42,6 +50,11 @@ public abstract class Compte implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Compte [id=" + id + ", login=" + login + ", password=" + password + "]";
 	}
 
 

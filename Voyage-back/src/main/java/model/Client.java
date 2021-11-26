@@ -2,12 +2,23 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
 public class Client extends Compte {
 
+	
 	private String nom;
 	private String prenom;
 	private List<Reservation> reservations;
 	
+	
+	public Client () {
+		
+	}
 	
 	public Client(String login, String password, String nom, String prenom) {
 		super(login, password);
@@ -15,13 +26,7 @@ public class Client extends Compte {
 		this.prenom = prenom;
 	}
 
-	
-	public Client(int id,String login, String password, String nom, String prenom) {
-		super(id,login, password);
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-	
+
 	
 	public String getNom() {
 		return nom;
@@ -47,13 +52,20 @@ public class Client extends Compte {
 		this.reservations = reservations;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", id=" + id + ", login=" + login + ", password="
-				+ password + "]";
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", reservations=" + reservations + "]";
 	}
 
+	
 
 	
 	
