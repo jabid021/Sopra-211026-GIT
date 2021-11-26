@@ -2,39 +2,63 @@ package dao.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import dao.IDAOPassager;
 import model.Passager;
+import util.Context;
 
-public class DAOPassager implements IDAOPassager {
+public class DAOPassager implements IDAOPassager{
+
+	EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Passager findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		Passager objet = em.find(Passager.class, id);
+		em.close();
+		return objet;
 	}
 
 	@Override
 	public List<Passager> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void insert(Passager objet) {
-		// TODO Auto-generated method stub
+
+		EntityManager em = emf.createEntityManager();
+	
+		List<Passager> objets = em.createQuery("from Passager").getResultList();
+		em.close();
+		return objets;
 		
 	}
 
 	@Override
-	public void update(Passager objet) {
-		// TODO Auto-generated method stub
-		
+	public Passager save(Passager objet) {
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		objet=em.merge(objet);
+
+		em.getTransaction().commit();
+		em.close();
+
+		return objet;
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		Passager objet = em.find(Passager.class, id);
+
+		em.getTransaction().begin();
 		
+		em.remove(objet);
+		
+		em.getTransaction().commit();
+		em.close();
+
 	}
 
 	@Override
@@ -42,6 +66,5 @@ public class DAOPassager implements IDAOPassager {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

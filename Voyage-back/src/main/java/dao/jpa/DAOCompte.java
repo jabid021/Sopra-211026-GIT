@@ -2,39 +2,63 @@ package dao.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import dao.IDAOCompte;
 import model.Compte;
+import util.Context;
 
-public class DAOCompte implements IDAOCompte {
+public class DAOCompte implements IDAOCompte{
+
+	EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Compte findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		Compte objet = em.find(Compte.class, id);
+		em.close();
+		return objet;
 	}
 
 	@Override
 	public List<Compte> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void insert(Compte objet) {
-		// TODO Auto-generated method stub
+
+		EntityManager em = emf.createEntityManager();
+	
+		List<Compte> objets = em.createQuery("from Compte").getResultList();
+		em.close();
+		return objets;
 		
 	}
 
 	@Override
-	public void update(Compte objet) {
-		// TODO Auto-generated method stub
-		
+	public Compte save(Compte objet) {
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		objet=em.merge(objet);
+
+		em.getTransaction().commit();
+		em.close();
+
+		return objet;
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		Compte objet = em.find(Compte.class, id);
+
+		em.getTransaction().begin();
 		
+		em.remove(objet);
+		
+		em.getTransaction().commit();
+		em.close();
+
 	}
 
 	@Override

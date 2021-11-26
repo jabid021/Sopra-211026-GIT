@@ -34,16 +34,12 @@ public class DAOReservationJDBC implements IDAOReservation{
 	}
 
 	@Override
-	public void insert(Reservation objet) {
+	public Reservation save(Reservation objet) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
-	@Override
-	public void update(Reservation objet) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public void delete(Integer id) {

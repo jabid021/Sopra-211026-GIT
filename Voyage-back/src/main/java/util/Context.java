@@ -1,15 +1,19 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAOCompte;
 import dao.IDAOPassager;
 import dao.IDAOPlanete;
 import dao.IDAOTrajet;
 import dao.IDAOVaisseau;
 import dao.jdbc.DAOPassagerJDBC;
-import dao.jdbc.DAOPlaneteJDBC;
-import dao.jdbc.DAOTrajetJDBC;
-import dao.jdbc.DAOVaisseauJDBC;
 import dao.jpa.DAOCompte;
+import dao.jpa.DAOPassager;
+import dao.jpa.DAOPlanete;
+import dao.jpa.DAOTrajet;
+import dao.jpa.DAOVaisseau;
 import model.Compte;
 
 public class Context {
@@ -18,14 +22,14 @@ public class Context {
 	//elements liés à NOTRE PROJET//
 	private Compte connected;
 	private IDAOCompte daoCompte = new DAOCompte();
-	private IDAOPlanete daoPlanete = new DAOPlaneteJDBC();
-	private IDAOTrajet daoTrajet = new DAOTrajetJDBC();
-	private IDAOVaisseau daoVaisseau = new DAOVaisseauJDBC();
-	private IDAOPassager daoPassager = new DAOPassagerJDBC(); 
+	private IDAOPlanete daoPlanete = new DAOPlanete();
+	private IDAOTrajet daoTrajet = new DAOTrajet();
+	private IDAOVaisseau daoVaisseau = new DAOVaisseau();
+	private IDAOPassager daoPassager = new DAOPassager(); 
 	/////
 	
 	
-	
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("voyage");
 	private static Context singleton=null;
 
 	private Context() {}
@@ -88,6 +92,24 @@ public class Context {
 	public void setDaoPassager(DAOPassagerJDBC daoPassager) {
 		this.daoPassager = daoPassager;
 	}
+
+	public EntityManagerFactory getEmf() {
+		return emf;
+	}
+
+	public void setEmf(EntityManagerFactory emf) {
+		this.emf = emf;
+	}
+
+	public void setDaoVaisseau(IDAOVaisseau daoVaisseau) {
+		this.daoVaisseau = daoVaisseau;
+	}
+
+	public void setDaoPassager(IDAOPassager daoPassager) {
+		this.daoPassager = daoPassager;
+	}
+	
+	
 	///
 	
 	

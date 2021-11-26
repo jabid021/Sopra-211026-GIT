@@ -65,7 +65,7 @@ public class DAOPlaneteJDBC implements IDAOPlanete{
 	}
 
 	@Override
-	public void insert(Planete p) {
+	public Planete save(Planete p) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyage","root","");
@@ -84,9 +84,10 @@ public class DAOPlaneteJDBC implements IDAOPlanete{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
-	@Override
+	/*@Override
 	public void update(Planete p) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -109,7 +110,7 @@ public class DAOPlaneteJDBC implements IDAOPlanete{
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 
 	@Override
 	public void delete(Integer id) {

@@ -5,36 +5,36 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import dao.IDAOReservation;
-import model.Reservation;
+import dao.IDAOPersonnage;
+import model.Personnage;
 import util.Context;
 
-public class DAOReservation implements IDAOReservation{
+public class DAOPersonnage implements IDAOPersonnage{
 
 	EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
-	public Reservation findById(Integer id) {
+	public Personnage findById(Integer id) {
 		EntityManager em = emf.createEntityManager();
-		Reservation objet = em.find(Reservation.class, id);
+		Personnage objet = em.find(Personnage.class, id);
 		em.close();
 		return objet;
 	}
 
 	@Override
-	public List<Reservation> findAll() {
+	public List<Personnage> findAll() {
 
 
 		EntityManager em = emf.createEntityManager();
 	
-		List<Reservation> objets = em.createQuery("from Reservation").getResultList();
+		List<Personnage> objets = em.createQuery("from Personnage").getResultList();
 		em.close();
 		return objets;
 		
 	}
 
 	@Override
-	public Reservation save(Reservation objet) {
+	public Personnage save(Personnage objet) {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -50,7 +50,7 @@ public class DAOReservation implements IDAOReservation{
 	@Override
 	public void delete(Integer id) {
 		EntityManager em = emf.createEntityManager();
-		Reservation objet = em.find(Reservation.class, id);
+		Personnage objet = em.find(Personnage.class, id);
 
 		em.getTransaction().begin();
 		
@@ -59,12 +59,6 @@ public class DAOReservation implements IDAOReservation{
 		em.getTransaction().commit();
 		em.close();
 
-	}
-
-	@Override
-	public List<Reservation> findAllByClient(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

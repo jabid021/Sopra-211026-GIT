@@ -87,7 +87,7 @@ public class DAOTrajetJDBC implements IDAOTrajet{
 		return trajets;}
 
 	@Override
-	public void insert(Trajet trajet) {
+	public Trajet save(Trajet trajet) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyage","root","");
@@ -104,10 +104,11 @@ public class DAOTrajetJDBC implements IDAOTrajet{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 
-	@Override
+/*	@Override
 	public void update(Trajet trajet) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -126,7 +127,7 @@ public class DAOTrajetJDBC implements IDAOTrajet{
 
 		}catch(Exception e)
 		{e.printStackTrace();}}
-
+*/
 
 	@Override
 	public void delete(Integer id) {

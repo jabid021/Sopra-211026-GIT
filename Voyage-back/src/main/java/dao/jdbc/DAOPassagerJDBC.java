@@ -70,7 +70,7 @@ public class DAOPassagerJDBC implements IDAOPassager{
 	}
 
 	@Override
-	public void insert(Passager p) {
+	public Passager save(Passager p) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyage","root","");
@@ -87,9 +87,10 @@ public class DAOPassagerJDBC implements IDAOPassager{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
-	@Override
+/*	@Override
 	public void update(Passager p) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -108,7 +109,7 @@ public class DAOPassagerJDBC implements IDAOPassager{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	@Override
 	public void delete(Integer id) {

@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-
 public class Compagnon {
 
 	@Id
@@ -16,7 +15,7 @@ public class Compagnon {
 	private String nom;
 	
 	
-	
+	@OneToOne(mappedBy = "familier")
 	private Personnage maitre;
 	
 	

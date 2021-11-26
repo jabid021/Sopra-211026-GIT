@@ -109,7 +109,7 @@ public class App {
 		String nom = saisieString("Saisir votre nom");
 		String prenom = saisieString("Saisir votre prenom");
 		Compte c = new Client(login,password,nom,prenom);
-		daoC.insert(c);
+		daoC.save(c);
 
 	}
 
@@ -262,7 +262,7 @@ public class App {
 		String nom = saisieString("Saisir le nom du passager");
 		String prenom = saisieString("Saisir le prenom du passager");
 		Passager passager = new Passager(nom,prenom,(Client) connected);
-		daoPassager.insert(passager);
+		daoPassager.save(passager);
 
 
 	}
@@ -275,7 +275,7 @@ public class App {
 		String nom = saisieString("Saisir le nom du passager");
 		String prenom = saisieString("Saisir le prenom du passager");
 		Passager passager = new Passager(id,nom,prenom,(Client) connected);
-		daoPassager.update(passager);
+		daoPassager.save(passager);
 	}
 	public static void deletePassager() 
 	{
@@ -350,7 +350,7 @@ public class App {
         int z = saisieInt("Saisir la coordonnée z de la Planète");
         Coordonnees cood = new Coordonnees(x,y,z);
         Planete planete = new Planete(nom, TypePlanete.valueOf(typePlanete), cood);
-        daoP.insert(planete);
+        daoP.save(planete);
         
     }
     public static void updatePlanete() {
@@ -366,7 +366,7 @@ public class App {
         int z = saisieInt("Saisir la nouvelle coordonnée z de la Planète");
         Coordonnees cood = new Coordonnees(x,y,z);
         Planete planete = new Planete(id, nom, TypePlanete.valueOf(type), cood);
-        daoP.update(planete);    
+        daoP.save(planete);    
 
     }
 
@@ -470,7 +470,7 @@ public class App {
 
 		Trajet trajet = new Trajet(dateDepart,heureDepart,PlaneteDepart,PlaneteArrivee,vaisseau);
 		//insert bdd
-		daoT.insert(trajet);
+		daoT.save(trajet);
 
 	}
 	public static void updateTrajet() 
@@ -500,7 +500,7 @@ public class App {
 		Vaisseau vaisseau= daoV.findById(idVaisseau);
 
 		Trajet trajet = new Trajet(id,dateDepart,heureDepart,PlaneteDepart,PlaneteArrivee,vaisseau);
-		daoT.update(trajet);
+		daoT.save(trajet);
 		//update bdd
 	}
 	public static void deleteTrajet() 
@@ -568,7 +568,7 @@ public class App {
 		double distance = saisieDouble("Saisir la distance max que peut parcourir le vaisseau ");
 		Vaisseau v = new Vaisseau(nom, vitesse, capacite, distance);
 		//insert bdd
-		daoV.insert(v);
+		daoV.save(v);
 
 	}
 	public static void updateVaisseau() {
@@ -581,7 +581,7 @@ public class App {
 		int capacite = saisieInt("Saisir la capacite du vaisseau");
 		double distance = saisieDouble("Saisir la distance du vaisseau");
 		Vaisseau vaisseau = new Vaisseau(id,nom,vitesse,capacite,distance);
-		daoV.update(vaisseau);
+		daoV.save(vaisseau);
 		//update en bdd
 	}
 	public static void deleteVaisseau() 

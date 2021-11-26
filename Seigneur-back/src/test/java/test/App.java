@@ -36,7 +36,8 @@ public class App {
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void init() 
+	{
 		Personnage p = new Personnage("Gimli", 10,Race.Nain, true);
 		Personnage p2 = new Personnage("Legolas", 4,Race.Elfe, true);
 		
@@ -127,7 +128,90 @@ public class App {
 		//findAllEquipement();
 		
 		emf.close();
+	}
+	
+	
+	public static void insert() 
+	{
+
+		EntityManager em = emf.createEntityManager();
+		Arme bouclier = new Arme("Bouclier", LocalDateTime.now(), null, 0, 1);
+		em.getTransaction().begin();
 		
+				em.persist(bouclier);
+		
+		em.getTransaction().commit();
+		em.close();
+		
+	}
+	
+	
+	public static void update() 
+	{
+		
+		
+		EntityManager em = emf.createEntityManager();
+		
+		Arme bouclier = new Arme("TEST", LocalDateTime.now(), null, 0, 1);
+	
+		
+		em.getTransaction().begin();
+		
+		bouclier=em.merge(bouclier);
+		//Arme bouclierManaged=em.merge(bouclier);
+		
+		em.getTransaction().commit();
+		em.close();
+		
+		System.out.println(bouclier);
+		//System.out.println(bouclierManaged);
+	}
+	
+	
+	public static void select(int id) 
+	{
+		EntityManager em = emf.createEntityManager();
+		
+		Arme p = em.find(Arme.class, id);
+		System.out.println(p);
+		em.close();
+		
+	
+	}
+	
+	
+	
+	public static void delete(int id) 
+	{
+		EntityManager em = emf.createEntityManager();
+		Arme a = em.find(Arme.class,id);
+		em.getTransaction().begin();
+		em.remove(a);
+		em.getTransaction().commit();
+		em.close();
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		
+		/*
+		 *persist(o) => o est managed 
+		 *find(1) => l'objet recup sera managed
+		 *delete(o) => o doit etre managed  
+		 *merge(o) => o n'est pas managed
+		 *
+		 * 
+		 
+		 */
+		
+		//insert();
+	//	select(7);
+	//delete(7);
+		update();
+		emf.close();
 	}
 
 }

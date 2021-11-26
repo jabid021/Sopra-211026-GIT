@@ -65,7 +65,7 @@ public class DAOVaisseauJDBC implements IDAOVaisseau{
 	}
 
 	@Override
-	public void insert(Vaisseau v) {
+	public Vaisseau save(Vaisseau v) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyage","root","");
@@ -84,9 +84,10 @@ public class DAOVaisseauJDBC implements IDAOVaisseau{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
-	@Override
+	/*@Override
 	public void update(Vaisseau v) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -109,7 +110,7 @@ public class DAOVaisseauJDBC implements IDAOVaisseau{
 		}
 
 	}
-
+*/
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub

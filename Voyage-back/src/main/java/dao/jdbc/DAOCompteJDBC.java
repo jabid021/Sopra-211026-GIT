@@ -26,7 +26,7 @@ public class DAOCompteJDBC implements IDAOCompte{
 	}
 
 	@Override
-	public void insert(Compte compte) {
+	public Compte save(Compte compte) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyage","root","");
@@ -59,14 +59,10 @@ public class DAOCompteJDBC implements IDAOCompte{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		return null;
 	}
 
-	@Override
-	public void update(Compte objet) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public void delete(Integer id) {
