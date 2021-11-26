@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Entity;
 
 @Entity
@@ -13,6 +15,8 @@ public class Client extends Compte {
 	
 	private String nom;
 	private String prenom;
+	@ManyToMany
+	@JoinTable(name="Achat")
 	private List<Reservation> reservations;
 	
 	
