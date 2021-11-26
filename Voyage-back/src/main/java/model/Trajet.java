@@ -5,16 +5,35 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Trajet implements Serializable {
 
+	@Id//Obligatoire
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Obligatoire*
 	private int id;
 	private LocalDate dateDepart;
 	private LocalTime heureDepart;
+	@Column(name="planete_aller")
+	@ManyToOne
 	private Planete depart;
+	
+	@Column(name="planete_arrivee")
+	@ManyToOne
 	private Planete arrivee;
+	
+	@ManyToOne
 	private Vaisseau vaisseau;
 	
-	
+	public Trajet () {
+		
+	}
 	public Trajet(LocalDate dateDepart,LocalTime heureDepart, Planete depart, Planete arrivee, Vaisseau vaisseau) {
 		this.dateDepart = dateDepart;
 		this.heureDepart=heureDepart;
