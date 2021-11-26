@@ -36,6 +36,11 @@ public class Voyageur {
 		this.passager = passager;
 	}
 
+	
+
+	public Voyageur() {
+	}
+
 
 	public int getId() {
 		return id;

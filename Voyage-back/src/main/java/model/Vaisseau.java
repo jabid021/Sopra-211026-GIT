@@ -37,8 +37,6 @@ public class Vaisseau implements Serializable {
 	}
 
 
-
-
 	public double getVitesse() {
 		return vitesse;
 	}
