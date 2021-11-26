@@ -21,7 +21,7 @@ public class Trajet implements Serializable {
 	private int id;
 	private LocalDate dateDepart;
 	private LocalTime heureDepart;
-	@Column(name="planete_aller")
+	@JoinColumn(name="planete_aller")
 	@ManyToOne
 	private Planete depart;
 	
