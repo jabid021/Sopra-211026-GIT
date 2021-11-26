@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="planette")
+@Table(name="planete")
 public class Planete implements Serializable {
 
 	
@@ -22,7 +24,9 @@ public class Planete implements Serializable {
 	private int id;
 	private String nom;
 	
-	@Column(name="type_planete") 
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="type_planete",columnDefinition = "ENUM{'Gazeuse','Tellurique'") 
 	private TypePlanete type;
 	
 	@Embedded

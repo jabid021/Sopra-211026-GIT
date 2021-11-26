@@ -19,7 +19,10 @@ public class Trajet implements Serializable {
 	@Id//Obligatoire
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Obligatoire*
 	private int id;
+	
+	@Column(name="date_depart",columnDefinition = "DATE")
 	private LocalDate dateDepart;
+	@Column(name="heure_depart",columnDefinition = "TIME")
 	private LocalTime heureDepart;
 	@JoinColumn(name="planete_aller")
 	@ManyToOne

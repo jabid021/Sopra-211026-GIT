@@ -20,6 +20,8 @@ public class Reservation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numero;
+	
+	@Column(name = "date_reservation")
 	private LocalDate dateReservation;
 	
 	@JoinColumn(name="trajet_aller")
@@ -29,6 +31,8 @@ public class Reservation implements Serializable{
 	@JoinColumn(name="trajet_retour")
 	@ManyToOne
 	private Trajet retour;
+	
+	@JoinColumn(name = "client")
 	@ManyToOne
 	private Client client;
 	

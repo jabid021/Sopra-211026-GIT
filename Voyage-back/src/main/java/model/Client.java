@@ -16,7 +16,9 @@ public class Client extends Compte {
 	
 	private String nom;
 	private String prenom;
-	@OneToMany
+	
+	
+	@OneToMany(mappedBy = "client")
 	private List<Reservation> reservations;
 	
 	
