@@ -24,15 +24,16 @@ public class Trajet implements Serializable {
 	private LocalDate dateDepart;
 	@Column(name="heure_depart",columnDefinition = "TIME")
 	private LocalTime heureDepart;
-	@JoinColumn(name="planete_aller")
+	@JoinColumn(name="depart")
 	@ManyToOne
 	private Planete depart;
 	
-	@JoinColumn(name="planete_arrivee")
+	@JoinColumn(name="arrivee")
 	@ManyToOne
 	private Planete arrivee;
 	
 	@ManyToOne
+	@JoinColumn(name="vaisseau")
 	private Vaisseau vaisseau;
 	
 	public Trajet () {
