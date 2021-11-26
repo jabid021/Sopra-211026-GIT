@@ -10,12 +10,12 @@ public class Admin extends Compte {
 	}
 	
 	
-	public Admin(String login, String password) {
-		super(login, password);
+	public Admin(int id,String login, String password) {
+		super(id, login, password);
 	}
 	
 	
-	public String getLogin() {
+	/*public String getLogin() {
 		return login;
 	}
 
@@ -36,7 +36,7 @@ public class Admin extends Compte {
 
 	public void setId(int id) {
 		this.id = id;
-	}
+	}*/
 	
 	@Override
 	public String toString() {

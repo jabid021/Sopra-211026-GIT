@@ -24,10 +24,13 @@ public class Client extends Compte {
 		
 	}
 	
-	public Client(String login, String password, String nom, String prenom) {
-		super(login, password);
+	
+
+	public Client(int id, String login, String password, String nom, String prenom, List<Reservation> reservations) {
+		super(id, login, password);
 		this.nom = nom;
 		this.prenom = prenom;
+		this.reservations = reservations;
 	}
 
 

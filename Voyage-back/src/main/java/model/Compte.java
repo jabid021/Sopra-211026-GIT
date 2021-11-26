@@ -24,15 +24,19 @@ public abstract class Compte implements Serializable {
 	protected String login;
 	protected String password;
 	
-	public Compte(String login, String password) {
-		this.login = login;
-		this.password = password;
-	}
-	
 	public Compte () {
 		
 		
 	}
+	
+	public Compte(int id, String login, String password) {
+		this.id = id;
+		this.login = login;
+		this.password = password;
+		
+	}
+	
+	
 
 	public String getLogin() {
 		return login;
