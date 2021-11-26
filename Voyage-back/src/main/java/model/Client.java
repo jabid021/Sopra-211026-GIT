@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Entity;
 
 @Entity
@@ -15,7 +15,7 @@ public class Client extends Compte {
 	
 	private String nom;
 	private String prenom;
-	@ManyToMany
+	@OneToMany
 	@JoinTable(name="Achat")
 	private List<Reservation> reservations;
 	
