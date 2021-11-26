@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
 public class Planete implements Serializable {
 
 	private int id;
