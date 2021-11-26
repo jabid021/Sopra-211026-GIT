@@ -2,24 +2,42 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Entity;
+
+@Entity
 public class Client extends Compte {
 
+	
 	private String nom;
 	private String prenom;
+	
+	
+	@OneToMany(mappedBy = "client")
 	private List<Reservation> reservations;
 	
 	
-	public Client(String login, String password, String nom, String prenom) {
-		super(login, password);
+	public Client () {
+		
+	}
+	
+	
+	public Client(int id,String login, String password, String nom, String prenom) {
+		super(id, login, password);
 		this.nom = nom;
 		this.prenom = prenom;
 	}
 
-	
-	public Client(int id,String login, String password, String nom, String prenom) {
-		super(id,login, password);
+	public Client(String login, String password, String nom, String prenom/*, List<Reservation> reservations*/) {
+		super(login, password);
 		this.nom = nom;
 		this.prenom = prenom;
+		/*this.reservations = reservations;*/
 	}
 	
 	
@@ -47,13 +65,20 @@ public class Client extends Compte {
 		this.reservations = reservations;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", id=" + id + ", login=" + login + ", password="
-				+ password + "]";
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", reservations=" + reservations + "]";
 	}
 
+	
 
 	
 	

@@ -4,15 +4,41 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Reservation implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+@Entity
+public class Reservation implements Serializable{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numero;
+	
+	@Column(name = "date_reservation")
 	private LocalDate dateReservation;
+	
+	@JoinColumn(name="trajet_aller")
+	@ManyToOne
 	private Trajet aller;
+	
+	@JoinColumn(name="trajet_retour")
+	@ManyToOne
 	private Trajet retour;
+	
+	@JoinColumn(name = "client")
+	@ManyToOne
 	private Client client;
 	
-	
+	public Reservation () {
+		
+	}
 	public Reservation(Trajet aller, Client client) {
 		this.aller = aller;
 		this.client = client;
@@ -20,16 +46,12 @@ public class Reservation implements Serializable{
 	}
 
 	
-	public Reservation(int numero,Trajet aller, Client client,LocalDate dateReservation) {
+	public Reservation(int numero, Trajet aller, Client client,LocalDate dateReservation) {
 		this.numero=numero;
 		this.aller = aller;
 		this.client = client;
 		this.dateReservation=dateReservation;
 	}
-
-
-
-
 
 	public int getNumero() {
 		return numero;

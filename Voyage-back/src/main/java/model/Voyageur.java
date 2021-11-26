@@ -1,9 +1,28 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="voyager")
 public class Voyageur {
 
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@OneToOne
+	@JoinColumn(name="reservation")
 	private Reservation reservation;
+	
+	@OneToOne
+	@JoinColumn(name="passager")
 	private Passager passager;
 	
 	
@@ -17,6 +36,11 @@ public class Voyageur {
 		this.id = id;
 		this.reservation = reservation;
 		this.passager = passager;
+	}
+
+	
+
+	public Voyageur() {
 	}
 
 

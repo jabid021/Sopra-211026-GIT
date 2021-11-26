@@ -15,7 +15,8 @@ public class Compagnon {
 	private int id;
 	private String nom;
 	
-	@OneToOne(mappedBy = "familier")
+	
+	
 	private Personnage maitre;
 	
 	

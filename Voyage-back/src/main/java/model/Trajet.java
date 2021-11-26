@@ -5,16 +5,40 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Trajet implements Serializable {
 
+	@Id//Obligatoire
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Obligatoire*
 	private int id;
+	
+	@Column(name="date_depart",columnDefinition = "DATE")
 	private LocalDate dateDepart;
+	@Column(name="heure_depart",columnDefinition = "TIME")
 	private LocalTime heureDepart;
+	@JoinColumn(name="depart")
+	@ManyToOne
 	private Planete depart;
+	
+	@JoinColumn(name="arrivee")
+	@ManyToOne
 	private Planete arrivee;
+	
+	@ManyToOne
+	@JoinColumn(name="vaisseau")
 	private Vaisseau vaisseau;
 	
-	
+	public Trajet () {
+		
+	}
 	public Trajet(LocalDate dateDepart,LocalTime heureDepart, Planete depart, Planete arrivee, Vaisseau vaisseau) {
 		this.dateDepart = dateDepart;
 		this.heureDepart=heureDepart;

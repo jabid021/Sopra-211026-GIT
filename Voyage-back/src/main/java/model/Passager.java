@@ -2,11 +2,27 @@ package model;
 
 import java.io.Serializable;
 
-public class Passager implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="passager")
+public class Passager implements Serializable {
+	
+	@Id//Obligatoire
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
 	private String prenom;
+	
+	@ManyToOne
+	@JoinColumn(name="client")
 	private Client client;
 	
 	public Passager(String nom, String prenom,Client client) {
@@ -21,6 +37,10 @@ public class Passager implements Serializable {
 		this.prenom = prenom;
 		this.client=client;
 	}
+	
+	public Passager() {
+	}
+	
 	public String getNom() {
 		return nom;
 	}

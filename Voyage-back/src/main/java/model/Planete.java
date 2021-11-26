@@ -2,14 +2,36 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="planete")
 public class Planete implements Serializable {
 
+	
+	@Id//Obligatoire
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="type_planete",columnDefinition = "ENUM{'Gazeuse','Tellurique'") 
 	private TypePlanete type;
+	
+	@Embedded
 	private Coordonnees coordonnees;
+	
 	
 	public Planete(String nom, TypePlanete type, Coordonnees coordonnees) {
 		this.nom = nom;
@@ -22,6 +44,10 @@ public class Planete implements Serializable {
 		this.nom = nom;
 		this.type = type;
 		this.coordonnees = coordonnees;
+	}
+	
+	public Planete() {
+		
 	}
 
 	public String getNom() {

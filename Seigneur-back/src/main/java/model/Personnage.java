@@ -43,7 +43,7 @@ public class Personnage {
 	
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)//Obligatoire
-	@JoinColumn(name="monture_equipee") //Seulement si l'on veut rename la col de jointure
+	@JoinColumn(name="monture_equipee") //Seulement si l'on veut rename le col de jointure
 	private Monture monture;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
