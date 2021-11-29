@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import model.Arme;
 import model.Armure;
@@ -18,9 +18,10 @@ import model.Personnage;
 import model.Race;
 import model.Stats;
 import model.TypeMonture;
+import util.Context;
 
 public class App {
-	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetJpa");
+	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	public static void findAllEquipement() 
 	{
@@ -103,8 +104,8 @@ public class App {
 		em.persist(a2);*/
 		
 		
-		em.persist(p);
-		em.persist(p2);
+		//em.persist(p);
+		//em.persist(p2);
 		
 
 		em.getTransaction().commit();
@@ -193,6 +194,29 @@ public class App {
 	}
 	
 	
+	public static void demoFindAll() 
+	{
+		
+		EntityManager em = emf.createEntityManager();
+		
+		Query myQuery = em.createQuery("SELECT p from Personnage p where p.familier.nom like :monAttribut");
+		myQuery.setParameter("monAttribut", "%e%");
+		
+		List<Personnage> persos = myQuery.getResultList();
+	
+		em.close();
+		
+		
+		//Chargement Eager => ToOne 
+		//Chargement Lazy 
+		
+		for(Personnage p : persos) 
+		{
+			System.out.println(p.getInventaire());
+		}
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		
@@ -210,7 +234,10 @@ public class App {
 		//insert();
 	//	select(7);
 	//delete(7);
-		update();
+	//	update();
+		
+		
+		demoFindAll();
 		emf.close();
 	}
 

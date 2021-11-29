@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -66,7 +67,7 @@ public class Personnage {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Equipe team;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
 	private Compagnon familier;
 	
 	//Obligatoire
