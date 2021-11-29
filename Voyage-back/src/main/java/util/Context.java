@@ -18,7 +18,6 @@ import model.Compte;
 
 public class Context {
 
-
 	//elements liés à NOTRE PROJET//
 	private Compte connected;
 	private IDAOCompte daoCompte = new DAOCompte();

@@ -15,6 +15,7 @@ import model.Equipe;
 import model.Equipement;
 import model.Monture;
 import model.Personnage;
+import model.Quete;
 import model.Race;
 import model.Stats;
 import model.TypeMonture;
@@ -39,8 +40,24 @@ public class App {
 	
 	public static void init() 
 	{
+		Quete quete1 = new Quete("Tuer 5 orc");
+		Quete quete2 = new Quete("Trouver le marchand");
+		Quete quete3 = new Quete("Apporter 2 potions à l'auberge");
+		Quete quete4 = new Quete("Tuer Legollas");
+		
+		List<Quete> gimliQuest= new ArrayList();
+		gimliQuest.add(quete1);
+		gimliQuest.add(quete4);
+		List<Quete> legoQuest= new ArrayList();
+		legoQuest.add(quete2);
+		legoQuest.add(quete4);
+		
+		
 		Personnage p = new Personnage("Gimli", 10,Race.Nain, true);
 		Personnage p2 = new Personnage("Legolas", 4,Race.Elfe, true);
+		
+		p.setQuetes(gimliQuest);
+		p2.setQuetes(legoQuest);
 		
 		Arme e1 = new Arme("Hache",LocalDateTime.now(),new Stats(8,6),2,2);
 		Arme e2 = new Arme("Arc en bois",LocalDateTime.now(),new Stats(5,9),15,2);
@@ -89,6 +106,8 @@ public class App {
 		
 		em.getTransaction().begin();
 		
+		em.merge(p);
+		em.merge(p2);
 		
 		/*em.persist(team1);
 		em.persist(ecureuil);
@@ -123,6 +142,7 @@ public class App {
 		for(Personnage perso : equipe1.getMembres()) 
 		{
 			System.out.println(perso);
+			System.out.println("Liste des quetes : "+perso.getQuetes());
 		}
 		
 		em.close();
@@ -203,17 +223,17 @@ public class App {
 		myQuery.setParameter("monAttribut", "%e%");
 		
 		List<Personnage> persos = myQuery.getResultList();
-	
+		for(Personnage p : persos) 
+		{
+			System.out.println(p.getInventaire());
+		}
 		em.close();
 		
 		
 		//Chargement Eager => ToOne 
 		//Chargement Lazy 
 		
-		for(Personnage p : persos) 
-		{
-			System.out.println(p.getInventaire());
-		}
+		
 		
 	}
 	
@@ -236,7 +256,7 @@ public class App {
 	//delete(7);
 	//	update();
 		
-		
+		//init();
 		demoFindAll();
 		emf.close();
 	}

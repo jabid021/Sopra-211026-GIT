@@ -43,19 +43,19 @@ public class Personnage {
 	private boolean vivant;
 	
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)//Obligatoire
+	@ManyToOne(cascade = CascadeType.MERGE)//Obligatoire
 	@JoinColumn(name="monture_equipee") //Seulement si l'on veut rename le col de jointure
 	private Monture monture;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="arme_equipee")
 	private Arme arme;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="armure_equipee")
 	private Armure armure;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(
 			name="inventaire", //Rename la table
 			joinColumns = @JoinColumn(name="id_du_personnage"), //rename la clé principale (Personnage car on est dans la classe Personnage)
@@ -64,12 +64,15 @@ public class Personnage {
 			)
 	private List<Equipement> inventaire;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Equipe team;
 	
-	@OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
 	private Compagnon familier;
 	
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinTable(name="challenge_accepted")
+	private List<Quete> quetes;
 	//Obligatoire
 	public Personnage() {
 	}
@@ -196,6 +199,17 @@ public class Personnage {
 
 	public void setFamilier(Compagnon familier) {
 		this.familier = familier;
+	}
+
+	
+
+	public List<Quete> getQuetes() {
+		return quetes;
+	}
+
+
+	public void setQuetes(List<Quete> quetes) {
+		this.quetes = quetes;
 	}
 
 
