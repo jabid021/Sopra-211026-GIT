@@ -11,10 +11,10 @@ import util.Context;
 
 public class DAOReservation implements IDAOReservation{
 
-	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Reservation findById(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Reservation objet = em.find(Reservation.class, id);
 		em.close();
@@ -24,7 +24,7 @@ public class DAOReservation implements IDAOReservation{
 	@Override
 	public List<Reservation> findAll() {
 
-
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 	
 		List<Reservation> objets = em.createQuery("from Reservation").getResultList();
@@ -35,6 +35,7 @@ public class DAOReservation implements IDAOReservation{
 
 	@Override
 	public Reservation save(Reservation objet) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -49,6 +50,7 @@ public class DAOReservation implements IDAOReservation{
 
 	@Override
 	public void delete(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Reservation objet = em.find(Reservation.class, id);
 

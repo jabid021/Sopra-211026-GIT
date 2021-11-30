@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 
 @Entity //Obligatoire
@@ -67,12 +67,18 @@ public class Personnage {
 	@ManyToOne(cascade = CascadeType.MERGE)
 	private Equipe team;
 	
-	@OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Compagnon familier;
 	
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="challenge_accepted")
 	private List<Quete> quetes;
+	
+	
+	@Version
+	private int version;
+	
+	
 	//Obligatoire
 	public Personnage() {
 	}
@@ -212,13 +218,29 @@ public class Personnage {
 		this.quetes = quetes;
 	}
 
+	
+
+	public int getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Personnage [id=" + id + ", nom=" + nom + ", pv=" + pv + ", race=" + race + ", vivant=" + vivant
-				+ ", monture=" + monture + ", arme=" + arme + ", armure=" + armure + ", inventaire=" + inventaire
-				+ ", team=" + team + ", familier=" + familier + "]";
+				+ ", monture=" + monture + ", arme=" + arme + ", armure=" + armure + ", team=" + team + ", familier="
+				+ familier + "]";
 	}
+
+
+	
+
+	
 
 
 	

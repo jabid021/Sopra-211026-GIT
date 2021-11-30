@@ -11,10 +11,10 @@ import util.Context;
 
 public class DAOPlanete implements IDAOPlanete{
 
-	static EntityManagerFactory emf = Context.getInstance().getEmf();
-
+	
 	@Override
 	public Planete findById(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Planete objet = em.find(Planete.class, id);
 		em.close();
@@ -24,7 +24,7 @@ public class DAOPlanete implements IDAOPlanete{
 	@Override
 	public List<Planete> findAll() {
 
-
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 	
 		List<Planete> objets = em.createQuery("from Planete").getResultList();
@@ -35,6 +35,7 @@ public class DAOPlanete implements IDAOPlanete{
 
 	@Override
 	public Planete save(Planete objet) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -49,6 +50,7 @@ public class DAOPlanete implements IDAOPlanete{
 
 	@Override
 	public void delete(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Planete objet = em.find(Planete.class, id);
 

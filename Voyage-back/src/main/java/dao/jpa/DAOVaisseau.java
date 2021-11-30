@@ -11,10 +11,10 @@ import util.Context;
 
 public class DAOVaisseau implements IDAOVaisseau{
 
-	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
 	@Override
 	public Vaisseau findById(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Vaisseau objet = em.find(Vaisseau.class, id);
 		em.close();
@@ -24,7 +24,7 @@ public class DAOVaisseau implements IDAOVaisseau{
 	@Override
 	public List<Vaisseau> findAll() {
 
-
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 	
 		List<Vaisseau> objets = em.createQuery("from Vaisseau").getResultList();
@@ -35,6 +35,7 @@ public class DAOVaisseau implements IDAOVaisseau{
 
 	@Override
 	public Vaisseau save(Vaisseau objet) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -49,6 +50,7 @@ public class DAOVaisseau implements IDAOVaisseau{
 
 	@Override
 	public void delete(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Vaisseau objet = em.find(Vaisseau.class, id);
 

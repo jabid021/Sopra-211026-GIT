@@ -14,7 +14,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type_compte",columnDefinition = "ENUM{'client','admin'}")
+@DiscriminatorColumn(name="type_compte")
 public abstract class Compte implements Serializable {
 	
 	@Id

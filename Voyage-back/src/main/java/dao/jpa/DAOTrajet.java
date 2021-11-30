@@ -11,10 +11,9 @@ import util.Context;
 
 public class DAOTrajet implements IDAOTrajet{
 
-	static EntityManagerFactory emf = Context.getInstance().getEmf();
-
 	@Override
 	public Trajet findById(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Trajet objet = em.find(Trajet.class, id);
 		em.close();
@@ -24,7 +23,7 @@ public class DAOTrajet implements IDAOTrajet{
 	@Override
 	public List<Trajet> findAll() {
 
-
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 	
 		List<Trajet> objets = em.createQuery("from Trajet").getResultList();
@@ -35,6 +34,7 @@ public class DAOTrajet implements IDAOTrajet{
 
 	@Override
 	public Trajet save(Trajet objet) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -49,6 +49,7 @@ public class DAOTrajet implements IDAOTrajet{
 
 	@Override
 	public void delete(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Trajet objet = em.find(Trajet.class, id);
 

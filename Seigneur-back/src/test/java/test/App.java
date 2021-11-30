@@ -3,6 +3,7 @@ package test;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,6 +25,17 @@ import util.Context;
 public class App {
 	static EntityManagerFactory emf = Context.getInstance().getEmf();
 
+	public static String saisieString(String msg)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(msg);
+		String valeur= sc.nextLine();
+		return valeur;
+	}
+	
+	
+	
+	
 	public static void findAllEquipement() 
 	{
 		EntityManager em = emf.createEntityManager();
@@ -49,8 +61,8 @@ public class App {
 		gimliQuest.add(quete1);
 		gimliQuest.add(quete4);
 		List<Quete> legoQuest= new ArrayList();
-		legoQuest.add(quete2);
-		legoQuest.add(quete4);
+		//legoQuest.add(quete2);
+		//legoQuest.add(quete4);
 		
 		
 		Personnage p = new Personnage("Gimli", 10,Race.Nain, true);
@@ -257,7 +269,20 @@ public class App {
 	//	update();
 		
 		//init();
-		demoFindAll();
+		//demoFindAll();
+		
+		EntityManager em = emf.createEntityManager();
+		Personnage p = em.find(Personnage.class, 1);
+		String nom = saisieString("Saisir le nouveau nom ?");
+		p.setNom(nom);
+		
+		
+		em.getTransaction().begin();
+		em.merge(p);
+		em.getTransaction().commit();
+		
+		
+		em.close();
 		emf.close();
 	}
 

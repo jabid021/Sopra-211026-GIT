@@ -11,10 +11,10 @@ import util.Context;
 
 public class DAOPassager implements IDAOPassager{
 
-	static EntityManagerFactory emf = Context.getInstance().getEmf();
-
 	@Override
 	public Passager findById(Integer id) {
+		
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Passager objet = em.find(Passager.class, id);
 		em.close();
@@ -24,7 +24,7 @@ public class DAOPassager implements IDAOPassager{
 	@Override
 	public List<Passager> findAll() {
 
-
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 	
 		List<Passager> objets = em.createQuery("from Passager").getResultList();
@@ -35,6 +35,7 @@ public class DAOPassager implements IDAOPassager{
 
 	@Override
 	public Passager save(Passager objet) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
@@ -49,6 +50,7 @@ public class DAOPassager implements IDAOPassager{
 
 	@Override
 	public void delete(Integer id) {
+		EntityManagerFactory emf = Context.getInstance().getEmf();
 		EntityManager em = emf.createEntityManager();
 		Passager objet = em.find(Passager.class, id);
 
