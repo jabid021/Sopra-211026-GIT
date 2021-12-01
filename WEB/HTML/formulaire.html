@@ -1,0 +1,49 @@
+<!--
+//liste deroulante => select
+//choix unique => (rond) radio
+//choix multiple => (carre) checkbox
+//champ de saisie => input text
+//zone de texte => textarea
+//button => input submit / reset / button
+barre de valeur => input range
+//password => input password
+-->
+
+
+<h1>Inscription :</h1>
+<form>
+
+ID : <input type="hidden" value="1" disabled><br><br>
+Login * : <input required placeholder="saisir votre login" value="Jordan" type="text"><br><br>
+
+Password : <input type="password" placeholder="Saisir votre mot de passe" ><br><br>
+Mail : <input required type="email" placeholder="Saisir mail"><br><br>
+URL : <input required type="url"><br><br>
+
+
+
+Votre OS ? :
+<select>
+  <option>Windows</option>
+  <option>MAC OS <3</option>
+  <option>Linux</option>
+</select><br><br>
+
+Civilite : <input checked name="civ" type="radio">Mr  <input name="civ" type="radio">Mme  <input name="civ" type="radio">NB  <br><br>
+Loisir : <input checked type="checkbox">Sport   <input  type="checkbox">Cinema  <input type="checkbox">Magie <br><br>
+
+Commentaires : <textarea rows="5" autofocus cols="30" placeholder="Saisir votre commentaire"></textarea><br><br>
+
+
+<input value="GO" type="submit">
+<input value="CANCEL" type="reset">
+
+
+
+
+
+
+</form>
+
+<button>VALIDER</button>
+<input type="button" value="valider">
