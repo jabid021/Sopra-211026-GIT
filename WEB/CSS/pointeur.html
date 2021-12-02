@@ -1,0 +1,128 @@
+<style>
+#conteneur
+{
+  background-color:lightblue;
+}
+#conteneur div,table
+{
+  border:solid red 5px;
+}
+
+#conteneur>div>div
+{
+  text-align:right;
+}
+
+#conteneur+div
+{
+  color:yellow;
+}
+
+tr:nth-of-type(even)
+{
+  color:orange;
+  background-color:brown;
+}
+
+tr:nth-of-type(odd)
+{
+  color:red;
+  background-color:lightblue;
+}
+
+div:hover
+{
+  font-size:35px;
+}
+a
+{font-size:30px;color:orange;}
+
+
+a:hover
+{
+  font-size:45px;color:red;
+}
+
+#login
+{
+  background-color:pink;
+  color:grey;
+}
+
+#login:focus
+{
+  background-color:grey;
+  color:pink;
+}
+
+</style>
+
+
+<div>AVANT </div>
+<div id="conteneur">Conteneur
+      <div>Enfant 1 </div>
+      <div>Enfant 2 </div>
+      <div>Enfant 3
+            <div> +Enfant A</div>
+            <div> +Enfant B</div>
+      </div>
+      <div>Enfant 4 </div>
+</div>
+<div>APRES</div>
+<div>APRES2</div>
+
+<br><br><br><br>
+
+<a href=""> site internet</a>
+<br><br><br>
+
+<input id="login" type="text">
+<br><br>
+
+<table border>
+
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+    <th>PC</th>
+  </tr>
+
+  <tr>
+    <th>1</th>
+    <td>Abid</td>
+    <td>Jean-Jordan</td>
+    <td>28</td>
+    <td>102</td>
+  </tr>
+
+  <tr>
+    <th>2</th>
+    <td>Abid</td>
+    <td align="center">Jeremy</td>
+    <td>24</td>
+    <td>105</td>
+  </tr>
+
+
+  <tr align="center">
+    <th>3</th>
+    <td>Doe</td>
+    <td>John</td>
+    <td>42</td>
+      <td>42</td>
+  </tr>
+
+
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+    <th>PC</th>
+  </tr>
+
+
+
+</table>
