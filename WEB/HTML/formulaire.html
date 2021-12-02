@@ -9,41 +9,56 @@ barre de valeur => input range
 //password => input password
 -->
 
-
 <h1>Inscription :</h1>
-<form>
-
-ID : <input type="hidden" value="1" disabled><br><br>
-Login * : <input required placeholder="saisir votre login" value="Jordan" type="text"><br><br>
-
-Password : <input type="password" placeholder="Saisir votre mot de passe" ><br><br>
-Mail : <input required type="email" placeholder="Saisir mail"><br><br>
-URL : <input required type="url"><br><br>
+<center>
+<form action="pageCible.html" method="GET">
 
 
 
-Votre OS ? :
-<select>
-  <option>Windows</option>
-  <option>MAC OS <3</option>
-  <option>Linux</option>
-</select><br><br>
+<fieldset>
+  <legend>Infos de connexion</legend>
+  ID : <input name="id" type="hidden" value="1" disabled><br><br>
+  Login * : <input name="login" required placeholder="saisir votre login" value="Jordan" type="text"><br><br>
+  Password : <input required name="password" type="password" placeholder="Saisir votre mot de passe" minlength="5" maxlength="10"><br><br>
+  <label for="mail">Mail :</label> <input id="mail" name="mail" required type="email" value="jordanabid@gmail.com" placeholder="Saisir mail"><br><br>
+  URL : <input name="url" type="url">
+</fieldset>
+<br>
 
-Civilite : <input checked name="civ" type="radio">Mr  <input name="civ" type="radio">Mme  <input name="civ" type="radio">NB  <br><br>
-Loisir : <input checked type="checkbox">Sport   <input  type="checkbox">Cinema  <input type="checkbox">Magie <br><br>
+<fieldset>
+  <legend>Infos Perso</legend>
+  Age <input type="number" name="age" min="0" max="45" step="2"><br><br>
+  Date de naissance : <input name="naissance" type="date" min="2000-01-01"><br><br>
+  Semaine de naissance : <input type="week"><br><br>
+  Heure de naissance : <input type="time" min="10:00" max="19:00" step="900"><br><br>
+  Couleur pref ? :  <input name="color" type="color"><br><br>
+  Niveau d'etudes ? <input name="niveau" min="10" max="20" type="range"><br><br>
+</fieldset>
+<br>
 
-Commentaires : <textarea rows="5" autofocus cols="30" placeholder="Saisir votre commentaire"></textarea><br><br>
 
+<fieldset>
+  <legend>&nbsp;Choix&nbsp;</legend>
+  Votre OS ? :
+  <select name="os">
+    <option value="1">Windows</option>
+    <option value="2">MAC OS <3</option>
+    <option value="3">Linux</option>
+  </select><br><br>
 
-<input value="GO" type="submit">
-<input value="CANCEL" type="reset">
+  Civilite : <input id="civMr" checked name="civ" value="mr" type="radio"><label for="civMr">Mr</label>  <input id="civMme" value="mme" name="civ" type="radio"><label for="civMme">Mme</label>  <input name="civ" id="civNb"value="nb" type="radio"><label for="civNb">NB</label>  <br><br>
+  Loisir : <input checked name="sport" type="checkbox">Sport   <input  name="cinema" type="checkbox">Cinema  <input name="magie" type="checkbox">Magie <br><br>
 
+  Commentaires : <textarea name="commentaire" rows="5" autofocus cols="30" placeholder="Saisir votre commentaire"></textarea><br><br>
+  CV : <input type="file"><br><br>
 
+</fieldset>
+<br>
 
-
-
+  <input value="GO" type="submit">
+  <input value="CANCEL" type="reset">
 
 </form>
-
-<button>VALIDER</button>
-<input type="button" value="valider">
+</center>
+<!--<button>VALIDER</button>
+<input type="button" value="valider">-->
