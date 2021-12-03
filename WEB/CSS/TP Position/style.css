@@ -1,0 +1,81 @@
+body
+{
+	margin:0;
+}
+
+ul{list-style-type:none;}
+
+#header
+{
+	display:flex;
+	border:solid black 2px;
+	height:180px;
+	position:sticky;
+	top:0;
+}
+
+#logo
+{
+	display:flex;
+	font-size:45px;
+	font-weight:bold;
+	width:15%;
+	justify-content: center;
+	align-items: center;
+}
+
+#accueil
+{
+	display:flex;
+	font-size:35px;
+	width:85%;
+	background-color:grey;
+	justify-content: center;
+	align-items: center;
+}
+
+
+#content
+{
+		display:flex;
+		min-height:120%;
+}
+
+
+#menuLeft
+{
+	width:15%;
+}
+#center
+{
+		width:70%;
+}
+#menuRight
+{
+		width:15%;
+}
+footer
+{
+
+	height:70px;
+	background-color:yellow;
+	display:flex;
+	align-items:center;
+}
+
+#fLeft
+{
+	width:12%;
+	margin-left:10px;
+}
+#fLeft a
+{
+	margin-left:5px;
+}
+#fRight
+{
+
+display:flex;
+justify-content: center;
+	width:78%;
+}
