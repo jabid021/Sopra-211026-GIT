@@ -1,44 +1,51 @@
 <style>
+/*
+liste des positions : static / relative / absolute /fixed / sticky
+display: block / inline / inline-block / none
+
+
+
+*/
   div{
     font-size:50px;
   }
+
+
+
 #conteneur
 {
-
   background-color:lightblue;
   width:90%;
   height:420%;
   margin-left:5%;
-  position:relative;
 }
 
 #div1
 {
-
   background-color:pink;
-  position:sticky;
-  top:0;
-  left:50%;
 }
-
 #div2
 {
   background-color:orange;
+  float:left
 }
-
-
 #div3
 {
   background-color:green;
 }
 
+.box
+{
+  display:inline-block;
+  width:20%;
+  height:200px;
+}
 </style>
-
 
 <div id="conteneur">
   <br>
-  <h1>Haut</h1>
-  <div id="div1">Un</div>
-  <div id="div2">Deux</div>
-  <div id="div3">Trois</div>
+  <div id="div1" class="box">Un</div>
+  <div id="div2" class="box">Deux</div>
+  <div id="parag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  <div id="div3" class="box">Trois</div>
 </div>
