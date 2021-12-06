@@ -7,14 +7,28 @@
 
 <script>
 
-/*
-Jeu HTML Partie I  :
-Creer des objets pays (nom,capitale)
-Faire un tableau de Pays (4-5)
-Avec une boucle, pour chaque pays, on affichera dans un prompt le nom du pays
-L'utilisateur donne la capitale, on lui affiche avec une alert si c'est ok ou non
-Il faut afficher dans la console le total de point
-*/
+var p1 = {"nom":"France","capitale":"Paris"};
+var p2 = {"nom":"Finlande","capitale":"Helsinki"};
+var p3 = {"nom":"Irlande","capitale":"Dublin"};
+
+var tab= [p1,p2,p3];
+
+var score=0;
+
+for(let pays of tab)
+{
+  reponse = prompt("Quelle est la capitale du pays suivant ? : "+pays.nom);
+  if(reponse==pays.capitale)
+  {
+    alert("Bonne réponse ! :) ");
+    score++;
+  }
+  else
+  {
+    alert("Mauvaise réponse ! :( ");
+  }
+}
+alert("Fin de la partie, votre score est de : "+score+"/"+tab.length);
 
 
 </script>
