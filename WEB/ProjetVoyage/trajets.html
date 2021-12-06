@@ -16,6 +16,10 @@
 #FormGr{
   margin: 20px;
 }
+
+#DisplayAjout{
+  display:none;
+}
 </style>
 
 
@@ -34,7 +38,7 @@
   <body>
 
 <h1>Liste des trajets</h1>
-<input class="btn btn-success" type="submit" name="" value="Ajouter">
+<input class="btn btn-success" type="submit" name="" value="Ajouter" onclick="masquer_div('DisplayAjout');">
 
 <div class="container-fluid">
 
@@ -94,7 +98,7 @@
 <th>Heure de départ</th>
 <th>Nom du vaisseau</th>
 <th>Actions</th>*/-->
-<div class="container-fluid addFormTrajet">
+<div id="DisplayAjout" class="container-fluid addFormTrajet">
 <h3>Ajouter nouveau Trajet</h3>
 <div id="BlocAjout" class="shadow">
 
@@ -111,3 +115,15 @@
 </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  function masquer_div(id)
+{
+  if (document.getElementById(id).style.display == 'none') {
+       document.getElementById(id).style.display = 'block';
+  }
+  else {
+       document.getElementById(id).style.display = 'none';
+  }
+}
+</script>
