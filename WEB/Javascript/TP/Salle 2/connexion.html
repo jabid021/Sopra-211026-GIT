@@ -6,9 +6,16 @@
 background-image:url("2015-8-11_14-14-10-852.BMP");
 }
 
+.text-white
+
+legend{
+  color : white;
+}
+
 tr{
   color : white;
 }
+
 
 
 </style>
@@ -18,6 +25,7 @@ tr{
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
 
 
@@ -29,15 +37,15 @@ tr{
 
 
 <fieldset>
-  <legend>Informations de connexion </legend>
+  <legend class="text-white">Bienvenue dans l'aventure ! </legend>
 
 <table>
 <tr>
-  <td id="1">Login *: <input name="login"  required placeholder="Login"></td>
+  <td id="1">Login * : <input name="login"  required placeholder="Login" class="form-control"></td>
 </tr>
 
 <tr>
-  <td id="2">Mot de passe * :<input type="password" name="password" required placeholder="Mot de passe"></td>
+  <td id="2">Mot de passe * : <input type="password" name="password" required placeholder="Mot de passe" class="form-control"> </td>
 </tr>
 
 </table>
