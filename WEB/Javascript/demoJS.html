@@ -1,0 +1,113 @@
+<script>
+
+var test="1000";
+
+var zoom = new Array(10);
+
+var zoom2 = ["Jordan","Totoo","John"];
+
+var notes= [20,12,8,17,5];
+
+var p1 = new Object();
+p1.prenom="Jordan";
+p1.nom="Abid";
+p1.age=28;
+p1.notes=notes;
+
+
+var p2 = {"prenom":"John","nom":"Doe","age":42};
+
+
+var zoom3 = [p1,p2,{"prenom":"Jane","nom":"Doe","age":42}];
+
+console.log(p2.nom);
+
+console.log(zoom3);
+
+
+
+
+/*console.log(zoom2);
+zoom2.sort(nbLettres);
+console.log(zoom2);
+zoom2.reverse();
+
+
+console.log(zoom2);
+console.log(notes);
+notes.sort(compareNumbers);
+console.log(notes);
+*/
+
+
+zoom2[50]="Olivier";
+zoom2[45]=notes;
+console.log(zoom2.length);
+zoom2.length=3;
+console.log(zoom2);
+/*
+//Equivalent au .poll des linkedlist (retire + affiche le 1er du tableau)
+console.log("1er element du tableau : "+zoom2.shift());
+//Equivalent au .pollLast des linkedlist (retire + affiche le dernier element du tableau)
+console.log("Sort le dernier element : "+zoom2.pop());
+console.log(zoom2);
+console.log(zoom2[0]);
+*/
+
+//alert(zoom2.join("--"));
+
+//let pour une variable utile uniquement dans la fonction
+for(let i=0;i<zoom2.length;i++)
+{
+  console.log(zoom2[i]);
+}
+
+
+for(let index in zoom2)
+{
+  console.log("Element "+index+" : "+zoom2[index]);
+}
+
+for(let prenom of zoom2)
+{
+  console.log(prenom);
+}
+
+
+
+/*var age=prompt("Saisir age");
+var isMajeur = (age>=18) ? "Majeur" : "Mineur";
+console.log(isMajeur);*/
+
+/*switch(age)
+{
+  case 10 : break;
+  case 20 : break;
+  case "Mr" : break;
+}*/
+
+
+
+
+
+
+
+/*if(test==10){console.log("10=='10'")}
+else{console.log("10!='10'")}
+*/
+function nbLettres(a,b)
+{
+  return a.length-b.length;
+}
+
+function compareNumbers(a,b)
+{
+  return a-b;
+}
+
+function demoAlert(){
+  alert("Ceci est un test");
+}
+
+
+</script>
