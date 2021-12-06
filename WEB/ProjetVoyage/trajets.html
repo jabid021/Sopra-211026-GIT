@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+
+<style>
+
+.addFormTrajet{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+#FormAjout{
+  display:flex;
+  flex-direction:column;
+}
+</style>
+
+
+
+
+
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -71,9 +90,10 @@
 <th>Heure de départ</th>
 <th>Nom du vaisseau</th>
 <th>Actions</th>*/-->
+<div class="container-fluid addFormTrajet">
+<h3>Ajouter nouveau Trajet</h3>
+<div id="FormAjout" class="shadow">
 
-<div id="addFormEmp">
-       <h3>Ajouter nouveau Trajet</h3>
        <form action="gestionTrajet.html" method="get">
          <label for="add_PlaneteDepart">Planete de depart :</label> <input required id="add_PlaneteDepart" name="Planete de depart" type="text" placeholder="Saisir la planète de depart"><br>
          <label for="add_PlaneteArrivee">Planete d'arrivee :</label> <input required id="add_PlaneteArrivee" name="Planete Arrivee" type="text" placeholder="Saisir la planète d'arrivee"><br>
@@ -84,5 +104,6 @@
          <input class ="btn btn-success" type="submit" name="ajouter" value="Ajouter">
        </form>
    </div>
+</div>
   </body>
 </html>
