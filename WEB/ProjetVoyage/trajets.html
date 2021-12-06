@@ -58,5 +58,26 @@
 
 </tbody>
 </table>
+
+<!--<th>id</th>
+<th>Planète de départ</th>
+<th>Planète d'arrivée</th>
+<th>Date de départ</th>
+<th>Heure de départ</th>
+<th>Nom du vaisseau</th>
+<th>Actions</th>*/-->
+
+<div id="addFormEmp">
+       <h3>Ajouter nouveau Trajet</h3>
+       <form action="gestionTrajet.html" method="get">
+         <label for="add_PlaneteDepart">Planete de depart :</label> <input required id="add_PlaneteDepart" name="Planete de depart" type="text" placeholder="Saisir la planète de depart"><br>
+         <label for="add_PlaneteArrivee">Planete d'arrivee :</label> <input required id="add_PlaneteArrivee" name="Planete Arrivee" type="text" placeholder="Saisir la planète d'arrivee"><br>
+         <label for="add_DateDepart">Date de depart :</label> <input name="DateDepart" type="date" min="2000-01-01"><br>
+         <label for="add_DateDepart">Heur de depart :</label> <input name="HeureDepart" type="time" min="00:00" max="23:59"><br>
+         <label for="add_Vaisseau">Nom du vaisseau :</label> <input required id="add_Vaisseau" name="Vaisseau" type="text" placeholder="Saisir le nom du vaisseau"><br>
+
+         <input class ="btn btn-success" type="submit" name="ajouter" value="Ajouter">
+       </form>
+   </div>
   </body>
 </html>
