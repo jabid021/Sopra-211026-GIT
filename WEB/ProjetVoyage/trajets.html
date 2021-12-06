@@ -8,9 +8,13 @@
   flex-direction:column;
 }
 
-#FormAjout{
+#BlocAjout{
   display:flex;
   flex-direction:column;
+}
+
+#FormGr{
+  margin: 20px;
 }
 </style>
 
@@ -92,16 +96,16 @@
 <th>Actions</th>*/-->
 <div class="container-fluid addFormTrajet">
 <h3>Ajouter nouveau Trajet</h3>
-<div id="FormAjout" class="shadow">
+<div id="BlocAjout" class="shadow">
 
-       <form action="gestionTrajet.html" method="get">
-         <label for="add_PlaneteDepart">Planete de depart :</label> <input required id="add_PlaneteDepart" name="Planete de depart" type="text" placeholder="Saisir la planète de depart"><br>
-         <label for="add_PlaneteArrivee">Planete d'arrivee :</label> <input required id="add_PlaneteArrivee" name="Planete Arrivee" type="text" placeholder="Saisir la planète d'arrivee"><br>
-         <label for="add_DateDepart">Date de depart :</label> <input name="DateDepart" type="date" min="2000-01-01"><br>
-         <label for="add_DateDepart">Heur de depart :</label> <input name="HeureDepart" type="time" min="00:00" max="23:59"><br>
-         <label for="add_Vaisseau">Nom du vaisseau :</label> <input required id="add_Vaisseau" name="Vaisseau" type="text" placeholder="Saisir le nom du vaisseau"><br>
-
-         <input class ="btn btn-success" type="submit" name="ajouter" value="Ajouter">
+       <form id="FormGr" action="gestionTrajet.html" method="get">
+         <label for="add_PlaneteDepart">Planète de départ :</label> <br> <input class="form-control" required id="add_PlaneteDepart" name="Planete de depart" type="text" placeholder="Saisir la planète de depart"><br>
+         <label for="add_PlaneteArrivee">Planète d'arrivée :</label> <br><input class="form-control" required id="add_PlaneteArrivee" name="Planete Arrivee" type="text" placeholder="Saisir la planète d'arrivee"><br>
+         <label for="add_DateDepart">Date de départ :</label> <br><input class="form-control" name="DateDepart" type="date" min="2000-01-01"><br>
+         <label for="add_DateDepart">Heure de départ :</label><br> <input class="form-control" name="HeureDepart" type="time" min="00:00" max="23:59"><br>
+         <label for="add_Vaisseau">Nom du vaisseau :</label><br> <input class="form-control" required id="add_Vaisseau" name="Vaisseau" type="text" placeholder="Saisir le nom du vaisseau"><br>
+         <br>
+         <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
        </form>
    </div>
 </div>
