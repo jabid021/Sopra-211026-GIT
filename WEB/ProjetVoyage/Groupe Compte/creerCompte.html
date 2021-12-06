@@ -45,6 +45,12 @@
         padding: 10px;
       }
 
+      .finTab {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
     </style>
   </head>
   <body>
@@ -76,8 +82,11 @@
             </tbody>
           </table>
           <br>
-          <input class="btn btn-success" value="Créer le compte" type="submit">
-          <input value="Annuler" type="reset">
+          <div class="finTab">
+            <input class="btn btn-success" value="Créer le compte" type="submit">
+            <input class="btn btn-danger" value="Annuler" type="reset">
+            <a href="TP2.html">Accueil</a>
+          </div>
           <br>
         </form>
 
