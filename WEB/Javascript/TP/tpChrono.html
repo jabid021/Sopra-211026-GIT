@@ -7,8 +7,24 @@
 var minute=0;
 var seconde=0;
 
+setInterval(timer,1000);
 
-
+function timer()
+{
+  seconde++;
+  if(seconde==60)
+  {
+    minute++;
+    seconde=0;
+    if(minute==60)
+    {
+      minute=0;
+    }
+  }
+    minuteAffiche=(minute<10)? "0"+minute : minute;
+    secondeAffiche=(seconde<10)? "0"+seconde : seconde;
+    chrono.innerHTML=minuteAffiche+":"+secondeAffiche;
+}
 
 
 
