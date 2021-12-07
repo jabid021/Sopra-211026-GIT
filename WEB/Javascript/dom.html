@@ -23,7 +23,7 @@ console.log(titreh2.getAttribute("monAttribut"));
 btnGo.setAttribute("disabled",true);
 btnGo.removeAttribute("disabled");
 passwordForm.setAttribute("type","text");
-
+changeByClass();
   /*console.log("ancien titre = "+document.title);
   document.title="Nouveau Titre";
 */
@@ -50,6 +50,7 @@ function changeByClass()
   var mesBalises = document.getElementsByClassName("elementImportant");
   for(let balise of mesBalises)
   {
+    balise.onclick=function(){alert("click");}
     balise.style.color="red";
     balise.innerHTML="new content";
   }

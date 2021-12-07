@@ -26,6 +26,7 @@
   border:solid black 2px;
 }
 </style>
+<h1 id="chrono">00:00</h1>
 
 <p id="sapin">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <br><br><br>
@@ -35,20 +36,31 @@
   <div id="bulle2"></div>
 </div>
 
-
+<br><br>
+<input  onClick="start()" type="button" value="Chrono">
+<input id="btnSapin" type="button" value="Sapin">
+<input id="btnDialogue" type="button" value="Dialogue">
 
 
 <script>
-  demoInterval();
-  demoTimeOut();
+
+
+btnSapin.onclick= demoInterval;
+var nbTour=0;
+var couleur="red";
+var monInterval;
+var minute=0;
+var seconde=0;
+
+function start()
+{
+  setInterval(timer,1000);
+}
 
   function demoInterval()
   {
-    var couleur="red";
-    var nbTour=0;
-    var monInterval=setInterval(modifSapin,150);
 
-
+    monInterval=setInterval(modifSapin,1000);
     function modifSapin()
     {
       nbTour++;
@@ -93,6 +105,24 @@
       },2500)
   }
 
+
+
+}
+function timer()
+{
+  seconde++;
+  if(seconde==60)
+  {
+    minute++;
+    seconde=0;
+    if(minute==60)
+    {
+      minute=0;
+    }
+  }
+    minuteAffiche=(minute<10)? "0"+minute : minute;
+    secondeAffiche=(seconde<10)? "0"+seconde : seconde;
+    chrono.innerHTML=minuteAffiche+":"+secondeAffiche;
 }
 
 
