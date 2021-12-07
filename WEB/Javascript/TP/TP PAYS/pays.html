@@ -1,0 +1,60 @@
+<style>
+#content,#game{display:none;}
+</style>
+
+
+<input id="btnPlay" type="button" value="Play">
+<input id="btnPause" disabled type="button" value="Pause">
+
+<div id="content">
+    <h1 id="chrono">00:00</h1>
+    <div id="game">
+      LE JEU ICI
+    </div>
+</div>
+
+<script>
+var minute=0;
+var seconde=0;
+var monInterval;
+btnPlay.onclick=start;
+btnPause.onclick=stop;
+
+
+
+function start()
+{
+  btnPlay.setAttribute("disabled",true);
+  btnPause.removeAttribute("disabled");
+  monInterval=setInterval(timer,1000);
+  content.style.display="block";
+  game.style.display="block";
+}
+function stop()
+{
+  btnPlay.disabled=false;
+  btnPause.disabled=true;
+  game.style.display="none";
+  clearInterval(monInterval);
+}
+
+function timer()
+{
+  seconde++;
+  if(seconde==60)
+  {
+    minute++;
+    seconde=0;
+    if(minute==60)
+    {
+      minute=0;
+    }
+  }
+    minuteAffiche=(minute<10)? "0"+minute : minute;
+    secondeAffiche=(seconde<10)? "0"+seconde : seconde;
+    chrono.innerHTML=minuteAffiche+":"+secondeAffiche;
+}
+
+
+
+</script>
