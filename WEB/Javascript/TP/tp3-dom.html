@@ -12,3 +12,45 @@
 <p>Parag fin</p>
 
 </body>
+
+
+<script>
+
+
+var choix = prompt("Que voulez vous modifier ? id/tag/class ? ");
+var couleur = prompt("Quelle couleur pour "+choix);
+switch(choix)
+{
+  case "id" : changeId();break;
+  case "class" : changeClass();break;
+  case "tag" : changeTag();break;
+  default : alert("Aucun element");break;
+}
+
+
+function changeId()
+{
+  paragPrinci.style.color=couleur;
+}
+
+function changeClass()
+{
+  var balises = document.getElementsByClassName("secondaire");
+  for(let balise of balises)
+  {
+    balise.style.color=couleur;
+  }
+}
+
+function changeTag()
+{
+  var balises = document.getElementsByTagName("p");
+  for(let balise of balises)
+  {
+    balise.style.color=couleur;
+  }
+}
+
+
+
+</script>

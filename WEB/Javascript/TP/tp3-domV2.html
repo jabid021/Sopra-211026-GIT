@@ -1,0 +1,68 @@
+<body style="background-color: lightyellow;">
+
+<p  class="secondaire">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="secondaire">Parag secondaire</p>
+
+<p>Parag milieu</p>
+
+<h3 id="paragPrinci" class="secondaire">Titre secondaire</h3>
+
+<p class="secondaire">Parag secondaire</p>
+<p>Parag fin</p>
+
+</body>
+
+
+<script>
+
+var continuer;
+do{
+
+  var choix = prompt("Que voulez vous modifier ? id/tag/class ? ");
+  if(choix!="id" && choix!="class" && choix!="tag"){alert("Aucun element !");}
+  else{
+    var lib = prompt("Libelle de : "+choix);
+    var prop = prompt("Quelle prop ?");
+    var valeur = prompt("Quelle valeur pour "+lib);
+    switch(choix)
+    {
+      case "id" : changeId();break;
+      case "class" : changeClass();break;
+      case "tag" : changeTag();break;
+    }
+  }
+  continuer=prompt("Voulez vous continuer ?");
+}
+while(continuer=="y");
+
+  function changeId()
+  {
+
+    document.getElementById(lib).style.setProperty(prop,valeur);
+  }
+
+  function changeClass()
+  {
+    var balises = document.getElementsByClassName(lib);
+    for(let balise of balises)
+    {
+      balise.style.setProperty(prop,valeur);
+    }
+  }
+
+  function changeTag()
+  {
+    var balises = document.getElementsByTagName(lib);
+    for(let balise of balises)
+    {
+      balise.style.setProperty(prop,valeur);
+    }
+  }
+
+
+
+
+
+
+</script>
