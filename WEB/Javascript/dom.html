@@ -15,22 +15,12 @@ Prenom : <input id="inputPrenom" type="text" value="Jordan">
 
 
 <script>
-console.log("ancien titre = "+document.title);
-document.title="Nouveau Titre";
+inputPrenom.value="Toto";
+console.log(inputPrenom.value);
 
-var monParag = document.getElementById("parag1");
-
-
-monParag.style.color="red";
-alert(monParag.style.color);
-
-monParag.style.fontSize="45px";
-
-console.log(monParag.innerHTML);
-monParag.innerHTML+=" Nouveau parag";
-
-
-
+  /*console.log("ancien titre = "+document.title);
+  document.title="Nouveau Titre";
+*/
 
 /*
 le design => .style
@@ -39,11 +29,47 @@ pour les input, acces aux valeurs => .value
 des evenements => .click
 */
 
+function changeByTags()
+{
+  var mesBalises = document.getElementsByTagName("p");
+  for(let balise of mesBalises)
+  {
+    balise.style.color="red";
+    balise.innerHTML="new content";
+  }
+}
 
+function changeByClass()
+{
+  var mesBalises = document.getElementsByClassName("elementImportant");
+  for(let balise of mesBalises)
+  {
+    balise.style.color="red";
+    balise.innerHTML="new content";
+  }
+}
 
+function changeById()
+{
+  parag1.style.color="pink"; // => Meme chose que document.getElementById("parag1").style.color="pink";
+  var monParag = document.getElementById("parag1");
 
+  var prop = prompt("Quelle prop css ?");
+  var valeur = prompt("Quelle value pour "+prop);
 
+  monParag.style.setProperty(prop,valeur);
+  monParag.style.setProperty("border","solid red 1px");
 
+  //monParag.style.color=choixColor;
 
+  //alert(monParag.style.color);
+
+  //monParag.style.fontSize="45px";
+  //monParag.style.backgroundColor="yellow";
+
+  console.log(monParag.innerHTML);
+  monParag.innerHTML=" Nouveau parag";
+
+}
 
 </script>
