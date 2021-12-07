@@ -1,0 +1,100 @@
+<style>
+
+  #conteneur
+  {
+    display:flex;
+
+  }
+#bulle1
+{
+  display:flex;
+  width:450px;
+  height:250px;
+  border-radius:50%;
+  border:solid black 2px;
+  justify-content:center;
+  align-items:center;
+}
+#bulle2
+{
+  justify-content:center;
+  align-items:center;
+  display:flex;
+  width:450px;
+  height:250px;
+  border-radius:50%;
+  border:solid black 2px;
+}
+</style>
+
+<p id="sapin">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br><br><br>
+<div id="conteneur" >
+  <div id="bulle1"></div>
+
+  <div id="bulle2"></div>
+</div>
+
+
+
+
+<script>
+  demoInterval();
+  demoTimeOut();
+
+  function demoInterval()
+  {
+    var couleur="red";
+    var nbTour=0;
+    var monInterval=setInterval(modifSapin,150);
+
+
+    function modifSapin()
+    {
+      nbTour++;
+      sapin.style.color=couleur;
+      couleur=(couleur=="red")? "green" : "red";
+
+      if(nbTour>=50)
+      {
+        stopChrono();
+      }
+    }
+
+
+    function stopChrono()
+    {
+      sapin.style.color="black";
+      clearInterval(monInterval);
+    }
+  }
+
+
+
+  function demoTimeOut()
+  {
+    bulle1.innerHTML="Omae wa mou shindeiru";
+
+    console.log("Go dans 5sec");
+
+    var monTimer=setTimeout(dialogue,2500);
+
+
+  //  clearTimeout(monTimer);
+
+    function dialogue()
+    {
+      bulle1.innerHTML="";
+      bulle2.innerHTML="Nani ?!";
+      bulle2.style.color="red";
+      setTimeout(function()
+      {
+        bulle2.style.fontSize="45px";
+      },2500)
+  }
+
+}
+
+
+
+</script>
