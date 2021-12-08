@@ -9,18 +9,68 @@
 <div id="content">
     <h1 id="chrono">00:00</h1>
     <div id="game">
-      LE JEU ICI
+      <div id="question"></div>
+      <input type="text" id="reponse">
+      <input id="btnValidate" type="button" value="valider">
+      <div id="resultat"></div>
     </div>
+    <div id="scorePartie"></div>
 </div>
 
 <script>
 var minute=0;
 var seconde=0;
 var monInterval;
+var i=0;
+var p1 = {"nom":"France","capitale":"Paris"};
+var p2 = {"nom":"Finlande","capitale":"Helsinki"};
+var p3 = {"nom":"Irlande","capitale":"Dublin"};
+
+var tab= [p1,p2,p3];
+var score=0;
+
 btnPlay.onclick=start;
 btnPause.onclick=stop;
+btnValidate.onclick=checkReponse;
+
+showQuestion();
 
 
+function showQuestion(){
+question.innerHTML="Quelle est la capitale de : "+tab[i].nom;
+}
+
+function checkReponse()
+{
+  if(tab[i].capitale==reponse.value)
+  {
+    score++;
+    resultat.innerHTML="Bonne réponse ! <img src='img/content.png' width=50> ";
+  }
+  else
+  {
+      resultat.innerHTML="Mauvaise réponse ! <img src='img/angry.png' width=50> ";
+  }
+  //Dans 3secondes, on cache le texte de la div resultat
+  setTimeout(function()
+  {
+    resultat.innerHTML="";
+  },3000);
+
+  reponse.value="";
+  i++;
+  if(i<tab.length)
+  {
+      showQuestion();
+  }
+  else
+  {
+    stop();
+    btnPlay.setAttribute("disabled",true);
+    scorePartie.innerHTML="Fin du jeu, votre score est de "+score+" / "+tab.length;
+  }
+
+}
 
 function start()
 {
