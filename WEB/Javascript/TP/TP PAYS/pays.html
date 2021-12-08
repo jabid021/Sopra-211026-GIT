@@ -10,7 +10,7 @@
     <h1 id="chrono">00:00</h1>
     <div id="game">
       <div id="question"></div>
-      <input type="text" id="reponse">
+      <input id="reponse" type="text" >
       <input id="btnValidate" type="button" value="valider">
       <div id="resultat"></div>
     </div>
@@ -32,8 +32,17 @@ var score=0;
 btnPlay.onclick=start;
 btnPause.onclick=stop;
 btnValidate.onclick=checkReponse;
+reponse.onkeypress=verifTouche;
 
 showQuestion();
+
+function verifTouche(event)
+{
+  if(event.keyCode==13)
+  {
+    checkReponse();
+  }
+}
 
 
 function showQuestion(){

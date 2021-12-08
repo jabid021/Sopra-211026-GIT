@@ -1,0 +1,48 @@
+<p title="info sur le parag" id="parag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p id="parag2">Parag 2 </p>
+
+
+<input type="text" id="monInput">
+
+<script>
+
+
+
+parag.onclick=eventSouris;
+parag.ondblclick=eventSouris;
+parag.onmouseover=eventSouris;
+parag.onmouseout=eventSouris;
+parag.onmousemove=eventSouris;
+parag.onmouseup=eventSouris;
+parag.onmousedown=eventSouris;
+
+monInput.onkeypress=eventClavier;
+
+
+
+function eventClavier(event)
+{
+  if(event.keyCode==13){console.log("ENTER");}
+  console.log("clavier on "+event.keyCode);
+}
+
+function eventSouris(event)
+{
+  /*if(event.ctrlKey==true){console.log("ctrl");}
+  else if(event.shiftKey==true){console.log("shift");}*/
+  switch(event.type)
+  {
+  /*  case "click" :  console.log("click");break;
+    case "dblclick" :  console.log("dblclick");break;
+    case "mouseover" :  console.log("mouseover"); parag2.style.display="none";break;
+    case "mouseout" :  console.log("mouseout"); parag2.style.display="block";parag2.style.color="orange";break;
+    case "mousemove" :  console.log("move");break;
+    case "mouseup" :  console.log("up");break;
+    case "mousedown" :  console.log("down");break;*/
+  }
+
+}
+
+
+</script>
