@@ -5,23 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${connected}</title>
 </head>
 <body>
 
-<table>
 
 
-
-<%
-//List<Personnage> p = Context.
-for(int i=1;i<10;i++)
-{
-	out.println("<tr><td></td><td>toto</td></tr>");
-}
-%>
-</table>
-
+<p>${monPerso.nom},${monPerso.race},${monPerso.monture.nom},${monPerso.arme.nom}</p>
 
 
 
@@ -29,4 +19,8 @@ for(int i=1;i<10;i++)
 </html>
 
 
-<script></script>
+<script>
+
+alert('${connected}');
+
+</script>
