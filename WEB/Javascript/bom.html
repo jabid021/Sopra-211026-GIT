@@ -1,17 +1,27 @@
 <input id="btnTest" type="button" value="Test">
-
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 
 <script>
 btnTest.onclick=demoBom;
-
-
-
+p1.onclick=demoBom;
+//btnTest.onmouseover=demoBom;
+//var newTab = window.open("demoChrono.html");
+//if (newTab == null) alert("fenetre bloquee");
+//else { }
 
 
 function demoBom()
 {
-  var newTab = window.open("https://ajc-formation.fr","ajc");
+  //var newTab = window.open("demoChrono.html");
+  //newTab.close();
+  //location.href="https://www.google.fr";
+  //location.reload();
+  console.log(screen.width);
+  console.log(screen.height);
+
+  history.back(2);
+  history.go(1);
 
 
 }
