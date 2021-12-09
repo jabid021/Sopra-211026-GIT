@@ -135,7 +135,7 @@ header {
 				<a href="connexion.jsp">Se connecter</a>
 			</div>
 			<div class="row no-gutters btnC" id="nvCompte">
-				<a href="creerCompte.html">Créer un compte</a>
+				<a href="inscription">Créer un compte</a>
 			</div>
 
 		</c:if>
