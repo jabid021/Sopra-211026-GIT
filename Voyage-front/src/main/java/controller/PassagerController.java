@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Client;
-import model.Compte;
 import model.Passager;
 import util.Context;
 
