@@ -16,7 +16,7 @@ public class InitContext implements ServletContextListener {
 				e.printStackTrace();
 			}
 		 
-		 Context.getInstance(); 
+		// Context.getInstance(); 
 		  
 		  
 		  
