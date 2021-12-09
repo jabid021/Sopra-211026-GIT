@@ -107,7 +107,7 @@ input[type=nom] {
 		Infos passager <br>
 		<form action="passagers" method="post">
 			
-			<input type="hidden" name="tache" value="insert">
+			<input type="hidden" name="tache" value="update">
 			<input name="id" id="idPassager" type="hidden">
 			Nom : <input id="nom" name="nom" required placeholder="saisir le nom"
 				type="text"><br>

@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Cr√©er un compte</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-    crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-    crossorigin="anonymous"></script>
-    <style media="screen">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <style media="screen">
 
 
       body {
@@ -60,11 +48,11 @@
 
     <main class="container">
       <div class="connect">
-        <form class="" action="index.html" method="post">
+        <form action="inscription" method="post">
           <table>
             <tbody>
               <tr>
-                <td>Pr√©nom:</td>
+                <td>PrÈnom:</td>
                 <td><input type="text" name="prenom" value=""></td>
               </tr>
               <tr>
@@ -83,7 +71,7 @@
           </table>
           <br>
           <div class="finTab">
-            <input class="btn btn-success" value="Cr√©er le compte" type="submit">
+            <input class="btn btn-success" value="CrÈer le compte" type="submit">
             <input class="btn btn-danger" value="Annuler" type="reset">
             <a href="home">Accueil</a>
           </div>

@@ -40,7 +40,6 @@ public class HomeController extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		Compte connected = Context.getInstance().getDaoCompte().connect(login, password);
-		
 		if(connected instanceof Admin) 
 		{
 		
