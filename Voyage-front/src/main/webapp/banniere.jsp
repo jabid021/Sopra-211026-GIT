@@ -1,89 +1,148 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-   
-  <style media="screen">
 
-      header {
-        display: flex;
-        margin-bottom:150px;
-      }
+<style media="screen">
+header {
+	display: flex;
+	justify-content: center;
+}
 
-      body {
-        background-color: silver;
-      }
+#title {
+	display: flex;
+	width: 100%;
+	height: auto;
+	background-color: #5A9599;
+	justify-content: center;
+	align-items: center;
+	margin: 0px;
+	border: solid black 5px;
+}
 
-      #logo {
-        width: 20%;
-        left: -25px;
-        top: -20px;
-        padding: 15px;
-        position: absolute;
-        border-radius: 8%;
-        border: solid black 5px;
-        background-color: #5A9599;
-      }
+#imgLogo {
+	display: flex;
+}
 
-      #title {
-        display:flex;
-        width: 100%;
-        height: 200px;
-        background-color: #FF6F00;
-        justify-content: right;
-        border: solid black 3px;
-      }
+#logo {
+	display: flex;
+	justify-content: center;
+	background-color: #FF6F00;
+	border: solid black 5px;
+}
 
-      #txtTitle {
-        font-size: 75px;
-        line-height: 100%;
-        font-family: Prompt, monospace;
-        margin: 1% 25% 1% 1%;
-      }
+#txtTitle {
+	font-size: auto;
+	line-height: 100%;
+	font-family: Prompt, monospace;
+}
 
-      #identity {
-        width: 20%;
-        right: -20px;
-        top:0;
-        height: 200px;
-        position: absolute;
-        border-radius: 20px;
-        padding: 10px;
-        background-color: #ADE2D0;
-        border: solid black 3px;
-      }
+#connection {
+	display: flex;
+	background-color: #FF6F00;
+	border: solid black 5px;
+}
 
-      li {
-        list-style-type: none;
-      }
+.btnC {
+	background-color: silver;
+	padding: 3px;
+	margin: 3px;
+	border: solid black 1px;
+	border-radius: 4px;
+}
 
-    </style>
- 
- <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-    crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-    crossorigin="anonymous"></script>
-    
- 	
- </head>
- 
- <header>
-      <a href="home"><div id="logo"><img src="img/logo.png" width=100% alt=""></div></a>
-      <div id="title"><span id="txtTitle">Notre équipage est <br>remplaçable, vous non!</span></div>
-      <div id="identity">
-        
-        <c:if test="${isConnected!='y'}">
-	         <ul>
-	          <li id="connect"><a href="connexion.jsp">Se connecter</a></li>
-	          <li id="nvCompte"><a href="creerCompte.html">Créer un compte</a></li>
-	        </ul>
-        </c:if>
-        
-        <c:if test="${isConnected=='y'}">Vous etes deja co</c:if>
-       
-      </div>
-    </header>
+.padding-0 {
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+@media screen and (min-width: 320px) {
+	#txtTitle {
+		font-size: calc(22px + 38 * (( 100vw - 320px)/(1360- 320)));
+	}
+	#imgLogo {
+		width: calc(100px + 38 * (( 100vw - 320px)/(1360- 320)));
+	}
+	#connection {
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: row;
+		border-top: none;
+	}
+	#logo {
+		border-bottom: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#connection {
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		border-top: solid black 5px;
+		border-left: none;
+	}
+	#logo {
+		border-bottom: solid black 5px;
+		border-right: none;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	#txtTitle {
+		font-size: 60px;
+	}
+	#imgLogo {
+		width: 160px;
+	}
+}
+</style>
+<head>
+<meta charset="utf-8">
+<link
+	href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,500&display=swap"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous">
+<link rel="icon" href="img/logo.png">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
+</head>
+<header class="row no-gutters">
+	<div class="col-12 col-md-2" id="logo">
+		<a href="home"><img id="imgLogo" src="img/logo.png" alt=""></a>
+	</div>
+	<div id="title" class="col-md-8 d-none d-md-flex">
+		<span id="txtTitle">Notre équipage est <br>remplaçable,
+			vous non!
+		</span>
+	</div>
+	<div class="col-12 col-md-2 no-gutters" id="connection">
+		<c:if test="${isConnected!='y'}">
+
+			<div class="row no-gutters btnC" id="connect">
+				<a href="connexion.jsp">Se connecter</a>
+			</div>
+			<div class="row no-gutters btnC" id="nvCompte">
+				<a href="inscription">Créer un compte</a>
+			</div>
+
+		</c:if>
+
+		<c:if test="${isConnected=='y'}"><div class="row no-gutters btnC" id="deConnect">
+				<a href="deconnection">Se déconnecter</a>
+			</div></c:if>
+
+	</div>
+</header>
