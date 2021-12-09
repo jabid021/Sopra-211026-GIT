@@ -62,26 +62,23 @@ input[type=nom] {
 		<th>Action</th>
 	</tr>
 	<tbody>
-		<c:forEach items="${fiche_trajet}" var="ft">
 			<tr>
 				<td>${ft.id}</td>
-				<td>${ft.pdep}</td>
-				<td>${ft.par}</td>
-				<td>${ft.ddep}</td>
-				<td>${ft.hdep}</td>
-				<td>${ft.nvaisseau}</td>
+				<td>${ft.depart.nom}</td>
+				<td>${ft.arrivee.nom}</td>
+				<td>${ft.dateDepart}</td>
+				<td>${ft.heureDepart}</td>
+				<td>${ft.vaisseau.nom}</td>
 				<!-- <td>${p.client.nom} (${p.client.id})</td> -->
-				<td><input onclick="updateFicheTrajet(${ft.id},'${ft.pdep}','${ft.par}','${ft.ddep}','${ft.hdep}','${ft.nvaisseau}') type="button"
+				<td><input onclick="updateFicheTrajet() type="button"
 					class="btn btn-warning" value="Modifier"> <input
 					type="button" class="btn btn-danger" value="Supprimer"></td>
 			</tr>
 
-		</c:forEach>
-
 	</tbody>
 </table>
 
-
+<!--  
 <div id="formUpdate">
 	<fieldset>
 		<legend>&nbsp;Formulaire Update&nbsp;</legend>
@@ -116,8 +113,8 @@ input[type=nom] {
 						</c:forEach>
 					</select>
 			
-			<!--  <input class="btn btn-success" type="submit" name="add"
-				value="Ajouter un passager" id="buttonFormulaire">-->
+			  <input class="btn btn-success" type="submit" name="add"
+				value="Ajouter un passager" id="buttonFormulaire">
 				
 				<input class="btn btn-success" type="submit" name="add"
 				value="Modifier un Trajet" id="buttonFormulaire">
@@ -125,7 +122,7 @@ input[type=nom] {
 
 	</fieldset>
 </div>
-
+-->
 
 <script>
 
