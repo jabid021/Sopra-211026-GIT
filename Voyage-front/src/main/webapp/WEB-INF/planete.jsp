@@ -120,7 +120,8 @@
 		<legend>&nbsp;Formulaire Update&nbsp;</legend>
 		Charactéristiques de la planète à modifier : <br> <br>
 		<form action="planetes" method="post">
-		<input type="hidden" name="tache" value="insert">
+		<input type="hidden" name="tache" value="update">
+		<input name="id" id="idPlanete" type="hidden">
 			Saisir l'ID de la planète à modifier : <input name="id" type="number"
 				placeholder="saisir l'ID"><br> <br> Nouveau Nom :
 			<input name="nom" required placeholder="saisir le nom" type="nom"><br>
