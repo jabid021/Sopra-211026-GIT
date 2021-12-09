@@ -8,6 +8,10 @@
 </head>
 <body>
 
+
+<h1>Menu Client (${login})</h1>
+
+
 <ul>
 	<li><a href="catalogue">Consulter catalogue</a></li>
 </ul>

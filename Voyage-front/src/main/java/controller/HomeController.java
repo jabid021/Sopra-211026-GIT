@@ -18,12 +18,24 @@ import util.Context;
 public class HomeController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Si on est deja connecté, on doit redirect sur les menus client/admin sinon sur l'index
+		//Si on est deja connectÃ©, on doit redirect sur les menus client/admin sinon sur l'index
 		
-		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		if(request.getSession().getAttribute("isConnected")=="y") 
+		{
+			if(request.getSession().getAttribute("typeCompte")=="admin") 
+			{
+				this.getServletContext().getRequestDispatcher("/WEB-INF/menuAdmin.jsp").forward(request, response);
+			}
+			else if(request.getSession().getAttribute("typeCompte")=="client") 
+			{
+				this.getServletContext().getRequestDispatcher("/WEB-INF/menuClient.jsp").forward(request, response);
+			}
+		}
+		else {
+			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		}
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
@@ -31,10 +43,17 @@ public class HomeController extends HttpServlet {
 		
 		if(connected instanceof Admin) 
 		{
-		this.getServletContext().getRequestDispatcher("/WEB-INF/menuAdmin.jsp").forward(request, response);
+		
+			request.getSession().setAttribute("isConnected", "y");
+			request.getSession().setAttribute("typeCompte", "admin");
+			request.getSession().setAttribute("login", login);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/menuAdmin.jsp").forward(request, response);
 		}
 		else if(connected instanceof Client) 
 		{
+			request.getSession().setAttribute("isConnected", "y");
+			request.getSession().setAttribute("typeCompte", "client");
+			request.getSession().setAttribute("login", login);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/menuClient.jsp").forward(request, response);
 		}
 		else if(connected == null) 

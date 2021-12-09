@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<h1>Menu Admin (${login})</h1>
 	<ul>
 
 		<li><a href="planetes">Gestion des Planetes</a></li>
