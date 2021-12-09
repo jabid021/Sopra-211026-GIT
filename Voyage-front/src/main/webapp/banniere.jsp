@@ -140,7 +140,9 @@ header {
 
 		</c:if>
 
-		<c:if test="${isConnected=='y'}">Vous etes deja co</c:if>
+		<c:if test="${isConnected=='y'}"><div class="row no-gutters btnC" id="deConnect">
+				<a href="deconnection">Se déconnecter</a>
+			</div></c:if>
 
 	</div>
 </header>
