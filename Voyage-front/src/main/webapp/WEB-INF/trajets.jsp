@@ -51,6 +51,7 @@
 		<div id="BlocAjout" class="shadow p-3">
 
 			<form id="FormGr" action="trajets" method="post">
+			<input type="hidden" name="tache" value="insert">
 				<label for="add_PlaneteDepart">Planète de départ :</label><br>
 				<select class="form-control" name="planeteDepart">
 						<c:forEach items="${planetes}" var="p">
