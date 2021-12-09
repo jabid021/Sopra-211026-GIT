@@ -11,24 +11,5 @@
       <include-prelude>/banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-  <servlet>
-    <description></description>
-<<<<<<< Updated upstream
-    <display-name>DeconnectionController</display-name>
-    <servlet-name>DeconnectionController</servlet-name>
-    <servlet-class>controller.DeconnectionController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeconnectionController</servlet-name>
-    <url-pattern>/DeconnectionController</url-pattern>
-=======
-    <display-name>Catalogue</display-name>
-    <servlet-name>Catalogue</servlet-name>
-    <servlet-class>controller.Catalogue</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Catalogue</servlet-name>
-    <url-pattern>/Catalogue</url-pattern>
->>>>>>> Stashed changes
-  </servlet-mapping>
+  
 </web-app>
