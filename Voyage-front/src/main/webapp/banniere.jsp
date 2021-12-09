@@ -75,9 +75,15 @@
       <a href="home"><div id="logo"><img src="img/logo.png" width=100% alt=""></div></a>
       <div id="title"><span id="txtTitle">Notre équipage est <br>remplaçable, vous non!</span></div>
       <div id="identity">
-        <ul>
-          <li id="connect"><a href="connexion.jsp">Se connecter</a></li>
-          <li id="nvCompte"><a href="creerCompte.html">Créer un compte</a></li>
-        </ul>
+        
+        <c:if test="${isConnected!='y'}">
+	         <ul>
+	          <li id="connect"><a href="connexion.jsp">Se connecter</a></li>
+	          <li id="nvCompte"><a href="creerCompte.html">Créer un compte</a></li>
+	        </ul>
+        </c:if>
+        
+        <c:if test="${isConnected=='y'}">Vous etes deja co</c:if>
+       
       </div>
     </header>

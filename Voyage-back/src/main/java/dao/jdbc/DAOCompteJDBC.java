@@ -104,5 +104,11 @@ public class DAOCompteJDBC implements IDAOCompte{
 		return c;
 	}
 
+	@Override
+	public List<Client> findAllClient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

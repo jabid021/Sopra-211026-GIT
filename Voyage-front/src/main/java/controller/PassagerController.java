@@ -19,7 +19,7 @@ public class PassagerController extends HttpServlet {
 
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Compte> comptes = Context.getInstance().getDaoCompte().findAll();
+		List<Client> comptes = Context.getInstance().getDaoCompte().findAllClient();
 		List<Passager> passagers = Context.getInstance().getDaoPassager().findAll();
 		request.setAttribute("comptes", comptes);
 		request.setAttribute("passagers", passagers);
@@ -48,7 +48,7 @@ public class PassagerController extends HttpServlet {
 		}
 		Context.getInstance().getDaoPassager().save(p);
 		
-		doGet(request, response);
+		response.sendRedirect("passagers");
 		
 	}
 

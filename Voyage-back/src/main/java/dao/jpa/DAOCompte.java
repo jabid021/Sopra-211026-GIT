@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import dao.IDAOCompte;
+import model.Client;
 import model.Compte;
 import util.Context;
 
@@ -83,6 +84,17 @@ public class DAOCompte implements IDAOCompte{
 		em.close();
 		return connected;
 
+	}
+
+	@Override
+	public List<Client> findAllClient() {
+
+		EntityManagerFactory emf = Context.getInstance().getEmf();
+		EntityManager em = emf.createEntityManager();
+
+		List<Client> objets = em.createQuery("from Client").getResultList();
+		em.close();
+		return objets;
 	}
 
 }

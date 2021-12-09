@@ -66,7 +66,7 @@ input[type=nom] {
 				<td>${p.nom}</td>
 				<td>${p.prenom}</td>
 				<td>${p.client.nom} (${p.client.id})</td>
-				<td><input onclick="updatePassager(${p.id},'${p.nom}','${p.prenom}','${p.client.id}')" type="button"
+				<td><input onclick="updatePassager(${p.id},'${p.nom}','${p.prenom}','${p.client.nom}')" type="button"
 					class="btn btn-warning" value="Modifier"> <input
 					type="button" class="btn btn-danger" value="Supprimer"></td>
 			</tr>
@@ -89,7 +89,7 @@ input[type=nom] {
 				type="text"><br>
 			Client : <select name="client">
 						<c:forEach items="${comptes}" var="compte">
-						<option value="${compte.id}">${compte.login}</option>
+						<option value="${compte.id}">${compte.nom}</option>
 						</c:forEach>
 					</select>
 			
@@ -114,10 +114,8 @@ input[type=nom] {
 			Prenom : <input id="prenom" name="prenom" required placeholder="saisir le prenom"
 				type="text"><br>
 			Client : <select id="client" name="client">
-						<option>Choisir un compte	</option>
 						<c:forEach items="${comptes}" var="compte">
-						
-						<option value="${compte.id}">${compte.login}</option>
+						<option value="${compte.id}">${compte.nom}</option>
 						</c:forEach>
 					</select>
 			
@@ -146,6 +144,7 @@ function updatePassager(idUpdate,nomUpdate,prenomUpdate,idClient)
 	nom.value=nomUpdate;
 	idPassager.value=idUpdate;
 	prenom.value=prenomUpdate;
+	
 }
 
 
