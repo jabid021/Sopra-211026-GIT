@@ -11,4 +11,14 @@
       <include-prelude>/banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
+  <servlet>
+    <description></description>
+    <display-name>PlaneteController</display-name>
+    <servlet-name>PlaneteController</servlet-name>
+    <servlet-class>controller.PlaneteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlaneteController</servlet-name>
+    <url-pattern>/PlaneteController</url-pattern>
+  </servlet-mapping>
 </web-app>
