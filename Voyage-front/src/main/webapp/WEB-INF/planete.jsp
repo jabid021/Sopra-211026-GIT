@@ -60,7 +60,7 @@
 
 </head>
 
-<input class ="btn btn-success"type="button" name="add" value="Ajouter">
+<input id="btnAdd" class ="btn btn-success"type="button" name="add" value="Ajouter">
 
 <table class="table table-striped" border>
 	<tr>
