@@ -12,7 +12,7 @@ public class DeconnectionController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		response.sendRedirect("home");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
