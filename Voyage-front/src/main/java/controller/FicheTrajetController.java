@@ -25,7 +25,7 @@ public class FicheTrajetController extends HttpServlet {
 		Trajet trajet = Context.getInstance().getDaoTrajet().findById(id);
 		List<Planete> planetes = Context.getInstance().getDaoPlanete().findAll();
 		List<Vaisseau> vaisseaux = Context.getInstance().getDaoVaisseau().findAll();
-		request.setAttribute("ft", trajet);
+		request.setAttribute("trajet", trajet);
 		request.setAttribute("planetes", planetes);
 		request.setAttribute("vaisseaux", vaisseaux);
 
@@ -34,7 +34,6 @@ public class FicheTrajetController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tache = request.getParameter("tache");
 		LocalDate dateDepart = LocalDate.parse(request.getParameter("dateDepart"));
 		LocalTime heureDepart = LocalTime.parse(request.getParameter("heureDepart"));
 		int planeteDepart = Integer.parseInt(request.getParameter("planeteDepart"));
@@ -44,17 +43,10 @@ public class FicheTrajetController extends HttpServlet {
 		Planete pDep = Context.getInstance().getDaoPlanete().findById(planeteDepart);
 		Planete pArr = Context.getInstance().getDaoPlanete().findById(planeteArrivee);
 		Vaisseau v = Context.getInstance().getDaoVaisseau().findById(vaisseau);
-		Trajet t=null;
-
-		if(tache.equals("insert")) 
-		{
-			t = new Trajet(dateDepart, heureDepart, pDep, pArr, v);
-		}
-		else if(tache.equals("update"))
-		{
-			int id = Integer.parseInt(request.getParameter("id"));
-			t = new Trajet(id, dateDepart, heureDepart, pDep, pArr, v);
-		}
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		Trajet t = new Trajet(id, dateDepart, heureDepart, pDep, pArr, v);
+		
 		
 		Context.getInstance().getDaoTrajet().save(t);
 		response.sendRedirect("trajets");

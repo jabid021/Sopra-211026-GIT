@@ -30,22 +30,22 @@ public class VaisseauController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String tache = request.getParameter("tache");
-		String nom = request.getParameter("nom");
-		double vitesse = Integer.parseInt(request.getParameter("vitesse"));
-		int capacité = Integer.parseInt(request.getParameter("capacité"));
-		double distance = Integer.parseInt(request.getParameter("distance"));
+		String nom = request.getParameter("Nom");
+		double vitesse = Double.parseDouble(request.getParameter("Vitesse"));
+		int capacite = Integer.parseInt(request.getParameter("Capacite"));
+		double distance = Double.parseDouble(request.getParameter("Distance"));
 
 		Vaisseau p=null;
 		if(tache.equals("insert")) 
 		{
-			p = new Vaisseau(nom,vitesse,capacité,distance);
+			p = new Vaisseau(nom,vitesse,capacite,distance);
 
 		}
 		else if(tache.equals("update"))
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
 
-			p = new Vaisseau(id,nom,vitesse,capacité,distance);
+			p = new Vaisseau(id,nom,vitesse,capacite,distance);
 		}
 		
 		Context.getInstance().getDaoVaisseau().save(p);

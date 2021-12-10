@@ -35,6 +35,8 @@ public class PlaneteController extends HttpServlet {
 		int y = Integer.parseInt(request.getParameter("y"));
 		int z = Integer.parseInt(request.getParameter("z"));
 		TypePlanete type_planete = TypePlanete.valueOf(request.getParameter("type"));
+		String description = request.getParameter("description");
+		String img = (request.getParameter("image")!="")?request.getParameter("image"):null;
 		
 		Coordonnees coordonnees = new Coordonnees(x,y,z);
 		
@@ -43,15 +45,19 @@ public class PlaneteController extends HttpServlet {
 		if(tache.equals("insert")) 
 		{
 			 p = new Planete(nom,type_planete,coordonnees);
+			 p.setDescription(description);
+			 p.setImg(img);
 		}
 		else if(tache.equals("update"))
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
 			 p = new Planete(id,nom,type_planete,coordonnees);
+			 p.setDescription(description);
+			 p.setImg(img);
 		}
 		Context.getInstance().getDaoPlanete().save(p);
 		
-		response.sendRedirect("planete");
+		response.sendRedirect("planetes");
 	}
 
 }

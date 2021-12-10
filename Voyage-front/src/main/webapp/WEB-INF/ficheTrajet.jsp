@@ -7,28 +7,11 @@
 
 <style>
 
-#formUpdate,#formAjout
-{
-	display:none;
-}
-body {
-	background-color: #F4EFE7;
-}
-
 fieldset {
 	width: 100%;
 }
 
-div {
-	display: flex;
-	background-color: white;
-	width: 30%;
-	border: 2px solid black;
-	margin: 10px;
-	margin-left: 35%;
-	padding: 30px;
-	box-shadow: 0 0 20px 0 rgb(0 0 0/ 20%), 0 5px 5px 0 rgb(0 0 0/ 24%);
-}
+
 
 #titre {
 	display: flex;
@@ -49,7 +32,7 @@ input[type=nom] {
 
 </head>
 
-<input id="btnMod" class="btn btn-success" type="button" name="add" value="Modifier">
+<a href="trajets"><input id="btnMod" class="btn btn-primary" type="button" name="add" value="Retour"></a>
 
 <table class="table table-striped" border>
 	<tr>
@@ -63,14 +46,13 @@ input[type=nom] {
 	</tr>
 	<tbody>
 			<tr>
-				<td>${ft.id}</td>
-				<td>${ft.depart.nom}</td>
-				<td>${ft.arrivee.nom}</td>
-				<td>${ft.dateDepart}</td>
-				<td>${ft.heureDepart}</td>
-				<td>${ft.vaisseau.nom}</td>
-				<!-- <td>${p.client.nom} (${p.client.id})</td> -->
-				<td><input onclick="updateFicheTrajet() type="button"
+				<td>${trajet.id}</td>
+				<td>${trajet.depart.nom}</td>
+				<td>${trajet.arrivee.nom}</td>
+				<td>${trajet.dateDepart}</td>
+				<td>${trajet.heureDepart}</td>
+				<td>${trajet.vaisseau.nom}</td>
+				<td><input onclick="updateFicheTrajet()" type="button"
 					class="btn btn-warning" value="Modifier"> <input
 					type="button" class="btn btn-danger" value="Supprimer"></td>
 			</tr>
@@ -78,68 +60,80 @@ input[type=nom] {
 	</tbody>
 </table>
 
-<!--  
+ 
 <div id="formUpdate">
 	<fieldset>
 		<legend>&nbsp;Formulaire Update&nbsp;</legend>
 		Infos trajet <br>
 		<form action="ficheTrajet" method="post">
-			<input type="hidden" name="tache" value="insert">
+			<input type="hidden" name="id" value="${trajet.id}">
 			Planète de départ : 
-					<select name="planeteDep">
+					<select name="planeteDepart">
 						<c:forEach items="${planetes}" var="planete">
-						<option value="${planeteDep.id}">${planete.nom}</option>
+						<c:choose>
+							<c:when test="${planete.id==trajet.depart.id}">
+								<option selected value="${planete.id}">${planete.nom}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${planete.id}">${planete.nom}</option>
+								</c:otherwise>
+						</c:choose>
+						
 						</c:forEach>
 					</select>
 			
 			Planète d'arrivée : 
 					<select name="planeteArrivee">
 						<c:forEach items="${planetes}" var="planete">
-						<option value="${planeteAr.id}">${planete.nom}</option>
+						<c:choose>
+							<c:when test="${planete.id==trajet.arrivee.id}">
+								<option selected value="${planete.id}">${planete.nom}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${planete.id}">${planete.nom}</option>
+								</c:otherwise>
+						</c:choose>
+						
 						</c:forEach>
 					</select>
 					
-			Date de départ : <input name="dateDep" required 
+			Date de départ : <input value="${trajet.dateDepart}" name="dateDepart" required 
 				type="date"><br>
 					
 					
-			Heure de départ : <input name="heureDep" required 
+			Heure de départ : <input value="${trajet.heureDepart}" name="heureDepart" required 
 				type="time"><br>
 				
 			Nom du vaisseau : 
-					<select name="nomVaisseau">
+					<select name="vaisseau">
 						<c:forEach items="${vaisseaux}" var="vaisseau">
-						<option value="${vaisseau.id}">${vaisseau.nom}</option>
+						<c:choose>
+							<c:when test="${vaisseau.id==trajet.vaisseau.id}">
+								<option selected value="${vaisseau.id}">${vaisseau.nom}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${vaisseau.id}">${vaisseau.nom}</option>
+								</c:otherwise>
+						</c:choose>
 						</c:forEach>
 					</select>
 			
-			  <input class="btn btn-success" type="submit" name="add"
-				value="Ajouter un passager" id="buttonFormulaire">
-				
 				<input class="btn btn-success" type="submit" name="add"
 				value="Modifier un Trajet" id="buttonFormulaire">
 			</form>
 
 	</fieldset>
 </div>
--->
+
 
 <script>
 
-btnMod.onclick=updateTrajet;
 
 
-function updateTrajet(idUpdate,idPlaneteDep,idPlaneteArr,dateDep,heureDep,nomVaisseau)
+
+function updateFicheTrajet()
 {
-	//formAjout.style.display="none";
-	//formUpdate.style.display="block";
-	//nom.value=nomUpdate;
-	idTrajet.value=idUpdate;
-	planeteDep.value=idPlaneteDep;
-	planeteAr.value=idPlaneteArr;
-	planeteDep.value=idPlaneteDep;
-	
-	
+	formUpdate.style.display="block";
 	
 }
 

@@ -2,6 +2,19 @@
 
 
 <style media="screen">
+  #formUpdate,#formAjout
+{
+	display:none;
+    background-color:white;
+    width:30%;
+    border:2px solid black;
+    margin:10px;
+    margin-left:35%;
+
+    padding: 30px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 0 5px 5px 0 rgb(0 0 0 / 24%);
+}
+  body{background-color:#F4EFE7!important;}
 header {
 	display: flex;
 	justify-content: center;
@@ -129,7 +142,7 @@ header {
 		</span>
 	</div>
 	<div class="col-12 col-md-2 no-gutters" id="connection">
-		<c:if test="${isConnected!='y'}">
+		<c:if test="${isConnected==null}">
 
 			<div class="row no-gutters btnC" id="connect">
 				<a href="connexion.jsp">Se connecter</a>

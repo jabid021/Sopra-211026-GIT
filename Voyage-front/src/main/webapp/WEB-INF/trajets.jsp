@@ -36,7 +36,7 @@
 						<td>${t.dateDepart}</td>
 						<td>${t.heureDepart}</td>
 						<td>${t.vaisseau.nom}</td>
-						<td><a href="fiche_trajet.html?id=${t.id}"
+						<td><a href="ficheTrajet?id=${t.id}"
 							class="btn btn-warning" role="button">Voir Fiche</a> <input
 							class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
 				</c:forEach>

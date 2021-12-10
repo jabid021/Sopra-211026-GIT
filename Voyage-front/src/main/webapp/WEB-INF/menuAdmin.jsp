@@ -12,7 +12,7 @@
 	<ul>
 
 		<li><a href="planetes">Gestion des Planetes</a></li>
-		<li><a href="vaisseaux">Gestion des Vaisseaux</a></li>
+		<li><a href="vaisseau">Gestion des Vaisseaux</a></li>
 		<li><a href="trajets">Gestion des Trajets</a></li>
 		<li><a href="passagers">Gestion des Passagers</a></li>
 	

@@ -11,24 +11,11 @@
 {
 	display:none;
 }
-body {
-	background-color: #F4EFE7;
-}
 
 fieldset {
 	width: 100%;
 }
 
-div {
-	display: flex;
-	background-color: white;
-	width: 30%;
-	border: 2px solid black;
-	margin: 10px;
-	margin-left: 35%;
-	padding: 30px;
-	box-shadow: 0 0 20px 0 rgb(0 0 0/ 20%), 0 5px 5px 0 rgb(0 0 0/ 24%);
-}
 
 #titre {
 	display: flex;

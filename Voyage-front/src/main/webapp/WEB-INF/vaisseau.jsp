@@ -9,27 +9,7 @@
         margin-left : 30px;
       }
 
-      #div1{
-
-        background-color:white;
-        border : solid black 2px;
-        width : 40%;
-        justify-content: flex-end;
-        align-content: flex-start;
-        padding : 10px;
-
-      }
-
-      #div2{
-
-        background-color:white;
-        border : solid black 2px;
-        width : 40%;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding : 10px;
-        margin-left :30px;
-      }
+      
 
       /* Full-width inputs */
   input[type=text], input[type=password] {
@@ -72,7 +52,7 @@
 </head>
 
 <body>
-	<button type="button" class="btn btn-success">Ajouter</button>
+	<button type="button" id="btnAdd" class="btn btn-success">Ajouter</button>
 	<br>
 	<br>
 	<table class="table table-striped" border>
@@ -103,22 +83,21 @@
 
 	</table>
 
-	<h2>Modifier/Ajouter vaisseau</h2>
 	<content>
-	<div id="div1">
+	<div id="formUpdate">
 	<fieldset>
 		<legend>Update vaisseau</legend>
 		<form action="vaisseau" method="post">
 		
 			<input type="hidden" name="tache" value="update">
 			<input name="id" id="idVaisseau" type="hidden">
-			Nom : <input name="Nom" placeholder="Nom" type="text"><br>
-			<br> Vitesse : <input name="Vitesse" type="text"
+			Nom : <input id="nom" name="Nom" placeholder="Nom" type="text"><br>
+			<br> Vitesse : <input step="0.1" id="vitesse" name="Vitesse" type="number"
 				placeholder="Vitesse"><br>
-			<br> Capacité : <input name="Capacite" placeholder="CapacitÃ©"
-				type="text"><br>
-			<br> Distance : <input name="Distance" placeholder="Distance"
-				type="text"><br>
+			<br> Capacité : <input id="capacite" name="Capacite" placeholder="Capacite"
+				type="number"><br>
+			<br> Distance : <input step="0.1" id="distance" name="Distance" placeholder="Distance"
+				type="number"><br>
 			<br> 
 			<input class="btn btn-success" type="submit" name="modif"
 				value="Modifier un vaisseau" id="buttonFormulaire">
@@ -126,20 +105,18 @@
 		</fieldset>
 	</div>
 
-	<div id="div2">
+	<div id="formAjout">
 	<fieldset>
 		<legend>Ajouter vaisseau</legend>
 		<form action="vaisseau" method="post">
 		<input type="hidden" name="tache" value="insert">
 			Nom : <input name="Nom" placeholder="Nom" type="text"><br>
-			<br> Vitesse : <input name="Vitesse" type="text"
+			<br> Vitesse : <input step="0.1" name="Vitesse" type="number"
 				placeholder="Vitesse"><br>
-			<br> Capacité : <input name="Capacite" placeholder="CapacitÃ©"
-				type="text"><br>
-			<br> Distance : <input name="Distance" placeholder="Distance"
-				type="text"><br>
-			<br> ID : <input type="text" name="ID"
-				placeholder="ID vaisseau Ã  ajouter"><br>
+			<br> Capacité : <input name="Capacite" placeholder="Capacite"
+				type="number"><br>
+			<br> Distance : <input step="0.1" name="Distance" placeholder="Distance"
+				type="number">
 			<br>
 			
 			<input class="btn btn-success" type="submit" name="add"
@@ -171,7 +148,9 @@ function updateVaisseau(idUpdate,nomUpdate,viteUpdate,capaciteUpdate,distanceUpd
 	formUpdate.style.display="block";
 	nom.value=nomUpdate;
 	idVaisseau.value=idUpdate;
-	nom.value=prenomUpdate;
+	vitesse.value=viteUpdate;
+	capacite.value=capaciteUpdate;
+	distance.value=distanceUpdate;
 	
 }
 
