@@ -17,6 +17,6 @@ public class Guitariste implements Musicien {
 	}
 
 	public void jouer() {
-		System.out.println("le guitariste joue :" + this.guitare);
+		System.out.println("le guitariste joue :" + this.guitare.toString());
 	}
 }
