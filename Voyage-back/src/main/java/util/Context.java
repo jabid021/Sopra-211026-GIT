@@ -18,7 +18,7 @@ import model.Compte;
 
 public class Context {
 
-	//elements liés à NOTRE PROJET//
+	//elements li?s ? NOTRE PROJET//
 	private Compte connected;
 	private IDAOCompte daoCompte = new DAOCompte();
 	private IDAOPlanete daoPlanete = new DAOPlanete();
@@ -45,7 +45,7 @@ public class Context {
 	
 	
 	///
-	//Getters / Setters liés à NOTRE PROJET
+	//Getters / Setters li?s ? NOTRE PROJET
 	public Compte getConnected() {
 		return connected;
 	}
