@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class Guitariste implements Musicien {
 
 	@Autowired
-	 @Qualifier("yamaha") //ne sert que si on a plusieurs candidats
+	@Qualifier("guitare") //ne sert que si on a plusieurs candidats
 	private Instrument instrument;
 
 	public Guitariste() {

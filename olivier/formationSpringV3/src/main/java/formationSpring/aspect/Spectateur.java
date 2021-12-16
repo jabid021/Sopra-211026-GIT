@@ -17,7 +17,12 @@ import formationSpring.bean.Musicien;
 @Component
 @Aspect
 public class Spectateur {
-	
+
+	@Before("jouerGuitariste()")
+	public void publicInstallation() {
+		System.out.println("les spectateurs s'installent");
+	}
+
 	@Autowired
 	@Qualifier("pianiste")
 	private Musicien pianiste;
@@ -26,14 +31,15 @@ public class Spectateur {
 	public void jouerGuitariste() {
 
 	}
+
 	@Pointcut("execution(void formationSpring.bean.Musicien.jouer())")
 	public void jouerMusicien() {
-		
+
 	}
-	
+
 	@Pointcut("execution(void formationSpring.bean.Pianiste.jouer())")
 	public void jouerPianiste() {
-		
+
 	}
 
 	@Pointcut("execution(String *.*.Guitariste.getInfo())")
@@ -44,11 +50,6 @@ public class Spectateur {
 	@AfterReturning(pointcut = "pointcutGetInfo()", returning = "resultat")
 	public void afficherInfoRecupere(String resultat) {
 		System.out.println("valeur recu:" + resultat);
-	}
-
-	@Before("jouerGuitariste()")
-	public void publicInstallation() {
-		System.out.println("les spectateurs s'installent");
 	}
 
 	@AfterReturning(pointcut = "jouerMusicien()")
@@ -66,7 +67,6 @@ public class Spectateur {
 		pianiste.jouer();
 	}
 
-	
 	@After("jouerPianiste()")
 	public void depart() {
 		System.out.println("les spectateurs quittent la salle");
