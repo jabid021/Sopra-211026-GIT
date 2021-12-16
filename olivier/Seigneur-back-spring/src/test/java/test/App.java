@@ -1,27 +1,63 @@
 package test;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import config.AppConfig;
-import dao.IDAOCompagnon;
-import model.Arme;
+import exception.CompagnonException;
 import model.Compagnon;
-import model.Personnage;
+import repository.CompagnonRepository;
 
 public class App {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-		IDAOCompagnon daoCompagnon = ctx.getBean(IDAOCompagnon.class);
-		Compagnon compagnon = new Compagnon("toto");
-		System.out.println(compagnon.getId());
-		daoCompagnon.findById(100L);
-		System.out.println(Integer.MAX_VALUE);
-		System.out.println(Long.MAX_VALUE);
-		// daoCompagnon.save(new Compagnon("toto"));
-		// System.out.println(daoCompagnon.findAll());
+
+		CompagnonRepository compagnonRepo = ctx.getBean(CompagnonRepository.class);
+
+		// compagnonRepo.save(new Compagnon("milou"));
+		// compagnonRepo.saveAll(Arrays.asList(new Compagnon("lassi"), new
+		// Compagnon("alcor")));
+
+		// System.out.println(compagnonRepo.findAll());
+
+//		Optional<Compagnon> opt = compagnonRepo.findById(1000000L);
+//		if (opt.isPresent()) {
+//			System.out.println(opt.get());
+//		} else {
+//			System.out.println("pas de resultat");
+//		}
+//
+//		opt = compagnonRepo.findById(100L);
+//		if (opt.isPresent()) {
+//			System.out.println(opt.get());
+//		} else {
+//			System.out.println("pas de resultat");
+//		}
+//
+//		Compagnon compagnon = compagnonRepo.findById(100L).orElse(null);
+//		System.out.println("--------------");
+//		compagnon = compagnonRepo.findById(100L).orElseThrow(CompagnonException::new);
+//		System.out.println(compagnon);
+
+//		compagnonRepo.findAll(Sort.by("nom")).forEach(System.out::println);
+
+//		Pageable pageable = PageRequest.of(0, 2);
+//		Page<Compagnon> page = compagnonRepo.findAll(pageable);
+//		System.out.println("page" + page.getNumber() + ",elements:" + page.getContent());
+//		page = compagnonRepo.findAll(page.nextOrLastPageable());
+//		System.out.println("page" + page.getNumber() + ",elements:" + page.getContent());
+//		page = compagnonRepo.findAll(page.nextOrLastPageable());
+//		System.out.println("page" + page.getNumber() + ",elements:" + page.getContent());
+
+		
+		System.out.println(compagnonRepo.findByNomContaining("ix"));
+		
 		ctx.close();
 
 	}
