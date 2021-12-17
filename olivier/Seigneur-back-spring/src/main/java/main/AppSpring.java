@@ -3,6 +3,8 @@ package main;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,13 +43,15 @@ public class AppSpring {
 //		personnageRepo.save(p1);
 //		System.out.println(p1.getArme().getNom());
 
-		System.out.println(personnageRepo.findByNom("tototototo").get().getArme().getNom());
-
 		// initDataBase();
 //		System.out.println(personnageRepo.findByVivantTrue());
 //		System.out.println(personnageRepo.findByVivantFalse());
 //		System.out.println(personnageRepo.findByIdWithInventaire(100L).get().getInventaire());
 //		System.out.println(personnageRepo.findByIdWithQuetes(100L).get().getQuetes());
+
+		Personnage bob = personnageRepo.findByIdWithInventaireAndQuetes(100L).get();
+		System.out.println(bob.getQuetes());
+		System.out.println(bob.getInventaire());
 	}
 
 	private void initDataBase() {
@@ -65,7 +69,7 @@ public class AppSpring {
 		Personnage fantasin = new Personnage("bob", 1, Race.Humain, true);
 		fantasin.setArme(epee);
 		fantasin.setInventaire(new HashSet<Equipement>(Arrays.asList(epee, arc)));
-		fantasin.setQuetes(new HashSet<Quete>(Arrays.asList(quete1, quete2)));
+		fantasin.setQuetes(Arrays.asList(quete1, quete2).stream().collect(Collectors.toSet()));
 		personnageRepo.save(fantasin);
 		Personnage archer = new Personnage("archer", 100, Race.Elfe, false);
 		personnageRepo.save(archer);
