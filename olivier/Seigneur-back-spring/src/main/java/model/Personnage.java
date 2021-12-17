@@ -1,12 +1,14 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,9 +32,9 @@ public class Personnage {
 	@Id // Obligatoire
 	// @GeneratedValue(strategy = GenerationType.IDENTITY) // Obligatoire*
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonnage")
-	private int id;
+	private Long id;
 
-	@Column(name = "name", nullable = false, columnDefinition = "VARCHAR(25)")
+	@Column(name = "name", nullable = false, columnDefinition = "VARCHAR(200)", unique = true)
 	private String nom;
 
 	@Column(name = "hp", nullable = false)
@@ -64,9 +66,10 @@ public class Personnage {
 																		// Equipement ici
 
 	)
-	private List<Equipement> inventaire;
+	private Set<Equipement> inventaire;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "team_id", foreignKey = @ForeignKey(name = "personnage_team_fk"))
 	private Equipe team;
 
 	@OneToOne(cascade = CascadeType.MERGE)
@@ -74,10 +77,35 @@ public class Personnage {
 
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "challenge_accepted")
-	private List<Quete> quetes;
+	private Set<Quete> quetes;
 
 	@Version
 	private int version;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Personnage other = (Personnage) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 	// Obligatoire
 	public Personnage() {
@@ -122,11 +150,11 @@ public class Personnage {
 		this.vivant = vivant;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -154,11 +182,11 @@ public class Personnage {
 		this.armure = armure;
 	}
 
-	public List<Equipement> getInventaire() {
+	public Set<Equipement> getInventaire() {
 		return inventaire;
 	}
 
-	public void setInventaire(List<Equipement> inventaire) {
+	public void setInventaire(Set<Equipement> inventaire) {
 		this.inventaire = inventaire;
 	}
 
@@ -178,11 +206,11 @@ public class Personnage {
 		this.familier = familier;
 	}
 
-	public List<Quete> getQuetes() {
+	public Set<Quete> getQuetes() {
 		return quetes;
 	}
 
-	public void setQuetes(List<Quete> quetes) {
+	public void setQuetes(Set<Quete> quetes) {
 		this.quetes = quetes;
 	}
 

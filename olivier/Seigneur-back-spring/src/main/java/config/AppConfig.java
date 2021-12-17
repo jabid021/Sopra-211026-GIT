@@ -20,10 +20,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "dao" })
+@ComponentScan(basePackages = { "dao", "service" })
 @EnableTransactionManagement
 @PropertySource("classpath:infos.properties")
-@EnableJpaRepositories(basePackages = {"repository"})
+@EnableJpaRepositories(basePackages = { "repository" })
 public class AppConfig {
 
 	@Autowired
