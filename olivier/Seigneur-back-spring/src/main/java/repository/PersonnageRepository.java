@@ -29,5 +29,7 @@ public interface PersonnageRepository extends JpaRepository<Personnage, Long> {
 
 	@Query("select distinct personnage from Personnage personnage left join fetch personnage.inventaire left join fetch personnage.quetes where personnage.id=:id")
 	Optional<Personnage> findByIdWithInventaireAndQuetes(@Param("id") Long id);
+	
+	
 
 }

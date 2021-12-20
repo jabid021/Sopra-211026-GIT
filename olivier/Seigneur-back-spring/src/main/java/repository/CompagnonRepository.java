@@ -22,13 +22,16 @@ public interface CompagnonRepository extends JpaRepository<Compagnon, Long> {
 	@Query("select c from Compagnon c left join fetch c.maitre where c.id=:id")
 	Optional<Compagnon> findByIdWithMaitre(@Param("id") Long id);
 
-	@Transactional
-	@Modifying
-	@Query("update Compagnon c set c.maitre=null where c.maitre=:maitre")
-	void updateMaitreCompagnon(@Param("maitre") Personnage maitre);
-
+//	@Transactional
+//	@Modifying
+//	@Query("update Compagnon c set c.maitre=null where c.maitre=:maitre")
+//	void updateMaitreCompagnon(@Param("maitre") Personnage maitre);
+//
 	@Transactional
 	@Modifying
 	@Query("delete Compagnon c where c.maitre=:maitre")
 	void deleteByMaitre(@Param("maitre") Personnage maitre);
 }
+
+
+ 

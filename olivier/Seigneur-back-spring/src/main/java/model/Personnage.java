@@ -73,6 +73,7 @@ public class Personnage {
 	private Equipe team;
 
 	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name="familier_id")
 	private Compagnon familier;
 
 	@ManyToMany(cascade = CascadeType.MERGE)
