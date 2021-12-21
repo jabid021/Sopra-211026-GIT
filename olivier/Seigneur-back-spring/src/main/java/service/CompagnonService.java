@@ -18,11 +18,15 @@ public class CompagnonService {
 	@Autowired
 	private PersonnageService personnageService;
 
-	public void creation(Compagnon compagnon) {
+	public void creationOuModification(Compagnon compagnon) {
 		if (compagnon.getNom() == null) {
 			throw new CompagnonException();
 		}
 		compagnonRepo.save(compagnon);
+	}
+
+	public void suppression(Long id) {
+		suppression(getById(id));
 	}
 
 	public void suppression(Compagnon compagnon) {

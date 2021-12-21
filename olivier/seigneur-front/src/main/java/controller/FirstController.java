@@ -14,9 +14,11 @@ public class FirstController {
 
 	// @RequestMapping(value = "/hello",method = RequestMethod.GET)
 	@RequestMapping("/hello")
-	public String hello(@RequestParam(name = "prenom") String prenom,
+	public String hello(@RequestParam(name = "prenom", required = false, defaultValue = "world") String prenom,
 			Model model) {
 		model.addAttribute("prenom", prenom);
 		return "hello";
 	}
+	
+	
 }
