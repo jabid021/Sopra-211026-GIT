@@ -4,14 +4,22 @@ import java.time.LocalDateTime;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 @DiscriminatorValue("weapon")
 public class Arme extends Equipement {
 
+	@DecimalMin("0.0")
+	@DecimalMax("1000.0")
 	private double portee;
+	@Min(1)
+	@Max(2)
 	private int hand;
-	
+
 	public Arme() {
 	}
 
@@ -42,6 +50,5 @@ public class Arme extends Equipement {
 		return "Arme [portee=" + portee + ", hand=" + hand + ", id=" + id + ", nom=" + nom + ", creation=" + creation
 				+ ", stats=" + stats + "]";
 	}
-	
-	
+
 }

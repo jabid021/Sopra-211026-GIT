@@ -31,7 +31,7 @@ public class PersonnageService {
 		if (personnage.getFamilier().getId() != null) {
 			personnage.setFamilier(compagnonService.getById(personnage.getFamilier().getId()));
 		} else {
-			compagnonService.creation(personnage.getFamilier());
+			compagnonService.creationOuModification(personnage.getFamilier());
 		}
 		personnageRepo.save(personnage);
 	}

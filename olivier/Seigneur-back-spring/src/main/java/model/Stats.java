@@ -2,13 +2,19 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Embeddable
 public class Stats {
 
 	@Column(nullable = true)
+	@Min(value = 0)
+	@Max(10000)
 	private int attaque;
 	@Column(nullable = true)
+	@Min(value = 0)
+	@Max(10000)
 	private int defense;
 	
 	public Stats() {

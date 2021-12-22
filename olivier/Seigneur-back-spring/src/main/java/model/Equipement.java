@@ -13,6 +13,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -26,11 +28,13 @@ public abstract class Equipement {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqEquip")
 	protected Long id;
 
+	@NotEmpty
 	protected String nom;
 
-	protected LocalDateTime creation;
+	protected LocalDateTime creation = LocalDateTime.now();
 
 	@Embedded
+	@Valid
 	protected Stats stats;
 
 	// C'est ceux qui ont recup des equipements

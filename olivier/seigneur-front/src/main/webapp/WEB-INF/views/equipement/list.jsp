@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctx" value="${pageContext.servletContext.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -23,29 +24,46 @@
 </head>
 <body>
 	<div class="container">
-		<h1>liste des compagnons</h1>
+		<h1>liste des equipements</h1>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>id:</th>
 					<th>nom:</th>
+					<th>date de creation</th>
+					<th>att/def</th>
+					<th>infos specifiques</th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${compagnons}" var="compagnon">
+				<c:forEach items="${equipements}" var="e">
 					<tr>
-						<td>${compagnon.id}</td>
-						<td>${compagnon.nom}</td>
-						<td><a href="${ctx}/compagnon/edit?id=${compagnon.id}"
+						<td>${e.id}</td>
+						<td>${e.nom}</td>
+						<td>
+						<fmt:parseDate value="${e.creation}" var="dateCreation" pattern="yyyy-MM-dd'T'HH:mm:ss"></fmt:parseDate>
+						<fmt:formatDate value="${dateCreation}"
+								pattern="'date creation:'dd/MM/yyyy', heure:'hh:mm" /></td>
+						<td>${e.stats.attaque}/${e.stats.defense}</td>
+						<td><c:if test="${e.getClass().name=='model.Arme'}">main:${e.hand}&nbsp;portée:${e.portee}</c:if>
+							<c:if test="${e.getClass().name=='model.Armure'}">materiaux:${e.materiaux}</c:if>
+							<c:if test="${e.getClass().name=='model.Monture'}">type de monture:${e.type}</c:if>
+
+						</td>
+						<td><a href="${ctx}/equipement/edit?id=${e.id}"
 							class="btn btn-outline-primary">editer</a></td>
-						<td><a href="${ctx}/compagnon/delete?id=${compagnon.id}"
+						<td><a href="${ctx}/equipement/delete?id=${e.id}"
 							class="btn btn-outline-danger">supprimer</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="${ctx}/compagnon/add" class="btn btn-link">ajouter un
-			compagnon</a>
+		<a href="${ctx}/equipement/add/arme" class="btn btn-link">ajouter
+			une arme</a> <a href="${ctx}/equipement/add/armure" class="btn btn-link">ajouter
+			une armure</a> <a href="${ctx}/equipement/add/monture"
+			class="btn btn-link">ajouter une monture</a>
 	</div>
 </body>
 </html>

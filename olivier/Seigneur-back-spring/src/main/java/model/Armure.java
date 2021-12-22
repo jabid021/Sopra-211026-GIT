@@ -4,13 +4,15 @@ import java.time.LocalDateTime;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @DiscriminatorValue("armor")
 public class Armure extends Equipement {
 
+	@NotEmpty
 	private String materiaux;
-	
+
 	public Armure() {
 	}
 
@@ -32,6 +34,5 @@ public class Armure extends Equipement {
 		return "Armure [materiaux=" + materiaux + ", id=" + id + ", nom=" + nom + ", creation=" + creation + ", stats="
 				+ stats + "]";
 	}
-	
-	
+
 }
