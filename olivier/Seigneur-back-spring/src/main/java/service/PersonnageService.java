@@ -28,11 +28,18 @@ public class PersonnageService {
 		if (personnage.getNom() == null) {
 			throw new PersonnageException();
 		}
-		if (personnage.getFamilier().getId() != null) {
+		if (personnage.getFamilier() != null && personnage.getFamilier().getId() != null) {
 			personnage.setFamilier(compagnonService.getById(personnage.getFamilier().getId()));
-		} else {
-			compagnonService.creationOuModification(personnage.getFamilier());
+		} 
+		personnageRepo.save(personnage);
+	}
+
+	public void update(Personnage personnage) {
+		if (personnage.getId() == null) {
+			throw new PersonnageException();
 		}
+		Personnage personnageEnBase = getBy(personnage.getId());
+		personnage.setVersion(personnageEnBase.getVersion());
 		personnageRepo.save(personnage);
 	}
 

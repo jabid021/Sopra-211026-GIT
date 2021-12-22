@@ -20,6 +20,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity // Obligatoire
 @Table(name = "player")
@@ -34,9 +36,11 @@ public class Personnage {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonnage")
 	private Long id;
 
+	@NotEmpty
 	@Column(name = "name", nullable = false, columnDefinition = "VARCHAR(200)", unique = true)
 	private String nom;
 
+	@Min(0)
 	@Column(name = "hp", nullable = false)
 	private int pv;
 
