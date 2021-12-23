@@ -26,6 +26,8 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity // Obligatoire
 @Table(name = "player")
 @SequenceGenerator(name = "seqPersonnage", sequenceName = "seq_personnage", initialValue = 100, allocationSize = 1)
@@ -37,30 +39,32 @@ public class Personnage {
 	@Id // Obligatoire
 	// @GeneratedValue(strategy = GenerationType.IDENTITY) // Obligatoire*
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonnage")
+	@JsonView(JsonViews.Common.class)
 	private Long id;
-
+	@JsonView(JsonViews.Common.class)
 	@NotEmpty
 	@Column(name = "name", nullable = false, columnDefinition = "VARCHAR(200)", unique = true)
 	private String nom;
-
+	@JsonView(JsonViews.Common.class)
 	@Min(0)
 	@Column(name = "hp", nullable = false)
 	private int pv;
-
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	private Race race;
-
+	@JsonView(JsonViews.Common.class)
 	@Column(name = "alive", nullable = false)
 	private boolean vivant;
 
+	@JsonView(JsonViews.Personnage.class)
 	@ManyToOne(cascade = CascadeType.MERGE) // Obligatoire
 	@JoinColumn(name = "monture_equipee") // Seulement si l'on veut rename le col de jointure
 	private Monture monture;
-
+	@JsonView(JsonViews.Personnage.class)
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "arme_equipee")
 	private Arme arme;
-
+	@JsonView(JsonViews.Personnage.class)
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "armure_equipee")
 	private Armure armure;
@@ -79,8 +83,9 @@ public class Personnage {
 	@JoinColumn(name = "team_id", foreignKey = @ForeignKey(name = "personnage_team_fk"))
 	private Equipe team;
 
+	@JsonView({JsonViews.PersonnageAvecFamilier.class,JsonViews.Personnage.class})
 	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name="familier_id")
+	@JoinColumn(name = "familier_id")
 	private Compagnon familier;
 
 	@ManyToMany(cascade = CascadeType.MERGE)

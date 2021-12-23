@@ -8,6 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import org.springframework.data.web.JsonPath;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @SequenceGenerator(name = "seqCompagnon", sequenceName = "seq_compagnon", allocationSize = 1, initialValue = 100)
 public class Compagnon {
@@ -15,9 +20,12 @@ public class Compagnon {
 	@Id
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCompagnon")
+	@JsonView(JsonViews.Common.class)
 	private Long id;
+	@JsonView(JsonViews.Common.class)
 	private String nom;
 
+	@JsonView(JsonViews.CompagnonAvecMaitre.class)
 	@OneToOne(mappedBy = "familier")
 	private Personnage maitre;
 
