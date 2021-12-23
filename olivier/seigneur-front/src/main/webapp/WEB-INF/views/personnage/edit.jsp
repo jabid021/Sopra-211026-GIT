@@ -49,11 +49,29 @@
 					<form:checkbox path="vivant" cssClass="form-check-input" />
 				</div>
 			</div>
-<!-- 			<div class="form-group"> -->
-<%-- 				<form:label path="arme">arme:</form:label> --%>
-<%-- 				<form:select path="arme.id" items="${armes}" itemValue="id" itemLabel="nom"></form:select> --%>
-<%-- 				<form:errors path="arme"></form:errors> --%>
-<!-- 			</div> -->
+			<div class="form-group">
+				<form:label path="arme.id">arme:</form:label>
+				<form:select cssClass="form-control" path="arme.id">
+					<form:option value="">pas d'arme</form:option>
+					<form:options items="${armes}" itemValue="id" itemLabel="nom" />
+				</form:select>
+				<form:errors path="arme"></form:errors>
+			</div>
+			<div class="form-group">
+				<form:label path="armure.id">armure:</form:label>
+				<form:select cssClass="form-control" path="armure.id">
+					<form:option value="">pas d'armure</form:option>
+					<form:options items="${armures}" itemValue="id" itemLabel="nom" />
+				</form:select>
+				<form:errors path="armure.id"></form:errors>
+			</div>
+			<div class="form-group">
+				<form:label path="monture.id">monture:</form:label>
+				<form:select cssClass="form-control" path="monture.id">
+					<form:option value="">pas de monture</form:option>
+					<form:options  items="${montures}" itemValue="id" itemLabel="nom"/></form:select>
+				<form:errors path="monture.id"></form:errors>
+			</div>
 			<div>
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>
 				<a href="${ctx}/personnage" class="btn btn-outline-warning">annuler</a>

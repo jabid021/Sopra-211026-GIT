@@ -2,6 +2,7 @@ package controller;
 
 import javax.validation.Valid;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import model.Arme;
+import model.Armure;
+import model.Monture;
 import model.Personnage;
 import repository.ArmeRepository;
 import service.EquipementService;
@@ -46,6 +50,7 @@ public class PersonnageController {
 		model.addAttribute("personnage", personnage);
 		model.addAttribute("armes", equipementService.getAllArme());
 		model.addAttribute("armures", equipementService.getAllArmure());
+		model.addAttribute("montures", equipementService.getAllMonture());
 		return "personnage/edit";
 	}
 
@@ -57,9 +62,33 @@ public class PersonnageController {
 
 	@GetMapping("/save")
 	public String save(@Valid @ModelAttribute("personnage") Personnage personnage, BindingResult br, Model model) {
-		System.out.println(personnage.getArme());
+
 		if (br.hasErrors()) {
 			return goEdit(personnage, model);
+		}
+
+		if (personnage.getArme() != null) {
+			if (personnage.getArme().getId() != null) {
+				personnage.setArme((Arme) equipementService.getById(personnage.getArme().getId()));
+			} else {
+				personnage.setArme(null);
+			}
+		}
+
+		if (personnage.getArmure() != null) {
+			if (personnage.getArmure().getId() != null) {
+				personnage.setArmure((Armure) equipementService.getById(personnage.getArmure().getId()));
+			} else {
+				personnage.setArmure(null);
+			}
+
+		}
+		if (personnage.getMonture() != null) {
+			if (personnage.getMonture().getId() != null) {
+				personnage.setMonture((Monture) equipementService.getById(personnage.getMonture().getId()));
+			} else {
+				personnage.setMonture(null);
+			}
 		}
 		if (personnage.getId() != null) {
 			personnageService.update(personnage);

@@ -9,9 +9,11 @@ import exception.EquipementException;
 import model.Arme;
 import model.Armure;
 import model.Equipement;
+import model.Monture;
 import repository.ArmeRepository;
 import repository.ArmureRepository;
 import repository.EquipementRepository;
+import repository.MontureRepository;
 
 @Service
 public class EquipementService {
@@ -22,6 +24,8 @@ public class EquipementService {
 	private ArmeRepository armeRepo;
 	@Autowired
 	private ArmureRepository armureRepo;
+	@Autowired
+	private MontureRepository montureRepo;
 
 	public List<Arme> getAllArme() {
 		return armeRepo.findAll();
@@ -29,6 +33,10 @@ public class EquipementService {
 
 	public List<Armure> getAllArmure() {
 		return armureRepo.findAll();
+	}
+
+	public List<Monture> getAllMonture() {
+		return montureRepo.findAll();
 	}
 
 	public void create(Equipement equipement) {

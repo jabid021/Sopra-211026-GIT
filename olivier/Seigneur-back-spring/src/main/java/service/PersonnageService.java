@@ -40,6 +40,7 @@ public class PersonnageService {
 		}
 		Personnage personnageEnBase = getBy(personnage.getId());
 		personnage.setVersion(personnageEnBase.getVersion());
+		
 		personnageRepo.save(personnage);
 	}
 
