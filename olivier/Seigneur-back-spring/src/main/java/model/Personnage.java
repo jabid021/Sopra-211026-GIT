@@ -69,6 +69,7 @@ public class Personnage {
 	@JoinColumn(name = "armure_equipee")
 	private Armure armure;
 
+	@JsonView({ JsonViews.PersonnageWithInventaire.class, JsonViews.PersonnageWithQuetesInventaire.class })
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "inventaire", // Rename la table
 			joinColumns = @JoinColumn(name = "id_du_personnage"), // rename la cl� principale (Personnage car on est
@@ -83,11 +84,12 @@ public class Personnage {
 	@JoinColumn(name = "team_id", foreignKey = @ForeignKey(name = "personnage_team_fk"))
 	private Equipe team;
 
-	@JsonView({JsonViews.PersonnageAvecFamilier.class,JsonViews.Personnage.class})
+	@JsonView({ JsonViews.PersonnageAvecFamilier.class, JsonViews.Personnage.class })
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "familier_id")
 	private Compagnon familier;
 
+	@JsonView({ JsonViews.PersonnageWithQuetes.class, JsonViews.PersonnageWithQuetesInventaire.class })
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "challenge_accepted")
 	private Set<Quete> quetes;

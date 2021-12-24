@@ -6,14 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @SequenceGenerator(name = "seqQuete", sequenceName = "seq_quete", initialValue = 100, allocationSize = 1)
 public class Quete {
-
+	@JsonView(JsonViews.Common.class)
 	@Id
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqQuete")
 	private Long id;
+	@JsonView(JsonViews.Common.class)
 	private String nom;
 
 	public Quete() {

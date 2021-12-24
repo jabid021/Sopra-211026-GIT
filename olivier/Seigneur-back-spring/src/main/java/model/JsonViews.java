@@ -16,4 +16,16 @@ public class JsonViews {
 	public static class Personnage extends Common {
 
 	}
+
+	public static class PersonnageWithQuetes extends Personnage {
+
+	}
+	
+	public static class PersonnageWithInventaire extends Personnage{
+		
+	}
+	
+	public static class PersonnageWithQuetesInventaire extends Personnage{
+		
+	}
 }

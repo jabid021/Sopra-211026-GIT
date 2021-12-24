@@ -6,10 +6,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("armor")
 public class Armure extends Equipement {
-
+	@JsonView(JsonViews.Common.class)
 	@NotEmpty
 	private String materiaux;
 
