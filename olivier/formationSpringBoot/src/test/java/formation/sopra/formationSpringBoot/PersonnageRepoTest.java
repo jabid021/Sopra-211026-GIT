@@ -1,10 +1,11 @@
-package test.jupiter;
+package formation.sopra.formationSpringBoot;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.transaction.Transactional;
 
@@ -14,24 +15,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import config.AppConfig;
-import exception.PersonnageException;
-import model.Personnage;
-import model.Race;
-import repository.PersonnageRepository;
+import formation.sopra.formationSpringBoot.exception.PersonnageException;
+import formation.sopra.formationSpringBoot.model.Personnage;
+import formation.sopra.formationSpringBoot.model.Race;
+import formation.sopra.formationSpringBoot.repository.PersonnageRepository;
 
+@SpringBootTest
 @Transactional
 @Rollback(true)
-@ExtendWith(SpringExtension.class) // remplace @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { AppConfig.class })
 class PersonnageRepoTest {
 
 	@Autowired

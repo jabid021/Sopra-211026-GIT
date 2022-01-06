@@ -1,0 +1,12 @@
+2022-01-06 10:56:37.508  INFO 14202 --- [main] f.s.f.services.ConsoleService            : une INFO
+2022-01-06 10:56:37.516  WARN 14202 --- [main] f.s.f.services.ConsoleService            : un WARN
+2022-01-06 10:56:37.517 ERROR 14202 --- [main] f.s.f.services.ConsoleService            : une ERROR
+2022-01-06 10:58:15.082  INFO 14238 --- [main] f.s.f.FormationSpringBootApplication     : Starting FormationSpringBootApplication using Java 15.0.1 on macOlivier with PID 14238 (/Users/olivier/Documents/sopra20211215.nosync/Sopra-211026-GIT/olivier/formationSpringBoot/target/classes started by olivier in /Users/olivier/Documents/sopra20211215.nosync/Sopra-211026-GIT/olivier/formationSpringBoot)
+2022-01-06 10:58:15.089  INFO 14238 --- [main] f.s.f.FormationSpringBootApplication     : No active profile set, falling back to default profiles: default
+2022-01-06 10:58:16.764  INFO 14238 --- [main] f.s.f.FormationSpringBootApplication     : Started FormationSpringBootApplication in 2.969 seconds (JVM running for 4.791)
+2022-01-06 10:58:47.767  INFO 14245 --- [main] f.s.f.FormationSpringBootApplication     : Starting FormationSpringBootApplication using Java 15.0.1 on macOlivier with PID 14245 (/Users/olivier/Documents/sopra20211215.nosync/Sopra-211026-GIT/olivier/formationSpringBoot/target/classes started by olivier in /Users/olivier/Documents/sopra20211215.nosync/Sopra-211026-GIT/olivier/formationSpringBoot)
+2022-01-06 10:58:47.770  INFO 14245 --- [main] f.s.f.FormationSpringBootApplication     : No active profile set, falling back to default profiles: default
+2022-01-06 10:58:49.633  INFO 14245 --- [main] f.s.f.FormationSpringBootApplication     : Started FormationSpringBootApplication in 2.9 seconds (JVM running for 4.175)
+2022-01-06 10:58:49.639  INFO 14245 --- [main] f.s.f.services.ConsoleService            : une INFO
+2022-01-06 10:58:49.640  WARN 14245 --- [main] f.s.f.services.ConsoleService            : un WARN
+2022-01-06 10:58:49.647 ERROR 14245 --- [main] f.s.f.services.ConsoleService            : une ERROR
