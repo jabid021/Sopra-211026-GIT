@@ -4,13 +4,17 @@ import java.time.LocalDateTime;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @DiscriminatorValue("armor")
 public class Armure extends Equipement {
-
+	@JsonView(JsonViews.Common.class)
+	@NotEmpty
 	private String materiaux;
-	
+
 	public Armure() {
 	}
 
@@ -32,6 +36,5 @@ public class Armure extends Equipement {
 		return "Armure [materiaux=" + materiaux + ", id=" + id + ", nom=" + nom + ", creation=" + creation + ", stats="
 				+ stats + "]";
 	}
-	
-	
+
 }

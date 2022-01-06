@@ -14,7 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import config.AppConfig;
 import exception.CheckLongException;
-import service.PersonnageService;
+import formation.sopra.formationSpringBoot.services.PersonnageService;
 
 @Transactional
 @Rollback(true)

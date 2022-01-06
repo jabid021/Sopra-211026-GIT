@@ -1,4 +1,4 @@
-package controller;
+package formation.sopra.formationSpringBoot.controller;
 
 import javax.validation.Valid;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import formation.sopra.formationSpringBoot.model.Arme;
+import formation.sopra.formationSpringBoot.model.Armure;
+import formation.sopra.formationSpringBoot.model.Equipement;
+import formation.sopra.formationSpringBoot.model.Monture;
+import formation.sopra.formationSpringBoot.model.TypeMonture;
 import formation.sopra.formationSpringBoot.services.EquipementService;
-import model.Arme;
-import model.Armure;
-import model.Equipement;
-import model.Monture;
-import model.TypeMonture;
 
 @Controller
 @RequestMapping("/equipement")

@@ -1,4 +1,4 @@
-package restcontroller;
+package formation.sopra.formationSpringBoot.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -23,10 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import exception.CompagnonException;
+import formation.sopra.formationSpringBoot.exception.CompagnonException;
+import formation.sopra.formationSpringBoot.model.Compagnon;
+import formation.sopra.formationSpringBoot.model.JsonViews;
 import formation.sopra.formationSpringBoot.services.CompagnonService;
-import model.Compagnon;
-import model.JsonViews;
 
 @RestController
 @RequestMapping("/api/compagnon")

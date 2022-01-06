@@ -1,4 +1,4 @@
-package controller;
+package formation.sopra.formationSpringBoot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import formation.sopra.formationSpringBoot.model.Compagnon;
 import formation.sopra.formationSpringBoot.services.CompagnonService;
-import model.Compagnon;
 
 @Controller
 @RequestMapping("/compagnon")

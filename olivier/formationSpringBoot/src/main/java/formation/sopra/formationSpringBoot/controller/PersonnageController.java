@@ -1,25 +1,22 @@
-package controller;
+package formation.sopra.formationSpringBoot.controller;
 
 import javax.validation.Valid;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import formation.sopra.formationSpringBoot.model.Arme;
+import formation.sopra.formationSpringBoot.model.Armure;
+import formation.sopra.formationSpringBoot.model.Monture;
+import formation.sopra.formationSpringBoot.model.Personnage;
 import formation.sopra.formationSpringBoot.services.EquipementService;
 import formation.sopra.formationSpringBoot.services.PersonnageService;
-import model.Arme;
-import model.Armure;
-import model.Monture;
-import model.Personnage;
-import repository.ArmeRepository;
 
 @Controller
 @RequestMapping("/personnage")

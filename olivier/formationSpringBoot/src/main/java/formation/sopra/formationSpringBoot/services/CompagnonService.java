@@ -10,6 +10,7 @@ import formation.sopra.formationSpringBoot.model.Compagnon;
 import formation.sopra.formationSpringBoot.model.Personnage;
 import formation.sopra.formationSpringBoot.repository.CompagnonRepository;
 
+
 @Service
 public class CompagnonService {
 

@@ -1,19 +1,19 @@
-package service;
+package formation.sopra.formationSpringBoot.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.EquipementException;
-import model.Arme;
-import model.Armure;
-import model.Equipement;
-import model.Monture;
-import repository.ArmeRepository;
-import repository.ArmureRepository;
-import repository.EquipementRepository;
-import repository.MontureRepository;
+import formation.sopra.formationSpringBoot.exception.EquipementException;
+import formation.sopra.formationSpringBoot.model.Arme;
+import formation.sopra.formationSpringBoot.model.Armure;
+import formation.sopra.formationSpringBoot.model.Equipement;
+import formation.sopra.formationSpringBoot.model.Monture;
+import formation.sopra.formationSpringBoot.repository.ArmeRepository;
+import formation.sopra.formationSpringBoot.repository.ArmureRepository;
+import formation.sopra.formationSpringBoot.repository.EquipementRepository;
+import formation.sopra.formationSpringBoot.repository.MontureRepository;
 
 @Service
 public class EquipementService {

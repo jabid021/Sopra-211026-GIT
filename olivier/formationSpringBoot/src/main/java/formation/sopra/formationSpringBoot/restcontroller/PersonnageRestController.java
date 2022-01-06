@@ -1,4 +1,4 @@
-package restcontroller;
+package formation.sopra.formationSpringBoot.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -23,16 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import exception.PersonnageException;
-import formation.sopra.formationSpringBoot.services.CompagnonService;
-import formation.sopra.formationSpringBoot.services.EquipementService;
+import formation.sopra.formationSpringBoot.exception.PersonnageException;
+import formation.sopra.formationSpringBoot.model.JsonViews;
+import formation.sopra.formationSpringBoot.model.Personnage;
+import formation.sopra.formationSpringBoot.model.Race;
 import formation.sopra.formationSpringBoot.services.PersonnageService;
-import model.Arme;
-import model.Armure;
-import model.JsonViews;
-import model.Monture;
-import model.Personnage;
-import model.Race;
 
 @RestController
 @RequestMapping("/api/personnage")

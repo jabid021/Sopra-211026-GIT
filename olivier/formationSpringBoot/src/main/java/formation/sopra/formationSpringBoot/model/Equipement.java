@@ -13,6 +13,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -20,17 +24,19 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name = "seqEquip", sequenceName = "seq_equipe", initialValue = 100, allocationSize = 1)
 @DiscriminatorColumn(name = "type_equipement")
 public abstract class Equipement {
-
+	@JsonView(JsonViews.Common.class)
 	@Id
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqEquip")
 	protected Long id;
-
+	@JsonView(JsonViews.Common.class)
+	@NotEmpty
 	protected String nom;
-
-	protected LocalDateTime creation;
-
+	@JsonView(JsonViews.Common.class)
+	protected LocalDateTime creation = LocalDateTime.now();
+	@JsonView(JsonViews.Common.class)
 	@Embedded
+	@Valid
 	protected Stats stats;
 
 	// C'est ceux qui ont recup des equipements
