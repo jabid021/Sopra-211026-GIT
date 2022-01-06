@@ -44,7 +44,6 @@ public class PersonnageService {
 =======
 		} else {
 			compagnonService.creationOuModification(personnage.getFamilier());
->>>>>>> Stashed changes
 		}
 		if (personnage.getArme() != null) {
 			if (personnage.getArme().getId() != null) {
