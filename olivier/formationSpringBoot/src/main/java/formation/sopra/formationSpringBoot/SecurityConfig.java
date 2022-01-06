@@ -3,11 +3,15 @@ package formation.sopra.formationSpringBoot;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -33,9 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// @formatter:on
 	}
 
+//	@Autowired
+//	private DataSource dataSource;
+
 	@Autowired
-	private DataSource dataSource;
-	
+	private UserDetailsService userDetailsService;
+
 	@Override
 	// la methode d'authentification
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -48,16 +55,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //				.and()
 //				.withUser("user").password("{noop}user").roles("USER");
 //		// @formatter:on
-		
-		//authentification avec requetes sql
-		// @formatter:off
-		auth.jdbcAuthentication()
-				.dataSource(dataSource)
-					.usersByUsernameQuery("select login,password,enable from users where login=?")
-					.authoritiesByUsernameQuery("select login,roles from users_roles ur join users u on ur.user_id=u.id where login=?");
-		// @formatter:on
 
-		
-			
+		// authentification avec requetes sql
+//		// @formatter:off
+//		auth.jdbcAuthentication()
+//				.dataSource(dataSource)
+//					.usersByUsernameQuery("select login,password,enable from users where login=?")
+//					.authoritiesByUsernameQuery("select login,roles from users_roles ur join users u on ur.user_id=u.id where login=?");
+//		// @formatter:on
+
+		auth.userDetailsService(userDetailsService);
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 }

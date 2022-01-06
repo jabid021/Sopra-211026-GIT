@@ -1,5 +1,7 @@
 package formation.sopra.formationSpringBoot.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -8,16 +10,21 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
 @Table(name = "users")
 @SequenceGenerator(name = "seqUser", sequenceName = "seq_users", initialValue = 100, allocationSize = 1)
-public class User {
+public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUser")
 	private Long id;
@@ -25,10 +32,10 @@ public class User {
 	private String login;
 	@Column(name = "password", length = 200, nullable = false)
 	private String password;
-	@Column(name = "enable", nullable = false)
-	private boolean enable;
-	@ElementCollection(targetClass = Role.class)
-	@Enumerated(EnumType.STRING) 
+	@Column(name = "enabled", nullable = false)
+	private boolean enabled;
+	@ElementCollection(targetClass = Role.class,fetch = FetchType.EAGER)
+	@Enumerated(EnumType.STRING)
 	@CollectionTable(name = "users_roles")
 	private List<Role> roles;
 
@@ -60,12 +67,12 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isEnable() {
-		return enable;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setEnable(boolean enable) {
-		this.enable = enable;
+	public void setEnable(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public List<Role> getRoles() {
@@ -98,6 +105,35 @@ public class User {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		return true;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Collection<SimpleGrantedAuthority> authorites = new ArrayList<SimpleGrantedAuthority>();
+		getRoles().forEach(r -> {
+			authorites.add(new SimpleGrantedAuthority(r.toString()));
+		});
+		return authorites;
+	}
+
+	@Override
+	public String getUsername() {
+		return login;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
