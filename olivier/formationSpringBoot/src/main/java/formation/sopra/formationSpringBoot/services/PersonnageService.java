@@ -39,7 +39,7 @@ public class PersonnageService {
 		if (personnage.getFamilier() != null && personnage.getFamilier().getId() != null) {
 			personnage.setFamilier(compagnonService.getById(personnage.getFamilier().getId()));
 
-		} else {
+		} else if(personnage.getFamilier()!=null){
 			compagnonService.creationOuModification(personnage.getFamilier());
 		}
 		if (personnage.getArme() != null) {
