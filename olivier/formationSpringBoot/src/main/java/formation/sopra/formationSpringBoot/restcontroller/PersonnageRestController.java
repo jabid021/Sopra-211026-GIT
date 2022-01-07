@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,6 +28,7 @@ import formation.sopra.formationSpringBoot.exception.PersonnageException;
 import formation.sopra.formationSpringBoot.model.JsonViews;
 import formation.sopra.formationSpringBoot.model.Personnage;
 import formation.sopra.formationSpringBoot.model.Race;
+import formation.sopra.formationSpringBoot.model.User;
 import formation.sopra.formationSpringBoot.services.PersonnageService;
 
 @RestController
@@ -73,10 +75,12 @@ public class PersonnageRestController {
 	@PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@JsonView(JsonViews.Personnage.class)
-	public Personnage create(@Valid @RequestBody Personnage personnage, BindingResult br) {
+	public Personnage create(@Valid @RequestBody Personnage personnage, BindingResult br,
+			@AuthenticationPrincipal User user) {
 		if (br.hasErrors()) {
 			throw new PersonnageException();
 		}
+		System.out.println(user.getLogin() + " " + user.getId());
 		personnageService.creation(personnage);
 		return personnage;
 
