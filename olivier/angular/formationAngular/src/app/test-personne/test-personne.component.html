@@ -1,1 +1,22 @@
-<p>test-personne works!</p>
+<div>
+  <h2>binding one way</h2>
+  <p>le message:{{ message }}</p>
+  <p>la personne:{{ personne.prenom }} {{ personne.nom }}</p>
+  <p>la personne:{{ getPersonne().prenom }} {{ getPersonne().nom }}</p>
+</div>
+
+<div>
+  <h2>binding 2 ways</h2>
+  <div>
+    <input [(ngModel)]="personne.nom" />
+  </div>
+</div>
+
+<div>
+  <h2>gestion evenement en angular</h2>
+  <button (click)="displayAlert()">click</button>
+</div>
+
+<div *ngIf="personne.prenom == 'olivier'">exemple directive if</div>
+
+<div [style.color]="couleur">div rouge</div>
