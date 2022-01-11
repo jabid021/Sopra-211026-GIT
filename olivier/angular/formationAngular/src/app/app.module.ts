@@ -11,9 +11,11 @@ import { SelectComponent } from './select/select.component';
 import { DisplayProduitComponent } from './produit/display-produit/display-produit.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { FormProduitComponent } from './produit/form-produit/form-produit.component';
+import { CandidatComponent } from './election/candidat/candidat.component';
+import { ElectionComponent } from './election/election/election.component';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent, DisplayProduitComponent, TooltipComponent, FormProduitComponent],
+  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent, DisplayProduitComponent, TooltipComponent, FormProduitComponent, CandidatComponent, ElectionComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

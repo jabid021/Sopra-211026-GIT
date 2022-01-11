@@ -1,0 +1,9 @@
+<div>
+  <h2>Election</h2>
+  <div>candidat en tete {{ enTete }} avec {{ maxVote }} votes</div>
+  <table>
+    <tr candidat nom="macron" (voteRecu)="traitmentVoteRecu($event)"></tr>
+    <tr candidat nom="le pen" (voteRecu)="traitmentVoteRecu($event)"></tr>
+    <tr candidat nom="melanchon" (voteRecu)="traitmentVoteRecu($event)"></tr>
+  </table>
+</div>
