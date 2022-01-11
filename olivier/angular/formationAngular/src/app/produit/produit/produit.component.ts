@@ -1,4 +1,5 @@
-import { Produit } from './../model/produit';
+import { Produit } from './../../model/produit';
+
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
@@ -13,12 +14,11 @@ export class ProduitComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @HostListener('click')
-  click() {
-    this.produit.nom = 'mmmmmm';
-  }
-
   clickInput() {
     console.log("click sur l'input");
+  }
+
+  getProduit(produitRecu: Produit) {
+    this.produit = produitRecu;
   }
 }
