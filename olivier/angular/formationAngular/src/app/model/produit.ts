@@ -2,7 +2,7 @@ import { Fournisseur } from './fournisseur';
 export class Produit {
   public constructor(
     private _nom?: string,
-    private _prix?: number,
+    private _prix: number=0,
     private _fournisseur?: Fournisseur
   ) {}
 
@@ -14,11 +14,11 @@ export class Produit {
     this._nom = value;
   }
 
-  public get prix(): number | undefined {
+  public get prix(): number {
     return this._prix;
   }
 
-  public set prix(value: number | undefined) {
+  public set prix(value: number) {
     this._prix = value;
   }
   public get fournisseur(): Fournisseur | undefined {

@@ -5,9 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { TestPersonneComponent } from './test-personne/test-personne.component';
+import { SelectComponent } from './select/select.component';
+import { ProduitComponent } from './produit/produit.component';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TestPersonneComponent],
+  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

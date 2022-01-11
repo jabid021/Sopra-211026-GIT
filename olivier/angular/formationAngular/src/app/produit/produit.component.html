@@ -1,0 +1,10 @@
+<div>
+  <div>nom:<input [(ngModel)]="produit.nom" /></div>
+  <div>prix:<input [(ngModel)]="produit.prix" /></div>
+</div>
+<div
+  *ngIf="!!produit.nom && produit.prix != 0"
+  [ngClass]="{ negatif: produit.prix < 0}"
+>
+  info du produit:{{ produit.nom }} {{ produit.prix }}
+</div>
