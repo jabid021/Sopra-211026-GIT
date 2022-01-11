@@ -1,0 +1,6 @@
+<div
+  *ngIf="!!produit.nom && produit.prix != 0"
+  [ngClass]="{ negatif: produit.prix < 0 }"
+>
+  info du produit:{{ produit.nom }} {{ produit.prix }}
+</div>

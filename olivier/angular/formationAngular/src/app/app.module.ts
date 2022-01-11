@@ -7,9 +7,10 @@ import { DemoComponent } from './demo/demo.component';
 import { TestPersonneComponent } from './test-personne/test-personne.component';
 import { SelectComponent } from './select/select.component';
 import { ProduitComponent } from './produit/produit.component';
+import { DisplayProduitComponent } from './display-produit/display-produit.component';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent],
+  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent, DisplayProduitComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

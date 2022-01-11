@@ -1,18 +1,24 @@
 import { Produit } from './../model/produit';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-produit',
+  selector: 'app-produit,[produit-directive]',
   templateUrl: './produit.component.html',
-  styleUrls: ['./produit.component.css']
+  styleUrls: ['./produit.component.css'],
 })
 export class ProduitComponent implements OnInit {
+  produit: Produit = new Produit();
 
-  produit:Produit=new Produit();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  @HostListener('click')
+  click() {
+    this.produit.nom = 'mmmmmm';
   }
 
+  clickInput() {
+    console.log("click sur l'input");
+  }
 }
