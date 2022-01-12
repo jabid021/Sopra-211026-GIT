@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/" routerLinkActive="active">home</a>
+  <a [routerLink]="['/produits']" routerLinkActive="active">produits</a>
+  <a [routerLink]="['/parametre', 'olivier']" routerLinkActive="active"
+    >test component parametre</a
+  >
+  <a [routerLink]="['/parametre', 'toto']" routerLinkActive="active"
+    >test component avec toto</a
+  >
+  <a routerLink="/nav" routerLinkActive="active">navigation par le code</a>
+</nav>
