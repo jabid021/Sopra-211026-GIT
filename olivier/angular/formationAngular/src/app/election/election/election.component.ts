@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ElectionComponent implements OnInit {
   maxVote: number = 0;
   enTete: string = '';
+  candidats: string[] = ['bob', 'bobo', 'bubu', 'bibi'];
 
   constructor() {}
 

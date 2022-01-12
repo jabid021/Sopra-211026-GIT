@@ -2,8 +2,20 @@
   <h2>Election</h2>
   <div>candidat en tete {{ enTete }} avec {{ maxVote }} votes</div>
   <table>
-    <tr candidat nom="macron" (voteRecu)="traitmentVoteRecu($event)"></tr>
+    <!-- <tr candidat nom="macron" (voteRecu)="traitmentVoteRecu($event)"></tr>
     <tr candidat nom="le pen" (voteRecu)="traitmentVoteRecu($event)"></tr>
     <tr candidat nom="melanchon" (voteRecu)="traitmentVoteRecu($event)"></tr>
+    <tr>
+      <app-candidat
+        nom="aaa"
+        (voteRecu)="traitmentVoteRecu($event)"
+      ></app-candidat>
+    </tr> -->
+    <tr
+      *ngFor="let n of candidats"
+      candidat
+      [nom]="n"
+      (voteRecu)="traitmentVoteRecu($event)"
+    ></tr>
   </table>
 </div>
