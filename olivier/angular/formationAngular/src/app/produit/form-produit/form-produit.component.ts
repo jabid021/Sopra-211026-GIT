@@ -20,4 +20,6 @@ export class FormProduitComponent implements OnInit {
     this.produitReady.emit(new Produit(this.produit.nom, this.produit.prix));
     this.produit=new Produit();
   }
+
+  
 }

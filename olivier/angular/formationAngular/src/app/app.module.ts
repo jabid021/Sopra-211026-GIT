@@ -13,9 +13,26 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { FormProduitComponent } from './produit/form-produit/form-produit.component';
 import { CandidatComponent } from './election/candidat/candidat.component';
 import { ElectionComponent } from './election/election/election.component';
+import { ListProduitComponent } from './produit/list-produit/list-produit.component';
+import { DemoDirective } from './directives/demo.directive';
+import { DisplayMessageDirective } from './directives/display-message.directive';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TestPersonneComponent, SelectComponent, ProduitComponent, DisplayProduitComponent, TooltipComponent, FormProduitComponent, CandidatComponent, ElectionComponent],
+  declarations: [
+    AppComponent,
+    DemoComponent,
+    TestPersonneComponent,
+    SelectComponent,
+    ProduitComponent,
+    DisplayProduitComponent,
+    TooltipComponent,
+    FormProduitComponent,
+    CandidatComponent,
+    ElectionComponent,
+    ListProduitComponent,
+    DemoDirective,
+    DisplayMessageDirective,
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
