@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { produits } from '../produits';
 
 @Component({
   selector: 'app-parametre',
@@ -12,7 +13,7 @@ export class ParametreComponent implements OnInit {
   constructor(private activatedRouted: ActivatedRoute) {}
 
   ngOnInit(): void {
-   // this.prenom = this.activatedRouted.snapshot.params['prenom'];
+    // this.prenom = this.activatedRouted.snapshot.params['prenom'];
 
     //assynchrome
     this.activatedRouted.params.subscribe((params) => {
@@ -20,5 +21,7 @@ export class ParametreComponent implements OnInit {
     });
     //execution avant la fin subscribe
     // console.log(this.prenom);
+
+    console.log(produits);
   }
 }
