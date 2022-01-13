@@ -34,7 +34,8 @@ export class LigneProduitComponent implements OnInit {
   }
 
   cancel() {
-    this.produit = this.produitRecu;
+    this.produit.nom = this.produitRecu.nom;
+    this.produit.prix = this.produitRecu.prix;
     this.changeMode();
   }
 }

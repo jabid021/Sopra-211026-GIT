@@ -2,6 +2,7 @@ import { ProduitComponent } from './produit/produit/produit.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,10 @@ import { NavComponent } from './nav/nav.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { NavigationParLeCodeComponent } from './navigation-par-le-code/navigation-par-le-code.component';
 import { LigneProduitComponent } from './exercice/produit/ligne-produit/ligne-produit.component';
+import { DemoPipe } from './mesPipes/demo.pipe';
+import { PersonnagesComponent } from './lotr/personnages/personnages.component';
+import { CompagnonsComponent } from './lotr/compagnons/compagnons.component';
+import { EditCompagnonComponent } from './lotr/edit-compagnon/edit-compagnon.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +53,17 @@ import { LigneProduitComponent } from './exercice/produit/ligne-produit/ligne-pr
     ParametreComponent,
     NavigationParLeCodeComponent,
     LigneProduitComponent,
+    DemoPipe,
+    PersonnagesComponent,
+    CompagnonsComponent,
+    EditCompagnonComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,11 +1,17 @@
 <nav>
-  <a routerLink="/" routerLinkActive="active">home</a>
-  <a [routerLink]="['/produits']" routerLinkActive="active">produits</a>
+  <a routerLink="/" routerLinkActive="active" class="btn btn-link">home</a>
+  <a routerLink="/personnage" routerLinkActive="active" class="btn btn-link"
+    >personnage</a
+  >
+  <a routerLink="/compagnon" routerLinkActive="active" class="btn btn-link"
+    >compagnon</a
+  >
+  <!-- <a [routerLink]="['/produits']" routerLinkActive="active">produits</a>
   <a [routerLink]="['/parametre', 'olivier']" routerLinkActive="active"
     >test component parametre</a
   >
   <a [routerLink]="['/parametre', 'toto']" routerLinkActive="active"
     >test component avec toto</a
   >
-  <a routerLink="/nav" routerLinkActive="active">navigation par le code</a>
+  <a routerLink="/nav" routerLinkActive="active">navigation par le code</a> -->
 </nav>

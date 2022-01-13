@@ -1,7 +1,7 @@
 <!--la ligne en mode affichage-->
 <ng-container *ngIf="edition; else editionTemplate">
   <td>{{ produit.nom }}</td>
-  <td>{{ produit.prix }}</td>
+  <td>{{ produit.prix | monPipe }}</td>
   <td>
     <button class="btn btn-outline-primary" (click)="changeMode()">
       edition

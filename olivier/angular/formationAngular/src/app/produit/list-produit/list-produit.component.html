@@ -3,7 +3,7 @@
   <tr *ngFor="let p of produitsFiltre">
     <td rouge>{{ p.nom }}</td>
     <td>{{ p.prix }}</td>
-    <td>{{ getInfo(p.prix) }}</td>
+    <td>{{ p.prix | monPipe }}</td>
   </tr>
 </table>
 <app-form-produit (produitReady)="recupProduit($event)"></app-form-produit>
