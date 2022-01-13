@@ -1,8 +1,7 @@
-
 import { ProduitComponent } from './produit/produit/produit.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,7 +14,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { FormProduitComponent } from './produit/form-produit/form-produit.component';
 import { CandidatComponent } from './election/candidat/candidat.component';
 import { ElectionComponent } from './election/election/election.component';
-import { ListProduitComponent } from './produit/list-produit/list-produit.component';
+import { ListProduitComponent } from './exercice/produit/list-produit/list-produit.component';
 import { DemoDirective } from './directives/demo.directive';
 import { DisplayMessageDirective } from './directives/display-message.directive';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { NavigationParLeCodeComponent } from './navigation-par-le-code/navigation-par-le-code.component';
+import { LigneProduitComponent } from './exercice/produit/ligne-produit/ligne-produit.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +47,9 @@ import { NavigationParLeCodeComponent } from './navigation-par-le-code/navigatio
     NavComponent,
     ParametreComponent,
     NavigationParLeCodeComponent,
+    LigneProduitComponent,
   ],
-  imports: [BrowserModule, FormsModule,RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })

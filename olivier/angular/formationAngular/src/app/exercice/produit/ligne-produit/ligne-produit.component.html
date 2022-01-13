@@ -1,0 +1,31 @@
+<!--la ligne en mode affichage-->
+<ng-container *ngIf="edition; else editionTemplate">
+  <td>{{ produit.nom }}</td>
+  <td>{{ produit.prix }}</td>
+  <td>
+    <button class="btn btn-outline-primary" (click)="changeMode()">
+      edition
+    </button>
+  </td>
+  <td>
+    <button (click)="delete(index)" class="btn btn-outline-danger">
+      supprimer
+    </button>
+  </td>
+</ng-container>
+
+<!-- la ligne en mode edition -->
+<ng-template #editionTemplate>
+  <td><input [(ngModel)]="produit.nom" class="form-control" /></td>
+  <td>
+    <input type="number" [(ngModel)]="produit.prix" class="form-control" />
+  </td>
+  <td>
+    <button class="btn btn-outline-success" (click)="save()">
+      enregistrer
+    </button>
+  </td>
+  <td>
+    <button class="btn btn-outline-warning" (click)="cancel()">annuler</button>
+  </td>
+</ng-template>

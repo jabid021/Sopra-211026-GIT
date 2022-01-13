@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>nom:</th>
+      <th>prix:</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let p of produits; let index = index"
+      app-ligne-produit
+      [produit]="p"
+      [index]="index"
+    ></tr>
+  </tbody>
+</table>
+<div *ngIf="!visible">
+  <button (click)="displayForm()" class="btn btn-link">ajouter produit</button>
+</div>
+<div *ngIf="visible">
+  <button (click)="hideForm()" class="btn btn-link">annuler</button>
+  <app-form-produit
+    *ngIf="visible"
+    (produitReady)="save($event)"
+  ></app-form-produit>
+</div>

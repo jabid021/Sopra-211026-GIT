@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { produits } from '../produits';
 
 @Component({
   selector: 'app-parametre',
@@ -21,7 +20,5 @@ export class ParametreComponent implements OnInit {
     });
     //execution avant la fin subscribe
     // console.log(this.prenom);
-
-    console.log(produits);
   }
 }

@@ -1,5 +1,13 @@
 <div>
-  <div>nom:<input [(ngModel)]="produit.nom" /></div>
-  <div>prix:<input [(ngModel)]="produit.prix" /></div>
-  <div><button (click)="validation()">valider</button></div>
+  <div class="form-group">
+    nom:<input [(ngModel)]="produit.nom" class="form-control" />
+  </div>
+  <div class="form-group">
+    prix:<input [(ngModel)]="produit.prix" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button (click)="validation()" class="btn btn-outline-primary">
+      valider
+    </button>
+  </div>
 </div>
