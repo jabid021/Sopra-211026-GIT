@@ -91,4 +91,10 @@ public class CompagnonRestController {
 	public void delete(@PathVariable("id") Long id) {
 		compagnonService.suppression(id);
 	}
+
+	@GetMapping("/libre")
+	@JsonView(JsonViews.Common.class)
+	public List<Compagnon> findLibre() {
+		return compagnonService.findLibre();
+	}
 }

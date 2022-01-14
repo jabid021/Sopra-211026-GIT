@@ -18,6 +18,10 @@ public class CompagnonService {
 	private CompagnonRepository compagnonRepo;
 	@Autowired
 	private PersonnageService personnageService;
+	
+	public List<Compagnon> findLibre(){
+		return compagnonRepo.findLibre();
+	}
 
 	public void creationOuModification(Compagnon compagnon) {
 		if (compagnon.getNom() == null) {

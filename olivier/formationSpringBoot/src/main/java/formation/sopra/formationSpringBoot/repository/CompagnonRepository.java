@@ -31,6 +31,9 @@ public interface CompagnonRepository extends JpaRepository<Compagnon, Long> {
 	@Modifying
 	@Query("delete Compagnon c where c.maitre=:maitre")
 	void deleteByMaitre(@Param("maitre") Personnage maitre);
+	
+	@Query("select c from Compagnon c where c.id not in(select p.familier.id from Personnage p)")
+	List<Compagnon> findLibre();
 }
 
 

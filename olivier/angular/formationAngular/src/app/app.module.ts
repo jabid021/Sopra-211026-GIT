@@ -1,3 +1,4 @@
+import { PersonnagesComponent } from './lotr/personnage/personnages/personnages.component';
 import { ProduitComponent } from './produit/produit/produit.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -27,9 +28,10 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { NavigationParLeCodeComponent } from './navigation-par-le-code/navigation-par-le-code.component';
 import { LigneProduitComponent } from './exercice/produit/ligne-produit/ligne-produit.component';
 import { DemoPipe } from './mesPipes/demo.pipe';
-import { PersonnagesComponent } from './lotr/personnages/personnages.component';
 import { CompagnonsComponent } from './lotr/compagnons/compagnons.component';
 import { EditCompagnonComponent } from './lotr/edit-compagnon/edit-compagnon.component';
+import { VivantPipe } from './mesPipes/vivant.pipe';
+import { EditPersonnageComponent } from './lotr/personnage/edit-personnage/edit-personnage.component';
 
 @NgModule({
   declarations: [
@@ -54,9 +56,11 @@ import { EditCompagnonComponent } from './lotr/edit-compagnon/edit-compagnon.com
     NavigationParLeCodeComponent,
     LigneProduitComponent,
     DemoPipe,
-    PersonnagesComponent,
     CompagnonsComponent,
     EditCompagnonComponent,
+    PersonnagesComponent,
+    VivantPipe,
+    EditPersonnageComponent,
   ],
   imports: [
     BrowserModule,

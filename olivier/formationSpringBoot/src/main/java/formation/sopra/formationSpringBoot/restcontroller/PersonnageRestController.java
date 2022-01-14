@@ -41,7 +41,7 @@ public class PersonnageRestController {
 	private PersonnageService personnageService;
 
 	@GetMapping("")
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.PersonnageAvecFamilier.class)
 	public List<Personnage> getAll() {
 		return personnageService.getAll();
 	}

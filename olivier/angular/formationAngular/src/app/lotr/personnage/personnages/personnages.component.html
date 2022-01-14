@@ -1,0 +1,37 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>nom</th>
+      <th>pv</th>
+      <th>race</th>
+      <th>vivant</th>
+      <th>familier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of personnages">
+      <td>{{ p.id }}</td>
+      <td>{{ p.nom }}</td>
+      <td>{{ p.pv }}</td>
+      <td>{{ p.race }}</td>
+      <td>{{ p.vivant! | vivant }}</td>
+      <td>{{ p.familier?.nom }}</td>
+      <td>
+        <a
+          [routerLink]="['/personnage', 'edit', p.id]"
+          routerLinkActive="active"
+          class="btn btn-outline-primary"
+          >editer</a
+        >
+      </td>
+      <td><button class="btn btn-outline-danger">supprimer</button></td>
+    </tr>
+  </tbody>
+</table>
+<a
+  [routerLink]="['/personnage', 'edit']"
+  routerLinkActive="active"
+  class="btn btn-link"
+  >nouveau personnage</a
+>
