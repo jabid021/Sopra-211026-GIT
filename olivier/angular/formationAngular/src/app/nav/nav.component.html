@@ -3,9 +3,33 @@
   <a routerLink="/personnage" routerLinkActive="active" class="btn btn-link"
     >personnage</a
   >
-  <a routerLink="/compagnon" routerLinkActive="active" class="btn btn-link"
+  <a
+    *ngIf="!!login"
+    routerLink="/compagnon"
+    routerLinkActive="active"
+    class="btn btn-link"
     >compagnon</a
   >
+  <a routerLink="/formulaire" routerLinkActive="active" class="btn btn-link"
+    >formulaire</a
+  >
+  <a
+    *ngIf="!login"
+    routerLink="/inscription"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >inscription</a
+  >
+  <a
+    *ngIf="!login"
+    routerLink="/login"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >login</a
+  >
+  <button *ngIf="!!login" (click)="logoff()" class="btn btn-link">
+    deconnection
+  </button>
   <!-- <a [routerLink]="['/produits']" routerLinkActive="active">produits</a>
   <a [routerLink]="['/parametre', 'olivier']" routerLinkActive="active"
     >test component parametre</a

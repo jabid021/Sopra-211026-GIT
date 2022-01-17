@@ -1,0 +1,25 @@
+<form (ngSubmit)="validate()" [formGroup]="monForm">
+  <div>
+    prenom:<input formControlName="prenomCtrl" />
+    <div
+      *ngIf="
+        monForm.controls['prenomCtrl'].dirty &&
+        monForm.controls['prenomCtrl'].invalid
+      "
+    >
+      <span *ngIf="monForm.controls['prenomCtrl'].hasError('required')"
+        >vide</span
+      >
+      <span *ngIf="monForm.controls['prenomCtrl'].hasError('minlength')"
+        >min</span
+      >
+    </div>
+  </div>
+  <div>nom:<input formControlName="nomCtrl" /></div>
+  <div formGroupName="group1">
+    <div>password:<input formControlName="password" /></div>
+    <div>confirmation:<input formControlName="confirm" /></div>
+    <div *ngIf="monForm.controls['group1'].invalid">invalid</div>
+  </div>
+  <div><button type="submit" [disabled]="monForm.invalid">valider</button></div>
+</form>

@@ -1,0 +1,15 @@
+<form (ngSubmit)="validate(monForm)" #monForm="ngForm">
+  <div>
+    <input
+      name="texte"
+      [(ngModel)]="texte"
+      #textControl="ngModel"
+      required
+      minlength="3"
+    />
+    <div *ngIf="textControl.dirty && textControl.invalid">zone invalid</div>
+  </div>
+  <div>
+    <button type="submit" [disabled]="monForm.invalid">valider</button>
+  </div>
+</form>

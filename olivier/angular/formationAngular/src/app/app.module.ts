@@ -1,7 +1,7 @@
 import { PersonnagesComponent } from './lotr/personnage/personnages/personnages.component';
 import { ProduitComponent } from './produit/produit/produit.component';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,6 +32,10 @@ import { CompagnonsComponent } from './lotr/compagnons/compagnons.component';
 import { EditCompagnonComponent } from './lotr/edit-compagnon/edit-compagnon.component';
 import { VivantPipe } from './mesPipes/vivant.pipe';
 import { EditPersonnageComponent } from './lotr/personnage/edit-personnage/edit-personnage.component';
+import { FormulairePiloteParTemplateComponent } from './formulaire/formulaire-pilote-par-template/formulaire-pilote-par-template.component';
+import { FormulairePiloteParCodeComponent } from './formulaire/formulaire-pilote-par-code/formulaire-pilote-par-code.component';
+import { InscriptionComponent } from './formulaire/inscription/inscription.component';
+import { LoginComponent } from './formulaire/login/login.component';
 
 @NgModule({
   declarations: [
@@ -61,10 +65,15 @@ import { EditPersonnageComponent } from './lotr/personnage/edit-personnage/edit-
     PersonnagesComponent,
     VivantPipe,
     EditPersonnageComponent,
+    FormulairePiloteParTemplateComponent,
+    FormulairePiloteParCodeComponent,
+    InscriptionComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
   ],
